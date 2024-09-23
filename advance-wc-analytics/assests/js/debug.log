@@ -1,0 +1,79 @@
+[21-Oct-2023 06:24:33 UTC] 
+[21-Oct-2023 06:24:33 UTC] coming here
+[21-Oct-2023 06:24:33 UTC] Array
+(
+    [name] => blob
+    [type] => video/webm
+    [tmp_name] => /tmp/phpEQ1si3
+    [error] => 0
+    [size] => 3548041
+)
+
+[21-Oct-2023 06:24:33 UTC] tsjdv
+[21-Oct-2023 06:24:33 UTC] 
+[21-Oct-2023 06:24:33 UTC] not coming_3434
+[21-Oct-2023 06:24:33 UTC] 
+[21-Oct-2023 06:24:33 UTC] 0
+[21-Oct-2023 06:24:33 UTC] PHP Notice:  Function wpdb::prepare was called <strong>incorrectly</strong>. The query argument of wpdb::prepare() must have a placeholder. Please see <a href="https://wordpress.org/documentation/article/debugging-in-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 3.9.0.) in /home/u370066306/domains/wplightningload.com/public_html/ares/wp-includes/functions.php on line 5905
+[21-Oct-2023 06:24:33 UTC] PHP Warning:  Undefined array key 0 in /home/u370066306/domains/wplightningload.com/public_html/ares/wp-content/plugins/bp-better-messages-websocket/inc/websocket.php on line 768
+[21-Oct-2023 06:24:33 UTC] PHP Warning:  Undefined array key 0 in /home/u370066306/domains/wplightningload.com/public_html/ares/wp-content/plugins/bp-better-messages-websocket/inc/websocket.php on line 773
+[21-Oct-2023 06:24:33 UTC] PHP Warning:  Undefined array key 0 in /home/u370066306/domains/wplightningload.com/public_html/ares/wp-content/plugins/bp-better-messages-websocket/inc/websocket.php on line 774
+[21-Oct-2023 06:24:33 UTC] PHP Warning:  Undefined array key "message" in /home/u370066306/domains/wplightningload.com/public_html/ares/wp-content/plugins/bp-better-messages-websocket/inc/websocket.php on line 776
+[21-Oct-2023 06:24:33 UTC] PHP Warning:  Undefined array key "message" in /home/u370066306/domains/wplightningload.com/public_html/ares/wp-content/plugins/bp-better-messages-websocket/inc/websocket.php on line 778
+[21-Oct-2023 06:24:33 UTC] PHP Warning:  array_flip(): Can only flip string and integer values, entry skipped in /home/u370066306/domains/wplightningload.com/public_html/ares/wp-content/plugins/bp-better-messages-websocket/inc/functions.php on line 633
+[21-Oct-2023 06:24:33 UTC] PHP Warning:  Undefined array key "favorited" in /home/u370066306/domains/wplightningload.com/public_html/ares/wp-content/plugins/bp-better-messages-websocket/inc/websocket.php on line 816
+[21-Oct-2023 06:24:33 UTC] 0
+[21-Oct-2023 06:25:02 UTC] PHP Deprecated:  Function get_page_by_title is <strong>deprecated</strong> since version 6.2.0! Use WP_Query instead. in /home/u370066306/domains/wplightningload.com/public_html/ares/wp-includes/functions.php on line 5453
+[21-Oct-2023 06:27:45 UTC] 
+[21-Oct-2023 06:27:45 UTC] coming here
+[21-Oct-2023 06:27:45 UTC] Array
+(
+    [name] => blob
+    [type] => video/webm
+    [tmp_name] => /tmp/phpiCKhhk
+    [error] => 0
+    [size] => 2588149
+)
+
+[21-Oct-2023 06:27:45 UTC] tsjdv
+[21-Oct-2023 06:27:45 UTC] 
+[21-Oct-2023 06:27:45 UTC] not coming_3434
+[21-Oct-2023 06:27:45 UTC] 
+[21-Oct-2023 06:27:45 UTC] 0
+[21-Oct-2023 06:27:45 UTC] PHP Notice:  Function wpdb::prepare was called <strong>incorrectly</strong>. The query argument of wpdb::prepare() must have a placeholder. Please see <a href="https://wordpress.org/documentation/article/debugging-in-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 3.9.0.) in /home/u370066306/domains/wplightningload.com/public_html/ares/wp-includes/functions.php on line 5905
+[21-Oct-2023 06:27:45 UTC] PHP Warning:  Undefined array key 0 in /home/u370066306/domains/wplightningload.com/public_html/ares/wp-content/plugins/bp-better-messages-websocket/inc/websocket.php on line 768
+[21-Oct-2023 06:27:45 UTC] PHP Warning:  Undefined array key 0 in /home/u370066306/domains/wplightningload.com/public_html/ares/wp-content/plugins/bp-better-messages-websocket/inc/websocket.php on line 773
+[21-Oct-2023 06:27:45 UTC] PHP Warning:  Undefined array key 0 in /home/u370066306/domains/wplightningload.com/public_html/ares/wp-content/plugins/bp-better-messages-websocket/inc/websocket.php on line 774
+[21-Oct-2023 06:27:45 UTC] PHP Warning:  Undefined array key "message" in /home/u370066306/domains/wplightningload.com/public_html/ares/wp-content/plugins/bp-better-messages-websocket/inc/websocket.php on line 776
+[21-Oct-2023 06:27:45 UTC] PHP Warning:  Undefined array key "message" in /home/u370066306/domains/wplightningload.com/public_html/ares/wp-content/plugins/bp-better-messages-websocket/inc/websocket.php on line 778
+[21-Oct-2023 06:27:45 UTC] PHP Warning:  array_flip(): Can only flip string and integer values, entry skipped in /home/u370066306/domains/wplightningload.com/public_html/ares/wp-content/plugins/bp-better-messages-websocket/inc/functions.php on line 633
+[21-Oct-2023 06:27:45 UTC] PHP Warning:  Undefined array key "favorited" in /home/u370066306/domains/wplightningload.com/public_html/ares/wp-content/plugins/bp-better-messages-websocket/inc/websocket.php on line 816
+[21-Oct-2023 06:27:45 UTC] 0
+[21-Oct-2023 06:33:40 UTC] 
+[21-Oct-2023 06:33:40 UTC] coming here
+[21-Oct-2023 06:33:40 UTC] Array
+(
+    [name] => blob
+    [type] => video/webm
+    [tmp_name] => /tmp/phpA2hdJ4
+    [error] => 0
+    [size] => 1537751
+)
+
+[21-Oct-2023 06:33:40 UTC] tsjdv
+[21-Oct-2023 06:33:40 UTC] 
+[21-Oct-2023 06:33:40 UTC] not coming_3434
+[21-Oct-2023 06:33:40 UTC] user
+[21-Oct-2023 06:33:40 UTC] 1
+[21-Oct-2023 06:33:40 UTC] 67
+[21-Oct-2023 06:33:40 UTC] 67
+[21-Oct-2023 06:33:40 UTC] 438
+[21-Oct-2023 06:33:40 UTC] 438
+[21-Oct-2023 06:33:40 UTC] PHP Fatal error:  Uncaught Error: Cannot use a scalar value as an array in /home/u370066306/domains/wplightningload.com/public_html/ares/wp-content/plugins/etp-platform/etp-platform.php:4147
+Stack trace:
+#0 /home/u370066306/domains/wplightningload.com/public_html/ares/wp-includes/class-wp-hook.php(310): etp_handle_upload()
+#1 /home/u370066306/domains/wplightningload.com/public_html/ares/wp-includes/class-wp-hook.php(334): WP_Hook->apply_filters()
+#2 /home/u370066306/domains/wplightningload.com/public_html/ares/wp-includes/plugin.php(517): WP_Hook->do_action()
+#3 /home/u370066306/domains/wplightningload.com/public_html/ares/wp-admin/admin-ajax.php(188): do_action()
+#4 {main}
+  thrown in /home/u370066306/domains/wplightningload.com/public_html/ares/wp-content/plugins/etp-platform/etp-platform.php on line 4147

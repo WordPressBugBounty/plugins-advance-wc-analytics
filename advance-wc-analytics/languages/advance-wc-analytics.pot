@@ -1,0 +1,632 @@
+# Copyright (C) 2023 PassionateBrains
+# This file is distributed under the same license as the Google Analyitcs WordPress Plugin By AWCA.
+msgid ""
+msgstr ""
+"Project-Id-Version: AWCA 2.2.0 \n"
+"POT-Creation-Date: 2023-03-05 11:28+0530\n"
+"PO-Revision-Date: 2023-03-05 14:31+0530\n"
+"Last-Translator: PassionateBrains<gaforwp@gmail.com>\n"
+"Language-Team: PassionateBrains<gaforwp@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.2.2\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;esc_html;esc_html__;esc_att;esc_attr__;"
+"esc_attr_e;esc_html_e\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#. Plugin Name of the plugin
+msgid "Google Analytics WordPress Plugin by AWCA"
+msgstr ""
+
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+msgid "https://AWCA.com"
+msgstr ""
+
+#. Description of the plugin
+msgid "Google Analytics WordPress Plugin by AWCA is Lightweight, Easy to connect and comes with plenty of great features.This plugin also adds Facebook Pixel, Google Ads conversion tracking and Google Optimize code snippet for your WordPress website."
+msgstr ""
+
+#. Author of the plugin
+msgid "PassionateBrains"
+msgstr ""
+
+#: assests/js/core.js:19
+msgid "iterator"
+msgstr ""
+
+#: freemius/templates/plugin-info/description.php:30
+msgid "selling_point_"
+msgstr ""
+
+#: inc/class-awca-admin-view.php:15 inc/view/auth.php:121 inc/view/auth.php:123
+msgid "Authentication"
+msgstr ""
+
+#: inc/class-awca-admin-view.php:20 inc/class-awca-admin-view.php:34 main/class-awca-admin.php:198
+msgid "Settings"
+msgstr ""
+
+#: inc/class-awca-admin-view.php:23 inc/class-awca-admin-view.php:26 inc/class-awca-admin-view.php:38 inc/class-awca-admin-view.php:41
+msgid "Find Reports"
+msgstr ""
+
+#: inc/class-awca-admin-view.php:24 inc/class-awca-admin-view.php:28 inc/class-awca-admin-view.php:39 inc/class-awca-admin-view.php:43 inc/view/dash.php:73 inc/view/dash.php:128 inc/view/dash__premium_only.php:73
+msgid "Dashboard"
+msgstr ""
+
+#: inc/class-awca-admin-view.php:30
+msgid "Upgrade to Pro"
+msgstr ""
+
+#: inc/class-awca-admin-view.php:31 inc/class-awca-admin-view.php:45 inc/class-awca-admin-view.php:121 inc/view/auth.php:198 inc/view/auth.php:305
+msgid "Un-Link Google Analytics"
+msgstr ""
+
+#: inc/class-awca-admin-view.php:35 inc/view/support__premium_only.php:11
+msgid "Support"
+msgstr ""
+
+#: inc/class-awca-admin-view.php:117 inc/view/auth.php:194 inc/view/auth.php:301
+msgid "Un-Link Google Analysis from website"
+msgstr ""
+
+#: inc/class-awca-admin-view.php:118 inc/view/auth.php:195 inc/view/auth.php:302
+msgid "Are you sure you wish to un-link Google Analysis from Website?"
+msgstr ""
+
+#: inc/class-awca-admin-view.php:122
+msgid "Un-Link and Remove All Settings"
+msgstr ""
+
+#: inc/class-awca-admin-view.php:123 inc/view/auth.php:199 inc/view/auth.php:307
+msgid "Cancel"
+msgstr ""
+
+#: inc/view/advance__premium_only.php:17 inc/view/settings.php:77
+msgid "Please supply proper Google Optimize code!"
+msgstr ""
+
+#: inc/view/advance__premium_only.php:22 inc/view/settings.php:82
+msgid "Please supply proper Facebook Pixel code!"
+msgstr ""
+
+#: inc/view/advance__premium_only.php:27 inc/view/settings.php:87
+msgid "Please supply proper Google Adword code!"
+msgstr ""
+
+#: inc/view/advance__premium_only.php:30 inc/view/settings.php:90
+msgid "Please supply proper Google Adword Label!"
+msgstr ""
+
+#: inc/view/advance__premium_only.php:39 inc/view/auth.php:29 inc/view/auth.php:41 inc/view/auth.php:58 inc/view/auth.php:67 inc/view/dash.php:48 inc/view/dash__premium_only.php:48 inc/view/settings.php:25 inc/view/settings.php:62
+#: inc/view/settings.php:99
+msgid "Setting Saved!"
+msgstr ""
+
+#: inc/view/advance__premium_only.php:44 inc/view/settings.php:104
+msgid "Error while saving data! May be data is not in proper format. Please correct Data formats."
+msgstr ""
+
+#: inc/view/advance__premium_only.php:51
+msgid "there is nothing new to save."
+msgstr ""
+
+#: inc/view/advance__premium_only.php:57 inc/view/auth.php:108 inc/view/dash.php:63 inc/view/dash__premium_only.php:63 inc/view/settings.php:118
+msgid "Please correct following Errors:"
+msgstr ""
+
+#: inc/view/advance__premium_only.php:67
+msgid "Advance Settings"
+msgstr ""
+
+#: inc/view/advance__premium_only.php:68 inc/view/auth.php:131 inc/view/settings.php:134 inc/view/support__premium_only.php:23
+msgid "Documentation"
+msgstr ""
+
+#: inc/view/advance__premium_only.php:75 main/class-awca-auth.php:445
+msgid "Google Optimize"
+msgstr ""
+
+#: inc/view/advance__premium_only.php:79 main/class-awca-auth.php:452
+msgid "Enable Google Optimize"
+msgstr ""
+
+#: inc/view/advance__premium_only.php:84
+msgid "How to get your Goolge Optimize Container ID?"
+msgstr ""
+
+#: inc/view/advance__premium_only.php:87 inc/view/advance__premium_only.php:96 main/class-awca-auth.php:470
+msgid "FaceBook Pixel"
+msgstr ""
+
+#: inc/view/advance__premium_only.php:91 main/class-awca-auth.php:477
+msgid "Enable Facebook Pixel"
+msgstr ""
+
+#: inc/view/advance__premium_only.php:101 main/class-awca-auth.php:497
+msgid "Google Adwords"
+msgstr ""
+
+#: inc/view/advance__premium_only.php:105 main/class-awca-auth.php:504
+msgid "Enable Google Adwords Conversion Tracking"
+msgstr ""
+
+#: inc/view/advance__premium_only.php:109
+msgid "AW-CONVERSION_ID"
+msgstr ""
+
+#: inc/view/advance__premium_only.php:112
+msgid "AW-CONVERSION_LABEL"
+msgstr ""
+
+#: inc/view/advance__premium_only.php:113 main/class-awca-auth.php:525
+msgid "How to get your Google Ads Conversion ID and Label?"
+msgstr ""
+
+#: inc/view/advance__premium_only.php:121
+msgid "Save Advance Settings"
+msgstr ""
+
+#: inc/view/auth.php:47 inc/view/auth.php:83
+msgid "Please complete Google Analytics Website Linking Process!"
+msgstr ""
+
+#: inc/view/auth.php:74
+msgid "Please confirm using manual tracking or use auto connect facility"
+msgstr ""
+
+#: inc/view/auth.php:92
+msgid "Please agree with privacy policy and terms of service of plugin!"
+msgstr ""
+
+#: inc/view/auth.php:121
+msgid "completed"
+msgstr ""
+
+#: inc/view/auth.php:123
+msgid "uncomplete"
+msgstr ""
+
+#: inc/view/auth.php:129 inc/view/report.php:14 inc/view/settings.php:132
+msgid "Upgrade to Pro!"
+msgstr ""
+
+#: inc/view/auth.php:149
+msgid "Auto Connect Method(Recommended)"
+msgstr ""
+
+#: inc/view/auth.php:152
+msgid "Manual Connect Method"
+msgstr ""
+
+#: inc/view/auth.php:161
+msgid "Please choose your property which you want to link with website and hit submit button."
+msgstr ""
+
+#: inc/view/auth.php:166
+msgid "Please complete following requirements then click \"Link your Google Analytics\" button."
+msgstr ""
+
+#: inc/view/auth.php:168
+msgid "Need active Google Analytics account. If you not have one "
+msgstr ""
+
+#: inc/view/auth.php:168
+msgid "please sign-up here."
+msgstr ""
+
+#: inc/view/auth.php:169
+msgid "Need to have at least one active property (either GA4 or UA) for current website in Google Analytics Account. "
+msgstr ""
+
+#: inc/view/auth.php:176
+msgid "Please link your Google Analyitcs Account for data collection."
+msgstr ""
+
+#: inc/view/auth.php:182
+msgid "Please Enter your property-id / Data stream measurement id to link with website and hit submit button. "
+msgstr ""
+
+#: inc/view/auth.php:207
+msgid "Please put your Google Analytics Propety Id / Data stream measurement id from your GA4 here."
+msgstr ""
+
+#: inc/view/auth.php:306
+msgid "Remove Access for all My Websites"
+msgstr ""
+
+#: inc/view/auth.php:320
+msgid "I agree with "
+msgstr ""
+
+#: inc/view/auth.php:320
+msgid "privacy policy"
+msgstr ""
+
+#: inc/view/auth.php:320
+msgid "and"
+msgstr ""
+
+#: inc/view/auth.php:320
+msgid "terms of service"
+msgstr ""
+
+#: inc/view/auth.php:320
+msgid "of AWCA: Google Analytics for Wordpress."
+msgstr ""
+
+#: inc/view/auth.php:327
+msgid "Submit"
+msgstr ""
+
+#: inc/view/dash.php:94 inc/view/dash.php:106 inc/view/dash__premium_only.php:94
+msgid "Select View"
+msgstr ""
+
+#: inc/view/dash.php:99 inc/view/dash__premium_only.php:99
+msgid "Today"
+msgstr ""
+
+#: inc/view/dash.php:100 inc/view/dash__premium_only.php:100
+msgid "Yesterday"
+msgstr ""
+
+#: inc/view/dash.php:101 inc/view/dash__premium_only.php:101
+msgid "Last 7 days"
+msgstr ""
+
+#: inc/view/dash.php:102 inc/view/dash__premium_only.php:102
+msgid "Last 30 days"
+msgstr ""
+
+#: inc/view/dash.php:103 inc/view/dash__premium_only.php:103
+msgid "Current Year"
+msgstr ""
+
+#: inc/view/dash.php:104 inc/view/dash__premium_only.php:104
+msgid "Custom Range"
+msgstr ""
+
+#: inc/view/dash.php:110 inc/view/dash__premium_only.php:110
+msgid "From"
+msgstr ""
+
+#: inc/view/dash.php:114 inc/view/dash__premium_only.php:114
+msgid "To"
+msgstr ""
+
+#: inc/view/dash.php:119 inc/view/dash__premium_only.php:119
+msgid "Go"
+msgstr ""
+
+#: inc/view/dash.php:129 inc/view/dash__premium_only.php:128
+msgid "Audience"
+msgstr ""
+
+#: inc/view/dash.php:130 inc/view/dash__premium_only.php:130
+msgid "Acquisition"
+msgstr ""
+
+#: inc/view/dash.php:131 inc/view/dash__premium_only.php:131
+msgid "Behavior"
+msgstr ""
+
+#: inc/view/dash.php:132 inc/view/dash__premium_only.php:135
+msgid "WooCommerce"
+msgstr ""
+
+#: inc/view/dash.php:133 inc/view/dash__premium_only.php:137
+msgid "Google Ads"
+msgstr ""
+
+#: inc/view/dash.php:134 inc/view/dash__premium_only.php:138
+msgid "Google Adsense"
+msgstr ""
+
+#: inc/view/dash.php:139
+msgid "Please upgrade to unlock reports and stats associated with audience."
+msgstr ""
+
+#: inc/view/dash.php:141 inc/view/dash.php:147 inc/view/dash.php:153 inc/view/dash.php:159 inc/view/dash.php:165 inc/view/dash.php:171
+msgid "Upgrade Now!"
+msgstr ""
+
+#: inc/view/dash.php:145
+msgid "Please upgrade to unlock reports and stats associated with acquisition."
+msgstr ""
+
+#: inc/view/dash.php:151
+msgid "Please upgrade to unlock reports and stats associated with behavior of users."
+msgstr ""
+
+#: inc/view/dash.php:157
+msgid "Please upgrade to unlock reports and stats associated with conversion."
+msgstr ""
+
+#: inc/view/dash.php:163
+msgid "Please upgrade to unlock reports and stats associated with google ads."
+msgstr ""
+
+#: inc/view/dash.php:169
+msgid "Please upgrade to unlock reports and stats associated with google adsense."
+msgstr ""
+
+#: inc/view/dash__premium_only.php:53 inc/view/settings.php:30 inc/view/settings.php:67
+msgid "Error while saving data!"
+msgstr ""
+
+#: inc/view/dash__premium_only.php:106
+msgid "Date Range"
+msgstr ""
+
+#: inc/view/dash__premium_only.php:129
+msgid "Forms Conversion"
+msgstr ""
+
+#: inc/view/report.php:11
+msgid "Find Reports on Google Analyitcs"
+msgstr ""
+
+#: inc/view/report.php:23
+msgid "Overview Report for your Shop"
+msgstr ""
+
+#: inc/view/report.php:27
+msgid "Shopping Behaviour"
+msgstr ""
+
+#: inc/view/report.php:31
+msgid "Checkout Behaviour"
+msgstr ""
+
+#: inc/view/report.php:39
+msgid "Sales Performance"
+msgstr ""
+
+#: inc/view/report.php:43
+msgid "Product List Performance"
+msgstr ""
+
+#: inc/view/report.php:47
+msgid "Coupon Performance"
+msgstr ""
+
+#: inc/view/report.php:56
+msgid "User Content Enagagement Flow"
+msgstr ""
+
+#: inc/view/report.php:60
+msgid "Landing Page Report"
+msgstr ""
+
+#: inc/view/report.php:64
+msgid "Website Speed Performance"
+msgstr ""
+
+#: inc/view/report.php:72
+msgid "Individual Page Loading Time"
+msgstr ""
+
+#: inc/view/report.php:76
+msgid "Website Page Views"
+msgstr ""
+
+#: inc/view/report.php:80
+msgid "Overview Report for your Website"
+msgstr ""
+
+#: inc/view/report.php:89
+msgid "Overview Report of Users"
+msgstr ""
+
+#: inc/view/report.php:93
+msgid "Users Demographic Overview"
+msgstr ""
+
+#: inc/view/report.php:97
+msgid "Users Location"
+msgstr ""
+
+#: inc/view/report.php:105
+msgid "User Engagement"
+msgstr ""
+
+#: inc/view/report.php:109
+msgid "Devices Overview"
+msgstr ""
+
+#: inc/view/report.php:113
+msgid "New vs Returning Users"
+msgstr ""
+
+#: inc/view/report__premium_only.php:11
+msgid "Find Important Reports"
+msgstr ""
+
+#: inc/view/report__premium_only.php:21
+msgid "Property View"
+msgstr ""
+
+#: inc/view/report__premium_only.php:62
+msgid "As you have choosen manual tracking we can not find URLs of your reports on Google Analytics account. So for availing this facility you must need to connect website auto mode."
+msgstr ""
+
+#: inc/view/report__premium_only.php:63
+msgid "Change your Authentication Method!"
+msgstr ""
+
+#: inc/view/settings.php:111
+msgid "there is nothing new to save"
+msgstr ""
+
+#: inc/view/settings.php:141
+msgid "Tracking Settings"
+msgstr ""
+
+#: inc/view/settings.php:142
+msgid "Events Settings"
+msgstr ""
+
+#: inc/view/settings.php:143
+msgid "Advanced Integrations"
+msgstr ""
+
+#: inc/view/support__premium_only.php:14
+msgid "Plugin Website"
+msgstr ""
+
+#: inc/view/support__premium_only.php:24
+msgid "Documentation is help to configure plugin as well it also help you better understand data collected by plugin for your google analytics."
+msgstr ""
+
+#: inc/view/support__premium_only.php:25 inc/view/support__premium_only.php:41
+msgid "Know More"
+msgstr ""
+
+#: inc/view/support__premium_only.php:31
+msgid "Priority Support"
+msgstr ""
+
+#: inc/view/support__premium_only.php:32
+msgid "We use plugin forum to answer any plugin realted queries. We also welcome your suggestions and improvements you require for plugin."
+msgstr ""
+
+#: inc/view/support__premium_only.php:33
+msgid "Check Now"
+msgstr ""
+
+#: inc/view/support__premium_only.php:39
+msgid "Announcements"
+msgstr ""
+
+#: inc/view/support__premium_only.php:40
+msgid "Check here for out latest annoucements related to plugins. Advance woocommerce analytics is here to improve your conversion rates."
+msgstr ""
+
+#: main/class-awca-admin.php:41
+msgid "Hi there! You've been using AWCA: Google Analytics for Wordpress Plugin. We hope it's been helpful. Would you mind rating it 5-stars to help spread the word?"
+msgstr ""
+
+#: main/class-awca-admin.php:46
+msgid "Ok, you deserve it"
+msgstr ""
+
+#: main/class-awca-admin.php:49
+msgid "Nope, maybe later"
+msgstr ""
+
+#: main/class-awca-admin.php:52
+msgid "I already did"
+msgstr ""
+
+#: main/class-awca-admin.php:156
+msgid "AWCA: Google Analytics for Wordpress"
+msgstr ""
+
+#: main/class-awca-auth.php:284
+msgid "General Tracking settings"
+msgstr ""
+
+#: main/class-awca-auth.php:291
+msgid "Track Admins?"
+msgstr ""
+
+#: main/class-awca-auth.php:295
+msgid "Track Admin activity on Website."
+msgstr ""
+
+#: main/class-awca-auth.php:303
+msgid "Do not Track Pageviews"
+msgstr ""
+
+#: main/class-awca-auth.php:307
+msgid "Stop tracking basic pageviews for website."
+msgstr ""
+
+#: main/class-awca-auth.php:315
+msgid "Use Enhanced Link Attribution"
+msgstr ""
+
+#: main/class-awca-auth.php:319
+msgid "Differenciating Links user interacted using enhanced link attribution."
+msgstr ""
+
+#: main/class-awca-auth.php:327
+msgid "WooCommerce Settings"
+msgstr ""
+
+#: main/class-awca-auth.php:334
+msgid "On Single Product Pages"
+msgstr ""
+
+#: main/class-awca-auth.php:338
+msgid "Tracking product impressions on Single Product pages."
+msgstr ""
+
+#: main/class-awca-auth.php:346
+msgid "On Archive Pages"
+msgstr ""
+
+#: main/class-awca-auth.php:350
+msgid "Tracking product impressions on Archive pages."
+msgstr ""
+
+#: main/class-awca-auth.php:358
+msgid "Disable On Hold Transctions as Conversions"
+msgstr ""
+
+#: main/class-awca-auth.php:362
+msgid "It will not consider on-hold transcations as conversions."
+msgstr ""
+
+#: main/class-awca-auth.php:378
+msgid "Anonymize IP addresses"
+msgstr ""
+
+#: main/class-awca-auth.php:382
+msgid "Anonymizes the ip address of website users."
+msgstr ""
+
+#: main/class-awca-auth.php:390
+msgid "Disable Demographics and Interest for Ads Remarketing"
+msgstr ""
+
+#: main/class-awca-auth.php:394
+msgid "Disable tracking User and associated activity on bases of interest and demography"
+msgstr ""
+
+#: main/class-awca-auth.php:404
+msgid "Do not Track User ID"
+msgstr ""
+
+#: main/class-awca-auth.php:408
+msgid "Do not Track User and associated activity by their Ids."
+msgstr ""
+
+#: main/class-awca-auth.php:416
+msgid "Enable Google Consent Mode"
+msgstr ""
+
+#: main/class-awca-auth.php:420
+msgid "Based on User Consent Google will collect data, otherwise by default it will not collect sensitive data"
+msgstr ""
+
+#: main/class-awca-auth.php:428
+msgid "Save Tracking Options"
+msgstr ""
+
+#: main/class-awca-auth.php:465
+msgid "How to get your Goolge Optimize Container ID?j"
+msgstr ""
+
+#: main/class-awca-auth.php:490
+msgid "How to get your Facebook pixel code?"
+msgstr ""
+
+#: main/class-awca-auth.php:572
+msgid "Save Events Options"
+msgstr ""
