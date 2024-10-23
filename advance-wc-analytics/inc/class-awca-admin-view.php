@@ -21,9 +21,7 @@ class AWCA_Admin_View extends AWCA_View
         $this->tabs = array(
           'settings' => __('Settings', 'awca-text'),
         );
-        if (isset($auth_settings['property_id']) && (strpos($auth_settings['property_id'], 'UA') !== false)) {
-          $this->tabs = array_merge(array('dash' => __('Dashboard', 'awca-text')), $this->tabs);
-        } elseif (isset($auth_settings['property_id']) && (strpos($auth_settings['property_id'], 'G') !== false)) {
+        if (isset($auth_settings['property_id']) && (strpos($auth_settings['property_id'], 'G') !== false)) {
           $this->tabs = array_merge(array('dash' => __('Dashboard', 'awca-text')), $this->tabs);
         }
         $this->tabs = array_merge($this->tabs, array('upgrade' => __('Upgrade to Pro', 'awca-text')));
@@ -33,9 +31,7 @@ class AWCA_Admin_View extends AWCA_View
           'settings' => __('Settings', 'awca-text'),
           'support' => __('Support/Guide', 'awca-text'),
         );
-        if (isset($auth_settings['property_id']) && (strpos($auth_settings['property_id'], 'UA') !== false)) {
-          $this->tabs = array_merge(array('dash__premium_only' => __('Dashboard', 'awca-text')), $this->tabs);
-        } elseif (isset($auth_settings['property_id']) && (strpos($auth_settings['property_id'], 'G') !== false)) {
+        if (isset($auth_settings['property_id']) && (strpos($auth_settings['property_id'], 'G') !== false)) {
           $this->tabs = array_merge(array('dash__premium_only' => __('Dashboard', 'awca-text')), $this->tabs);
         }
         $this->tabs = array_merge($this->tabs, array('unlink' => __('Un-Link Google Analytics', 'awca-text')));
@@ -96,7 +92,7 @@ class AWCA_Admin_View extends AWCA_View
                 </li>
               </a>
             <?php } elseif ($tab == 'upgrade') { ?>
-              <a href="<?php echo awca_fs()->get_upgrade_url(); ?>"
+              <a href="https://advancedwcanalytics.com/pricing/"
                 class="collection-item <?php echo ($tab === $this->get_current_tab() ? 'white z-depth-1' : null); ?>">
                 <li><span>
                     <?php echo esc_html($name); ?>

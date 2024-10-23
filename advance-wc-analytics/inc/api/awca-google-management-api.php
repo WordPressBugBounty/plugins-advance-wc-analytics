@@ -12,6 +12,7 @@ class AWCA_Google_Management_API
   protected $request_uri;
   protected $request_headers = array();
   protected $response_code;
+  protected $response_headers;
   protected $response_message;
   protected $raw_response_body;
   protected $response;

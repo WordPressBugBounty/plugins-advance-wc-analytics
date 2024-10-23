@@ -12,6 +12,7 @@ class AWCA_Google_Analytics_Data_API
   protected $request_uri;
   protected $request_headers = array();
   protected $response_code;
+  protected $response_headers;
   protected $response_message;
   protected $raw_response_body;
   protected $response;
@@ -95,20 +96,31 @@ class AWCA_Google_Analytics_Data_API
         if (isset($report->rows) && !empty($report->rows)) {
           foreach ($report->rows as $object) {
             if (isset($object->dimensionValues[0]) && !empty($object->dimensionValues[0])) {
-              $test = 'gawp_date_range_';
-              if (strpos($object->dimensionValues[0]->value,$test) !== false) {
-                $k = (int) filter_var($object->dimensionValues[0]->value, FILTER_SANITIZE_NUMBER_INT);
-                $array_name = 'awca_dash_stats_data_ga4_' . $tab_id;
-                $stats_array_ga4 = array_keys(AWCA_Settings::get_instance()->$array_name);
-                $j = 0;
-                foreach ($object->metricValues as $key) {
-                  foreach ($key as $key2 => $value) {
-                    $data[$i][$stats_array_ga4[$j]][$k] = round($value, 2);
+              $date_range_count = count($object->dimensionValues) - 1;
+              if($date_range_count > 0){
+                $f= array(0,1);
+                foreach ($f as $f_value){
+                  $test = 'gawp_date_range_'.$f_value;
+                  if (strpos($object->dimensionValues[$date_range_count]->value,$test) !== false) {
+                    $data[$i][$object->dimensionValues[0]->value][$f_value] = $object->metricValues;
                   }
-                  $j++;
                 }
-              } else {
-                $data[$i][$object->dimensionValues[0]->value] = $object->metricValues;
+              }else{
+                $test = 'gawp_date_range_';
+                if (strpos($object->dimensionValues[$date_range_count]->value,$test) !== false) {
+                  $k = (int) filter_var($object->dimensionValues[0]->value, FILTER_SANITIZE_NUMBER_INT);
+                  $array_name = 'awca_dash_stats_data_ga4_' . $tab_id;
+                  $stats_array_ga4 = array_keys(AWCA_Settings::get_instance()->$array_name);
+                  $j = 0;
+                  foreach ($object->metricValues as $key) {
+                    foreach ($key as $key2 => $value) {
+                      $data[$i][$stats_array_ga4[$j]][$k] = round($value, 2);
+                    }
+                    $j++;
+                  }
+                } else {
+                  $data[$i][$object->dimensionValues[0]->value] = $object->metricValues;
+                }
               }
             } else {
               $array_name = 'awca_dash_stats_data_ga4_' . $tab_id;
@@ -173,6 +185,22 @@ class AWCA_Google_Analytics_Data_API
                       "keepEmptyRows": true
                   },
                 ],';
+      } elseif ($report_name == 'purchaseJourney') {
+        $start = strtotime($start_date);
+        $end = strtotime($end_date);
+        $days_between = ceil(abs($end - $start) / 86400) + 1;
+        $cmp_start_date = date_format(date_sub(date_create($start_date), date_interval_create_from_date_string($days_between . ' days')), 'Y-m-d');
+        $cmp_end_date = date_format(date_sub(date_create($end_date), date_interval_create_from_date_string($days_between . ' days')), 'Y-m-d');
+        $metrics = $this->get_array_metrics_data($report_parameters[0]);
+        $report_request .= '"requests":[
+                  {"dateRanges":[{"startDate":"' . $start_date . '","endDate":"' . $end_date . '","name":"gawp_date_range_0"},{"startDate":"' . $cmp_start_date . '","endDate":"' . $cmp_end_date . '","name":"gawp_date_range_1"}],
+                    ' . $metrics . ',
+                    "dimensions" :[
+                      {"name": "' . $report_parameters[1] . '"},
+                    ],
+                    "keepEmptyRows": true
+                  },
+                ],';
       } elseif ($report_name == 'dateViseVisitors') {
         $metrics = $this->get_array_metrics_data($report_parameters[0]);
         $report_request .= '"requests":[
@@ -191,7 +219,24 @@ class AWCA_Google_Analytics_Data_API
             "keepEmptyRows":true,
           },
         ],';
-      } else {
+      }elseif ($report_name == 'overallProductPerformance') {
+        $metrics = $this->get_array_metrics_data($report_parameters[0]);
+        $report_request .= '"requests":[
+            {"dateRanges":{"startDate":"' . $start_date . '","endDate":"' . $end_date . '"},
+            ' . $metrics . ',
+            "dimensions" :[
+                {"name": "' . $report_parameters[1] . '"},
+            ],
+            "orderBys" :[{
+              "desc": true,
+              "metric": {
+                "metricName": "' . $report_parameters[2] . '"
+              },
+            }],
+            "keepEmptyRows":true,
+          },
+        ],';
+      }else {
         $report_request .= '"requests":[
             {"dateRanges":{"startDate":"' . $start_date . '","endDate":"' . $end_date . '"},
             "metrics": [
@@ -259,7 +304,7 @@ class AWCA_Google_Analytics_Data_API
     $this->response_code = wp_remote_retrieve_response_code($response);
     $this->response_message = wp_remote_retrieve_response_message($response);
     $this->raw_response_body = wp_remote_retrieve_body($response);
-    $response_headers = wp_remote_retrieve_headers($response);
+    $this->response_headers = wp_remote_retrieve_headers($response);
     if ($this->response_code == 200) {
       $this->response = json_decode($this->raw_response_body);
     } else {

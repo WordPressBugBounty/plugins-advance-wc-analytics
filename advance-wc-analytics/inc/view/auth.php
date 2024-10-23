@@ -190,7 +190,7 @@ if (strlen($errors)> 0){
             <div class="awca-row manual-connect">
               <?php if(isset($awca_auth_settings['tracking_id']) && !empty($awca_auth_settings['tracking_id'])){
                  echo '<h6>'.$awca_auth_settings['tracking_id'].'</h6>';?>
-                 <input placeholder="G-XXXXXXXX" id="awca_auth_settings[tracking_id]" name="awca_auth_settings[tracking_id]" type="text" value="<?php if(isset($awca_auth_settings['tracking_id']) && !empty($awca_auth_settings['tracking_id'])) {echo $awca_auth_settings['tracking_id'];} ?>" class="tracking-id off">
+                 <input placeholder="UA-XXXXX-X or G-XXXXXXXX" id="awca_auth_settings[tracking_id]" name="awca_auth_settings[tracking_id]" type="text" value="<?php if(isset($awca_auth_settings['tracking_id']) && !empty($awca_auth_settings['tracking_id'])) {echo $awca_auth_settings['tracking_id'];} ?>" class="tracking-id off">
                  <div class="input-field awca-col m12 s12">
                    <!--<a class="waves-effect waves-light btn modal-trigger" href="#modal1">Un-link Google Analyitcs from website.</a>-->
                  </div>
@@ -208,8 +208,8 @@ if (strlen($errors)> 0){
               <div class="awca-col s12 center-align">
                 <div class="top-mar-30">
                   <div class="input-field awca-col m4 offset-m4 s12">
-                    <input placeholder="G-XXXXXXXX" id="awca_auth_settings[tracking_id]" name="awca_auth_settings[tracking_id]" type="text" value="<?php if(isset($awca_auth_settings['tracking_id']) && !empty($awca_auth_settings['tracking_id'])) {echo $awca_auth_settings['tracking_id'];} ?>" class="tracking-id">
-                    <span class="helper-text top-mar-10" data-error="wrong" data-success="right"><?php _e('Please put your Google Analytics Propety Data stream measurement id from your GA4 here.', 'awca-text');?></span>
+                    <input placeholder="UA-XXXXX-X or G-XXXXXXXX" id="awca_auth_settings[tracking_id]" name="awca_auth_settings[tracking_id]" type="text" value="<?php if(isset($awca_auth_settings['tracking_id']) && !empty($awca_auth_settings['tracking_id'])) {echo $awca_auth_settings['tracking_id'];} ?>" class="tracking-id">
+                    <span class="helper-text top-mar-10" data-error="wrong" data-success="right"><?php _e('Please put your Google Analytics Propety Id / Data stream measurement id from your GA4 here.', 'awca-text');?></span>
                   </div>
                 </div>
               </div>
@@ -371,7 +371,7 @@ if (strlen($errors)> 0){
         <p>
           <label>
             <input type="checkbox" id="awca_auth_settings[agreement]" name="awca_auth_settings[agreement]" value="yes" <?php checked(isset($awca_auth_settings['agreement']) && $awca_auth_settings['agreement']); ?> />
-            <span><?php _e('I agree with ', 'awca-text'); ?><a href="https://advancedwcanalytics.com/privacy-policy/" target="_blank"><?php _e('privacy policy', 'awca-text'); ?></a> <?php _e('and', 'awca-text'); ?> <a href="https://advancedwcanalytics.com/terms-of-service/" target="_blank"><?php _e('terms of service', 'awca-text'); ?></a><?php _e('of AWCA: Google Analytics for Wordpress.', 'awca-text'); ?></span>
+            <span><?php _e('I agree with ', 'awca-text'); ?><a href="https://advancedwcanalytics.com/privacy-policy/" target="_blank"><?php _e('privacy policy', 'awca-text'); ?></a> <?php _e('and', 'awca-text'); ?> <a href="https://advancedwcanalytics.com/terms-of-service/" target="_blank"><?php _e('terms of service', 'awca-text'); ?></a><?php _e('of AWCA: Google Analytics for WooCommerce.', 'awca-text'); ?></span>
           </label>
         </p>
       </div>

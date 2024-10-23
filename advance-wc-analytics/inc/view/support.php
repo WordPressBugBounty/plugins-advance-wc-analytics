@@ -44,7 +44,7 @@ if (!defined('ABSPATH')) {
         <p class="light center">
           <?php _e('We use plugin forum to answer any plugin realted queries. We also welcome your suggestions and improvements you require for plugin.', 'awca-text'); ?>
         </p>
-        <a class="waves-effect waves-light btn top-mar" href="https://advancedwcanalytics.com/contact-us/">
+        <a class="waves-effect waves-light btn top-mar" href="https://advancedwcanalytics.com/submit-ticket/">
           <?php _e('Check Now', 'awca-text'); ?>
         </a>
       </div>

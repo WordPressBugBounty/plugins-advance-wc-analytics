@@ -342,3 +342,36 @@ span.badge.white-text {
 .awca-row .tabs .tab a {
   padding:0 5px !important;
 }
+.awca-reports-disabled{
+  text-align: center;
+  margin-top: 30px;
+  font-size: 24px;
+  background: aliceblue;
+  padding: 10px 20px;
+  border-radius: 9px;
+}
+.awca-reports-disabled p {
+  font-size: 18px;
+}
+.journey-per-info{
+    margin-left: auto;
+    font-size: 10px;
+    font-weight: 700;
+    background: #f3f3f3;
+    padding: 2px 10px;
+    border-radius: 30px;
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+}
+.awca-row .tabs {
+  position: relative;
+  overflow-x: auto;
+  overflow-y: hidden;
+  height: 60px;
+  width: 100%;
+  background-color: #fff;
+  margin: 0 auto;
+  white-space: nowrap;
+  display: flex !important;
+}

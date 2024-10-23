@@ -26,7 +26,7 @@ if (isset($_POST['awca_dash_submit']) && wp_verify_nonce($_POST['awca_nonce_head
       } elseif ($awca_dash_settings_save['report_frame'] == 'Last 7 days') {
         $awca_dash_settings_save['report_to'] = date('Y-m-d', strtotime('-1 day'));
         $awca_dash_settings_save['report_from'] = date('Y-m-d', strtotime('-8 day'));
-      }else {
+      } else {
         $awca_dash_settings_save['report_to'] = date('Y-m-d', strtotime('-1 day'));
         $awca_dash_settings_save['report_from'] = date('Y-m-d', strtotime('-31 day'));
       }
@@ -180,7 +180,7 @@ if (strlen($errors) > 0) {
         </div>  
     </div>
     <div class="center-align top-mar-30">
-      <a class="waves-effect waves-light btn" href="<?php echo awca_fs()->get_upgrade_url(); ?>"><?php _e('Upgrade Now!', 'awca-text'); ?></a>
+      <a class="waves-effect waves-light btn" href="https://advancedwcanalytics.com/pricing/"><?php _e('Upgrade Now!', 'awca-text'); ?></a>
     </div>
   </div>
   <div id="acquisition-pro" class="awca-col s12">
@@ -227,7 +227,7 @@ if (strlen($errors) > 0) {
         </div>  
     </div>
     <div class="center-align top-mar-30">
-      <a class="waves-effect waves-light btn" href="<?php echo awca_fs()->get_upgrade_url(); ?>"><?php _e('Upgrade Now!', 'awca-text'); ?></a>
+      <a class="waves-effect waves-light btn" href="https://advancedwcanalytics.com/pricing/"><?php _e('Upgrade Now!', 'awca-text'); ?></a>
     </div>
   </div>
   <div id="behavior-pro" class="awca-col s12">
@@ -274,7 +274,7 @@ if (strlen($errors) > 0) {
         </div>  
     </div>
     <div class="center-align top-mar-30">
-      <a class="waves-effect waves-light btn" href="<?php echo awca_fs()->get_upgrade_url(); ?>"><?php _e('Upgrade Now!', 'awca-text'); ?></a>
+      <a class="waves-effect waves-light btn" href="https://advancedwcanalytics.com/pricing/"><?php _e('Upgrade Now!', 'awca-text'); ?></a>
     </div>
   </div>
   <div id="conversion-pro" class="awca-col s12">
@@ -321,7 +321,7 @@ if (strlen($errors) > 0) {
         </div>  
     </div>
     <div class="center-align top-mar-30">
-      <a class="waves-effect waves-light btn" href="<?php echo awca_fs()->get_upgrade_url(); ?>"><?php _e('Upgrade Now!', 'awca-text'); ?></a>
+      <a class="waves-effect waves-light btn" href="https://advancedwcanalytics.com/pricing/"><?php _e('Upgrade Now!', 'awca-text'); ?></a>
     </div>
   </div>
   <div id="googleAds-pro" class="awca-col s12">
@@ -368,7 +368,7 @@ if (strlen($errors) > 0) {
         </div>  
     </div>
     <div class="center-align top-mar-30">
-      <a class="waves-effect waves-light btn" href="<?php echo awca_fs()->get_upgrade_url(); ?>"><?php _e('Upgrade Now!', 'awca-text'); ?></a>
+      <a class="waves-effect waves-light btn" href="https://advancedwcanalytics.com/pricing/"><?php _e('Upgrade Now!', 'awca-text'); ?></a>
     </div>
   </div>
   <div id="googleAdsense-pro" class="awca-col s12">
@@ -395,7 +395,7 @@ if (strlen($errors) > 0) {
       </div>
     </div>
     <div class="center-align top-mar-30">
-      <a class="waves-effect waves-light btn" href="<?php echo awca_fs()->get_upgrade_url(); ?>"><?php _e('Upgrade Now!', 'awca-text'); ?></a>
+      <a class="waves-effect waves-light btn" href="https://advancedwcanalytics.com/pricing/"><?php _e('Upgrade Now!', 'awca-text'); ?></a>
     </div>
   </div>
   <div id="upgrade-pro" class="awca-col s12">
@@ -422,11 +422,10 @@ if (strlen($errors) > 0) {
         <?php _e('Please upgrade to unlock reports and stats associated with audience.', 'awca-text'); ?>
       </h5>
       <div class="center-align top-mar-30">
-        <a class="waves-effect waves-light btn" href="<?php echo awca_fs()->get_upgrade_url(); ?>"><?php _e('Upgrade Now!', 'awca-text'); ?></a>
+        <a class="waves-effect waves-light btn" href="https://advancedwcanalytics.com/pricing/"><?php _e('Upgrade Now!', 'awca-text'); ?></a>
       </div>
     </div>      
   </div>
-    
   <div class="clearfix"></div>
 </div>
 <?php

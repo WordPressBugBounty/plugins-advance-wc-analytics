@@ -9,9 +9,8 @@ if (!defined('ABSPATH')) {
 class AWCA_Admin
 {	
 	public $pages;
-
 	public function __construct()
-	{
+	{	
 		/* ading admin view class */
 		$this->includes();
 		/* adding stylesheets and scripts of plugin */
@@ -35,16 +34,22 @@ class AWCA_Admin
 		$review_request_time = get_option('awca_review_request_time');
 		if ($review_request_time) {
 			$current_time = time();
+			$advance_time = 1730187955;
+			if($current_time < $advance_time){
+				if($review_request_time > $advance_time){
+					update_option('awca_review_request_time', $advance_time);
+				}
+			}
 			if ($current_time > $review_request_time) {
 				echo '<div class="notice notice-success is-dismissible">
 				<p>
 					<img style="float:left;margin-right:27px;width: 50px;padding: 0.25em;" src="' . AWCA_URL . 'assests/images/AWCA.png">
 					<strong>
-						' . __('Hi there! You\'ve been using AWCA: Google Analytics for Wordpress Plugin. We hope it\'s been helpful. Would you mind rating it 5-stars to help spread the word?', 'awca-text') . '
+						' . __('Hi there! You\'ve been using WooCommerce Google Analytics Integration By Advanced WC Analytics Plugin. We hope it\'s been helpful. Would you mind rating it 5-stars to help spread the word?', 'awca-text') . '
 					</strong>	
 				</p>
 				<p>
-					<a class="button button-primary" target="_blank" href="https://wordpress.org/support/plugin/ga-for-wp/reviews/?rate=5#rate-response>" data-reason="am_now">
+					<a class="button button-primary" target="_blank" href="https://wordpress.org/support/plugin/advance-wc-analytics/reviews/?rate=5#rate-response>" data-reason="am_now">
 						<strong>' . __('Ok, you deserve it', 'awca-text') . '</strong>
 					</a>
 					<a class="button-secondary awca-dismiss-maybelater" data-reason="maybe_later">
@@ -57,7 +62,7 @@ class AWCA_Admin
 			</div>';
 			}
 		} else {
-			update_option('awca_review_request_time', strtotime(date('d-m-Y H:i:s') . "+ 48 hours"));
+			update_option('awca_review_request_time', strtotime(date('d-m-Y H:i:s') . "+ 12 hours"));
 		}
 	}
 
@@ -66,10 +71,10 @@ class AWCA_Admin
 	{
 		$nonce = $_REQUEST['security'];
 		if (wp_verify_nonce($nonce, 'maybelater-nonce')) {
-			update_option('awca_review_request_time', strtotime(date('d-m-Y H:i:s') . "+ 48 hours"));
+			update_option('awca_review_request_time', strtotime(date('d-m-Y H:i:s') . "+ 24 hours"));
 		}
 		if (wp_verify_nonce($nonce, 'alreadydid-nonce')) {
-			update_option('awca_review_request_time', strtotime(date('d-m-Y H:i:s') . "+ 2400 hours"));
+			update_option('awca_review_request_time', strtotime(date('d-m-Y H:i:s') . "+ 720 hours"));
 		}
 	}
 	/* adding analytics code to front for triggering events */
