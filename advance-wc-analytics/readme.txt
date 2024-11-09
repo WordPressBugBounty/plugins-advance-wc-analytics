@@ -9,7 +9,7 @@ Author: passionatebrains
 Requires at least: 5.0
 Tested up to: 6.6
 Requires PHP: 7.0
-Stable tag: 3.10.0
+Stable tag: 3.11.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -224,6 +224,9 @@ Presently yes, you can contact us from our website.
 Please send you suggestion from Plugin website.
 
 == Changelog ==
+
+= 3.11.0 =
+* JS bug fixed
 
 = 3.10.0 =
 * Fixing issues with data tracking

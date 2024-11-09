@@ -1448,7 +1448,7 @@ class AWCA_Main
 			$live_js = "function get_shipping_event (shipping_method) {
 							return gtag( 'event','add_shipping_info',{
 								shipping_tier :shipping_method,
-								coupon: ".$this->awca_esc($coupon_code).",
+								coupon:'".$this->awca_esc($coupon_code)."',
 								items:".$items_data.",
 								value: ".$this->awca_esc($checkout_value).",
 							});
@@ -1498,7 +1498,7 @@ class AWCA_Main
 			$live_js = "function get_paymnet_event (payment_method) {
 							return gtag( 'event','add_payment_info',{
 							payment_type :payment_method,
-							coupon: ".$this->awca_esc($coupon_code).",
+							coupon:'".$this->awca_esc($coupon_code)."',
 							items:".$items_data.",
 							value: ".$this->awca_esc($checkout_value).",
 							});
