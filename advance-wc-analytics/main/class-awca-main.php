@@ -965,9 +965,9 @@ class AWCA_Main
 	{
 		if (class_exists('WooCommerce')) {
 			if (is_shop()) {
-				/* if (!$this->avoid_multi_trigger()) {
-											return;
-										} */
+				if (!$this->avoid_multi_trigger()) {
+					return;
+				} 
 				if (!empty($this->api_secret)) {
 					$this->data = $this->init_default_params();
 					$this->data['events'][0] = array(
@@ -988,9 +988,9 @@ class AWCA_Main
 	public function viewed_cart()
 	{
 		if (is_cart()) {
-			/* if (!$this->avoid_multi_trigger()) {
-								  return;
-							  } */
+			if (!$this->avoid_multi_trigger()) {
+				return;
+			} 
 			$items_data = array();
 			foreach (WC()->cart->get_cart() as $item) {
 				$i = 0;
@@ -1030,9 +1030,9 @@ class AWCA_Main
 	/* recording event for viewing product -completed*/
 	public function viewed_product()
 	{
-		/* if (!$this->avoid_multi_trigger()) {
-						return;
-					} */
+		if (!$this->avoid_multi_trigger()) {
+			return;
+		} 
 		$product_id = get_the_ID();
 		$product = wc_get_product($product_id);
 		if (!empty($this->api_secret)) {
@@ -1294,9 +1294,9 @@ class AWCA_Main
 	/* recording event for initiating checkout -completed */
 	public function begin_checkout()
 	{
-		//if (!$this->avoid_multi_trigger()) {
-			//return;
-		//} 
+		if (!$this->avoid_multi_trigger()) {
+			return;
+		} 
 		if (!empty($this->api_secret)) {
 			foreach (WC()->cart->get_cart() as $item) {
 				$i = 0;
@@ -1448,7 +1448,7 @@ class AWCA_Main
 			$live_js = "function get_shipping_event (shipping_method) {
 							return gtag( 'event','add_shipping_info',{
 								shipping_tier :shipping_method,
-								coupon:'".$this->awca_esc($coupon_code)."',
+								coupon: '".$this->awca_esc($coupon_code)."',
 								items:".$items_data.",
 								value: ".$this->awca_esc($checkout_value).",
 							});
@@ -1498,7 +1498,7 @@ class AWCA_Main
 			$live_js = "function get_paymnet_event (payment_method) {
 							return gtag( 'event','add_payment_info',{
 							payment_type :payment_method,
-							coupon:'".$this->awca_esc($coupon_code)."',
+							coupon: '".$this->awca_esc($coupon_code)."',
 							items:".$items_data.",
 							value: ".$this->awca_esc($checkout_value).",
 							});

@@ -606,9 +606,9 @@ class AWCA_Settings
 				'track_admin' => true,
 				'not_track_pageviews' => false,
 				'enhanced_link_attribution' => true,
-				'anonymize_ip' => true,
+				'anonymize_ip' => false,
 				'track_interest' => false,
-				'not_track_user_id' => true,
+				'not_track_user_id' => false,
 				'track_ga_consent' => false,
 			);
 		}

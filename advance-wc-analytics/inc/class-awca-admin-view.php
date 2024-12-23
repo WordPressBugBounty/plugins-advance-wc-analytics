@@ -92,7 +92,7 @@ class AWCA_Admin_View extends AWCA_View
                 </li>
               </a>
             <?php } elseif ($tab == 'upgrade') { ?>
-              <a href="https://advancedwcanalytics.com/pricing/"
+              <a href="<?php echo awca_fs()->get_upgrade_url();?>"
                 class="collection-item <?php echo ($tab === $this->get_current_tab() ? 'white z-depth-1' : null); ?>">
                 <li><span>
                     <?php echo esc_html($name); ?>

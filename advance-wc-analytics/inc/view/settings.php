@@ -126,7 +126,9 @@ if ( strlen( $errors ) > 0 ) {
 if ( awca_fs()->is_not_paying() && !awca_fs()->is_trial() ) {
     ?>
         <a class="waves-effect waves-light btn right upgrade-btn" style="margin-left:15px"
-          href="https://advancedwcanalytics.com/pricing/"><?php 
+          href="<?php 
+    echo awca_fs()->get_upgrade_url();
+    ?>"><?php 
     _e( 'Upgrade to Pro!', 'awca-text' );
     ?></a>
       <?php 
