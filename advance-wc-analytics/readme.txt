@@ -9,7 +9,7 @@ Author: passionatebrains
 Requires at least: 5.0
 Tested up to: 6.7.1
 Requires PHP: 7.0
-Stable tag: 3.12.0
+Stable tag: 3.13.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -224,6 +224,10 @@ Presently yes, you can contact us from our website.
 Please send you suggestion from Plugin website.
 
 == Changelog ==
+
+= 3.13.0 =
+* Upgraded to Latest Stable Freemius SDK
+
 = 3.12.0 =
 * Upgraded to Latest Stable Freemius SDK
 
