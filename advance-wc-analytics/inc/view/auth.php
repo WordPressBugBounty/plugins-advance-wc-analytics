@@ -170,7 +170,7 @@ if (strlen($errors)> 0){
             <div class="notice notice-info top-mar left-align">
             <b><p class="left-align"> <?php _e('Please complete following requirements then click "Link your Google Analytics" button.', 'awca-text'); ?></p></b>
               <ol>
-                <li> <?php _e('Need active Google Analytics account. If you not have one ', 'awca-text'); ?><a href="https://marketingplatform.google.com/about/analytics/"><?php _e('please sign-up here.', 'awca-text'); ?></a></li>
+                <li> <?php _e('Need active Google Analytics account. If you not have one ', 'awca-text'); ?><a target="_blank" href="https://marketingplatform.google.com/about/analytics/"><?php _e('please sign-up here.', 'awca-text'); ?></a></li>
                 <li> <?php _e('Need to have at least one active property for current website in Google Analytics Account. ', 'awca-text'); ?></li>
               </ol>  
             </div>

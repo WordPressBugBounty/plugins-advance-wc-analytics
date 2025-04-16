@@ -5,9 +5,9 @@ Plugin Name: WooCommerce Google Analytics Integration By Advanced WC Analytics
 Plugin URI: https://advancedwcanalytics.com/
 Description: Allows Google Analytics tracking code to be inserted into WooCommerce store pages and also helps to listen important events associated with WooCommerce Store.
 Author: Passionate Brains
-Version: 3.13.0
+Version: 3.14.0
 WC requires at least: 3.7.0
-WC tested up to: 9.5.1
+WC tested up to: 9.8.1
 Author URI: https://advancedwcanalytics.com/
 License: GPLv2 or later
 */
@@ -74,7 +74,7 @@ if ( function_exists( 'awca_fs' ) ) {
         define( 'AWCA_PREFIX', 'AWCA_' );
     }
     if ( !defined( 'AWCA_VERSION' ) ) {
-        define( 'AWCA_VERSION', '3.13.0' );
+        define( 'AWCA_VERSION', '3.14.0' );
     }
     add_action( 'before_woocommerce_init', function () {
         if ( class_exists( \Automattic\WooCommerce\Utilities\FeaturesUtil::class ) ) {
