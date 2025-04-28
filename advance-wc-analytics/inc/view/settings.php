@@ -20,7 +20,7 @@ if ( isset( $_POST['awca_event_settings'] ) && wp_verify_nonce( $_POST['awca_non
         update_option( 'awca_event_settings', $awca_event_settings_save );
         echo '<script>
         jQuery(document).ready(function(){
-           M.toast({html: ' . __( 'Setting Saved!', 'awca-text' ) . ', classes: \'rounded teal\', displayLength:4000});
+           M.toast({html: \'' . __( 'Setting Saved!', 'awca-text' ) . '\', classes: \'rounded teal\', displayLength:4000});
         });
     </script>';
         $awca_event_settings = $awca_event_settings_save;
@@ -36,7 +36,7 @@ if ( isset( $_POST['awca_dashboard_settings'] ) && wp_verify_nonce( $_POST['awca
         update_option( 'awca_dashboard_settings', $awca_dashboard_settings_save );
         echo '<script>
         jQuery(document).ready(function(){
-           M.toast({html: ' . __( 'Setting Saved!', 'awca-text' ) . ', classes: \'rounded teal\', displayLength:4000});
+           M.toast({html: \'' . __( 'Setting Saved!', 'awca-text' ) . '\', classes: \'rounded teal\', displayLength:4000});
         });
     </script>';
         $awca_dashboard_settings = $awca_dashboard_settings_save;
@@ -52,7 +52,7 @@ if ( isset( $_POST['awca_track_settings'] ) && wp_verify_nonce( $_POST['awca_non
         update_option( 'awca_track_settings', $awca_track_settings_save );
         echo '<script>
             jQuery(document).ready(function(){
-               M.toast({html:' . __( 'Setting Saved!', 'awca-text' ) . ', classes: \'rounded teal\', displayLength:4000});
+               M.toast({html:\'' . __( 'Setting Saved!', 'awca-text' ) . '\', classes: \'rounded teal\', displayLength:4000});
             });
         </script>';
         $awca_track_settings = $awca_track_settings_save;
@@ -90,7 +90,7 @@ if ( isset( $_POST['awca_advance_submit'] ) && wp_verify_nonce( $_POST['awca_non
                 update_option( 'awca_advance_settings', $awca_advance_settings_save );
                 echo '<script>
               jQuery(document).ready(function(){
-                 M.toast({html: ' . __( 'Setting Saved!', 'awca-text' ) . ', classes: \'rounded teal\', displayLength:4000});
+                 M.toast({html: \'' . __( 'Setting Saved!', 'awca-text' ) . '\', classes: \'rounded teal\', displayLength:4000});
               });
           </script>';
                 $awca_advance_settings = $_POST['awca_advance_settings'];
@@ -109,8 +109,8 @@ if ( isset( $_POST['awca_advance_submit'] ) && wp_verify_nonce( $_POST['awca_non
 if ( strlen( $errors ) > 0 ) {
     echo '<script>
             jQuery(document).ready(function(){
-               M.toast({html: ' . __( 'Please correct following Errors:', 'awca-text' ) . ', classes: \'rounded red\', displayLength:6000});
-               M.toast({html: ' . $errors . ', classes: \'rounded red\', displayLength:8000});
+               M.toast({html: \'' . __( 'Please correct following Errors:', 'awca-text' ) . '\', classes: \'rounded red\', displayLength:6000});
+               M.toast({html: \'' . $errors . '\', classes: \'rounded red\', displayLength:8000});
             });
         </script>';
 }

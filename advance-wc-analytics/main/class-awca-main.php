@@ -122,20 +122,30 @@ class AWCA_Main
 		$addon_values = array();
 		if ($tracking_options = get_option('awca_track_settings')) {
 			if (isset($tracking_options['track_ga_consent']) && $tracking_options['track_ga_consent']) {
-				$gtag_code_snippet .= 'gtag("consent", "default", {
-				ad_storage: "granted",
-				analytics_storage: "granted",
-				functionality_storage: "granted",
-				personalization_storage: "granted",
-				security_storage: "granted",
+				$gtag_code_snippet .= "gtag('set', 'region', {
+					'EEA': 'denied',       // Europe: GDPR
+					'US-CA': 'denied',     // California: CCPA
+					'US-VA': 'denied',     // Virginia: VCDPA
+					'US-CO': 'denied',     // Colorado: CPA
+					'US-CT': 'denied',     // Connecticut: CTDPA
+					'US-UT': 'denied'      // Utah: UCPA
+				});";
+				$gtag_code_snippet .= "gtag('consent', 'default', {
+				ad_user_data: 'granted',
+				ad_personalization: 'granted',
+				ad_storage: 'granted',
+				analytics_storage: 'granted',
+				functionality_storage: 'granted',
+				personalization_storage: 'granted',
+				security_storage: 'granted',
 				wait_for_update: 2000, 
 				});
-				gtag("set", "ads_data_redaction", true);
-				gtag("set", "url_passthrough", true);';
+				gtag('set', 'ads_data_redaction', true);
+				gtag('set', 'url_passthrough', true);";
 			}
 			if (isset($tracking_options['track_interest']) && $tracking_options['track_interest']) {
-				$gtag_code_snippet .= 'gtag("set", "allow_ad_personalization_signals", false);
-				gtag("set", "allow_google_signals", false);';
+				$gtag_code_snippet .= "gtag('set', 'allow_ad_personalization_signals', false);
+				gtag('set', 'allow_google_signals', false);";
 			}
 			if (isset($tracking_options['not_track_user_id']) && $tracking_options['not_track_user_id']) {
 				// do nothing
@@ -175,17 +185,24 @@ class AWCA_Main
 		echo $gtag_code_snippet;
 		if ($advance_options) {
 			if (isset($advance_options['facebook_pixel']) && $advance_options['facebook_pixel'] && isset($advance_options['facebook_pixel_code']) && ($advance_options['facebook_pixel_code'] !== '')) {
-				?>
+?>
 				<!-- Facebook Pixel Code By AWCA -->
 				<script>
-					!function (f, b, e, v, n, t, s) {
-						if (f.fbq) return; n = f.fbq = function () {
+					! function(f, b, e, v, n, t, s) {
+						if (f.fbq) return;
+						n = f.fbq = function() {
 							n.callMethod ?
 								n.callMethod.apply(n, arguments) : n.queue.push(arguments)
 						};
-						if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
-						n.queue = []; t = b.createElement(e); t.async = !0;
-						t.src = v; s = b.getElementsByTagName(e)[0];
+						if (!f._fbq) f._fbq = n;
+						n.push = n;
+						n.loaded = !0;
+						n.version = '2.0';
+						n.queue = [];
+						t = b.createElement(e);
+						t.async = !0;
+						t.src = v;
+						s = b.getElementsByTagName(e)[0];
 						s.parentNode.insertBefore(t, s)
 					}(window, document, 'script',
 						'https://connect.facebook.net/en_US/fbevents.js');
@@ -195,7 +212,7 @@ class AWCA_Main
 				<noscript><img height="1" width="1" style="display:none"
 						src="https://www.facebook.com/tr?id=<?php echo $advance_options['facebook_pixel_code']; ?>&ev=PageView&noscript=1" /></noscript>
 				<!-- End Facebook Pixel Code -->
-				<?php
+<?php
 			}
 		}
 	}
@@ -613,13 +630,13 @@ class AWCA_Main
 
 	/* intiating default params(check for more details) */
 	private function init_default_params($track_user = true)
-	{   
+	{
 		$this->data['client_id'] = $this->cid;
 		$tracking_options = get_option('awca_track_settings');
 		if (isset($tracking_options['not_track_user_id']) && $tracking_options['not_track_user_id']) {
 			/* do nothing */
-		}elseif ($track_user && (is_user_logged_in())) {
-				$this->data['user_id'] = esc_js(get_current_user_id());
+		} elseif ($track_user && (is_user_logged_in())) {
+			$this->data['user_id'] = esc_js(get_current_user_id());
 		}
 		return $this->data;
 	}
@@ -668,18 +685,18 @@ class AWCA_Main
 				$product_category = '';
 				$j = 0;
 				foreach ($categories as $category) {
-					if (isset($category->name) && is_object($category) && ($j == 0)){
+					if (isset($category->name) && is_object($category) && ($j == 0)) {
 						$item['item_category'] = $this->awca_esc(isset($category->name) ? $category->name : '');
-					}elseif(isset($category->name) && is_object($category) && ($j > 0)){
-						$item['item_category'.$j] = $this->awca_esc(isset($category->name) ? $category->name : '');
+					} elseif (isset($category->name) && is_object($category) && ($j > 0)) {
+						$item['item_category' . $j] = $this->awca_esc(isset($category->name) ? $category->name : '');
 					}
 				}
 				$j++;
 			}
-			if($quantity < 0){
-				$quantity = $quantity*(-1);
-			}elseif($quantity == 0){
-				$quantity = 1; 
+			if ($quantity < 0) {
+				$quantity = $quantity * (-1);
+			} elseif ($quantity == 0) {
+				$quantity = 1;
 			}
 			$item['item_id'] = $this->awca_esc(strval($product_identifier));
 			$item['item_name'] = $this->awca_esc($product->get_title());
@@ -967,7 +984,7 @@ class AWCA_Main
 			if (is_shop()) {
 				if (!$this->avoid_multi_trigger()) {
 					return;
-				} 
+				}
 				if (!empty($this->api_secret)) {
 					$this->data = $this->init_default_params();
 					$this->data['events'][0] = array(
@@ -990,7 +1007,7 @@ class AWCA_Main
 		if (is_cart()) {
 			if (!$this->avoid_multi_trigger()) {
 				return;
-			} 
+			}
 			$items_data = array();
 			foreach (WC()->cart->get_cart() as $item) {
 				$i = 0;
@@ -1021,7 +1038,7 @@ class AWCA_Main
 			} else {
 				$items_data = json_encode($items_data);
 				$params = json_encode($params);
-				$awca_analytics_code = 'gtag("event", "view_cart",'.$params.');';
+				$awca_analytics_code = 'gtag("event", "view_cart",' . $params . ');';
 				$this->awca_set_transient($awca_analytics_code);
 			}
 		}
@@ -1032,7 +1049,7 @@ class AWCA_Main
 	{
 		if (!$this->avoid_multi_trigger()) {
 			return;
-		} 
+		}
 		$product_id = get_the_ID();
 		$product = wc_get_product($product_id);
 		if (!empty($this->api_secret)) {
@@ -1296,7 +1313,7 @@ class AWCA_Main
 	{
 		if (!$this->avoid_multi_trigger()) {
 			return;
-		} 
+		}
 		if (!empty($this->api_secret)) {
 			foreach (WC()->cart->get_cart() as $item) {
 				$i = 0;
@@ -1362,7 +1379,7 @@ class AWCA_Main
 			$params = json_encode($params);
 			$items_data = json_encode($items_data);
 
-			$awca_analytics_code = 'gtag("event", "begin_checkout",'.$params.' );';
+			$awca_analytics_code = 'gtag("event", "begin_checkout",' . $params . ' );';
 			$this->awca_set_transient($awca_analytics_code);
 		}
 	}
@@ -1423,15 +1440,15 @@ class AWCA_Main
 
 	/* selected shipping method */
 	public function added_shipping_method()
-	{   
-		if(WC()->cart->get_cart_contents_count()> 0 ){
+	{
+		if (WC()->cart->get_cart_contents_count() > 0) {
 			foreach (WC()->cart->get_cart() as $item) {
 				$i = 0;
 				$i++;
 				$product_id = !empty($item['variation_id']) ? $item['variation_id'] : $item['product_id'];
 				$items_data[] = $this->get_product_details($product_id, $item['quantity'], $i);
 			}
-		}else{
+		} else {
 			$items_data = array();
 		}
 		$applied_coupons = WC()->cart->get_applied_coupons();
@@ -1444,21 +1461,21 @@ class AWCA_Main
 		}
 		$items_data = json_encode($items_data);
 		$checkout_value = floatval(preg_replace('#[^\d.,]#', '', WC()->cart->get_cart_contents_total()));
-		if(!empty($coupon_code)){
+		if (!empty($coupon_code)) {
 			$live_js = "function get_shipping_event (shipping_method) {
 							return gtag( 'event','add_shipping_info',{
 								shipping_tier :shipping_method,
-								coupon: '".$this->awca_esc($coupon_code)."',
-								items:".$items_data.",
-								value: ".$this->awca_esc($checkout_value).",
+								coupon: '" . $this->awca_esc($coupon_code) . "',
+								items:" . $items_data . ",
+								value: " . $this->awca_esc($checkout_value) . ",
 							});
 						}";
-		}else{
+		} else {
 			$live_js = "function get_shipping_event (shipping_method) {
 				return gtag( 'event','add_shipping_info',{
 					shipping_tier :shipping_method,
-					items:".$items_data.",
-					value: ".$this->awca_esc($checkout_value).",
+					items:" . $items_data . ",
+					value: " . $this->awca_esc($checkout_value) . ",
 				});
 			}";
 		}
@@ -1473,15 +1490,15 @@ class AWCA_Main
 
 	/* selected payment method */
 	public function added_payment_method()
-	{	
-		if(WC()->cart->get_cart_contents_count()> 0 ){
+	{
+		if (WC()->cart->get_cart_contents_count() > 0) {
 			foreach (WC()->cart->get_cart() as $item) {
 				$i = 0;
 				$i++;
 				$product_id = !empty($item['variation_id']) ? $item['variation_id'] : $item['product_id'];
 				$items_data[] = $this->get_product_details($product_id, $item['quantity'], $i);
 			}
-		}else{
+		} else {
 			$items_data = array();
 		}
 		$applied_coupons = WC()->cart->get_applied_coupons();
@@ -1494,21 +1511,21 @@ class AWCA_Main
 		}
 		$items_data = json_encode($items_data);
 		$checkout_value = floatval(preg_replace('#[^\d.,]#', '', WC()->cart->get_cart_contents_total()));
-		if(!empty($coupon_code)){
+		if (!empty($coupon_code)) {
 			$live_js = "function get_paymnet_event (payment_method) {
 							return gtag( 'event','add_payment_info',{
 							payment_type :payment_method,
-							coupon: '".$this->awca_esc($coupon_code)."',
-							items:".$items_data.",
-							value: ".$this->awca_esc($checkout_value).",
+							coupon: '" . $this->awca_esc($coupon_code) . "',
+							items:" . $items_data . ",
+							value: " . $this->awca_esc($checkout_value) . ",
 							});
 						}";
-		}else{
+		} else {
 			$live_js = "function get_paymnet_event (payment_method) {
 				return gtag( 'event','add_payment_info',{
 				payment_type :payment_method,
-				items:".$items_data.",
-				value: ".$this->awca_esc($checkout_value).",
+				items:" . $items_data . ",
+				value: " . $this->awca_esc($checkout_value) . ",
 				});
 			}";
 		}
@@ -1663,7 +1680,7 @@ class AWCA_Main
 				}
 			}
 			$params = json_encode($params);
-			$awca_analytics_code = 'gtag("event", "purchase", '.$params.');';
+			$awca_analytics_code = 'gtag("event", "purchase", ' . $params . ');';
 			$this->awca_set_transient($awca_analytics_code);
 		}
 		update_post_meta($order->get_id(), 'awca_already_tracked', 'yes');
@@ -1737,20 +1754,20 @@ class AWCA_Main
 				}
 				$total_refund = 0;
 				$refund_value = $refund->get_amount();
-				if(!empty($refund_items_data) && is_array($refund_items_data)){
-					foreach($refund_items_data as $refund_item){
-						$total_refund = $total_refund + ($refund_item['quantity']*$refund_item['price']);
+				if (!empty($refund_items_data) && is_array($refund_items_data)) {
+					foreach ($refund_items_data as $refund_item) {
+						$total_refund = $total_refund + ($refund_item['quantity'] * $refund_item['price']);
 					}
 				}
-				if($total_refund == $refund_value){
+				if ($total_refund == $refund_value) {
 					$params = array(
 						'coupon' => $this->awca_esc($coupons_list),
 						'currency' => $this->awca_esc(get_woocommerce_currency()),
-						'items'=> $refund_items_data,
+						'items' => $refund_items_data,
 						'transaction_id' => $this->awca_esc($order->get_order_number()),
 						'value' => $this->awca_esc($refund->get_amount()),
 					);
-				}else{
+				} else {
 					$params = array(
 						'coupon' => $this->awca_esc($coupons_list),
 						'currency' => $this->awca_esc(get_woocommerce_currency()),
@@ -1785,20 +1802,20 @@ class AWCA_Main
 				}
 				$total_refund = 0;
 				$refund_value = $refund->get_amount();
-				if(!empty($refund_items_data) && is_array($refund_items_data)){
-					foreach($refund_items_data as $refund_item){
-						$total_refund = $total_refund + ($refund_item['quantity']*$refund_item['price']);
+				if (!empty($refund_items_data) && is_array($refund_items_data)) {
+					foreach ($refund_items_data as $refund_item) {
+						$total_refund = $total_refund + ($refund_item['quantity'] * $refund_item['price']);
 					}
 				}
-				if($total_refund == $refund_value){
+				if ($total_refund == $refund_value) {
 					$params = array(
 						'coupon' => $this->awca_esc($coupons_list),
 						'currency' => $this->awca_esc(get_woocommerce_currency()),
-						'items'=> $refund_items_data,
+						'items' => $refund_items_data,
 						'transaction_id' => $this->awca_esc($order->get_order_number()),
 						'value' => $this->awca_esc($refund->get_amount()),
 					);
-				}else{
+				} else {
 					$params = array(
 						'coupon' => $this->awca_esc($coupons_list),
 						'currency' => $this->awca_esc(get_woocommerce_currency()),
@@ -1812,7 +1829,7 @@ class AWCA_Main
 					}
 				}
 				$params = json_encode($params);
-				$awca_analytics_code = 'gtag("event", "refund",'.$params.');';
+				$awca_analytics_code = 'gtag("event", "refund",' . $params . ');';
 				$this->awca_set_transient($awca_analytics_code);
 			}
 			update_post_meta($refund_id, 'awca_refund_already_tracked', 'yes');

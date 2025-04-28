@@ -1,19 +1,19 @@
-=== WooCommerce Google Analytics Integration By Advanced WC Analytics ===
+=== Google Analytics for WooCommerce By Advanced WC Analytics ===
 Contributors: passionatebrains, freemius
-Plugin Name: WooCommerce Google Analytics Integration By Advanced WC Analytics
+Plugin Name: Google Analytics for WooCommerce By Advanced WC Analytics
 Plugin URI: https://advancedwcanalytics.com/
 Donate link: https://advancedwcanalytics.com/
-Tags: woocommerce, woocommerce google analytics, google analytics, facebook pixel, analytics, integration
+Tags: woocommerce, woocommerce google analytics, google analytics, facebook pixel, analytics, independent reports, integration, woocommerce tracking, ga4 integration, google ads conversion, ecommerce analytics, purchase tracking, woocommerce ga4, consent mode, facebook pixel tracking
 Author URI: https://advancedwcanalytics.com/
 Author: passionatebrains
 Requires at least: 5.0
 Tested up to: 6.8
 Requires PHP: 7.0
-Stable tag: 3.14.0
+Stable tag: 3.15.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-Provides WooCommerce Google Analytics Integration with detailed insights & powerful reports.
+Provides Google Analytics for WooCommerce. Best Google Analytics Integration with detailed insights & powerful independent reports for WooCommerce plugin.
 
 == Description ==
 
@@ -224,6 +224,10 @@ Presently yes, you can contact us from our website.
 Please send you suggestion from Plugin website.
 
 == Changelog ==
+= 3.15.0 =
+* Added support for google consent v2
+* Fixing UI issue while saving plugin settings
+
 = 3.14.0 =
 * Tested with latest v6.8 of WP
 * Updated some minor changes
