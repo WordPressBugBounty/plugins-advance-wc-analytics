@@ -7,10 +7,10 @@ if (!defined('ABSPATH')) {
  * Declaring Class
  */
 class AWCA_Admin
-{	
+{
 	public $pages;
 	public function __construct()
-	{	
+	{
 		/* ading admin view class */
 		$this->includes();
 		/* adding stylesheets and scripts of plugin */
@@ -35,8 +35,8 @@ class AWCA_Admin
 		if ($review_request_time) {
 			$current_time = time();
 			$advance_time = 1730187955;
-			if($current_time < $advance_time){
-				if($review_request_time > $advance_time){
+			if ($current_time < $advance_time) {
+				if ($review_request_time > $advance_time) {
 					update_option('awca_review_request_time', $advance_time);
 				}
 			}
@@ -45,18 +45,18 @@ class AWCA_Admin
 				<p>
 					<img style="float:left;margin-right:27px;width: 50px;padding: 0.25em;" src="' . AWCA_URL . 'assests/images/AWCA.png">
 					<strong>
-						' . __('Hi there! You\'ve been using WooCommerce Google Analytics Integration By Advanced WC Analytics Plugin. We hope it\'s been helpful. Would you mind rating it 5-stars to help spread the word?', 'awca-text') . '
+						' . __('Hi there! You\'ve been using AWCA Plugin. We hope it\'s been helpful. Would you mind rating it to help spread the word?', 'advance-wc-analytics') . '
 					</strong>	
 				</p>
 				<p>
 					<a class="button button-primary" target="_blank" href="https://wordpress.org/support/plugin/advance-wc-analytics/reviews/?rate=5#rate-response>" data-reason="am_now">
-						<strong>' . __('Ok, you deserve it', 'awca-text') . '</strong>
+						<strong>' . __('Ok, you deserve it', 'advance-wc-analytics') . '</strong>
 					</a>
 					<a class="button-secondary awca-dismiss-maybelater" data-reason="maybe_later">
-						' . __('Nope, maybe later', 'g4-for-wp-text') . '
+						' . __('Nope, maybe later', 'advance-wc-analytics') . '
 					</a>
 					<a class="button-secondary awca-dismiss-alreadydid" data-reason="already_did">
-						' . __('I already did', 'ga4-wp-for-text') . '
+						' . __('I already did', 'advance-wc-analytics') . '
 					</a>
 				</p>
 			</div>';
@@ -69,7 +69,7 @@ class AWCA_Admin
 	/* hide review request */
 	public function hide_review_request()
 	{
-		$nonce = $_REQUEST['security'];
+		$nonce = sanitize_text_field(wp_unslash($_REQUEST['security']));
 		if (wp_verify_nonce($nonce, 'maybelater-nonce')) {
 			update_option('awca_review_request_time', strtotime(date('d-m-Y H:i:s') . "+ 24 hours"));
 		}
@@ -81,10 +81,10 @@ class AWCA_Admin
 	public function awca_add_this_script_footer()
 	{
 		$protocol = ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
-		$url = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+		$url = $protocol . sanitize_text_field($_SERVER['HTTP_HOST']) . sanitize_text_field($_SERVER['REQUEST_URI']);
 		$url = strtok($url, '?');
 		if (isset($_SERVER['HTTP_REFERER'])) {
-			$old_url = $_SERVER['HTTP_REFERER'];
+			$old_url = sanitize_text_field($_SERVER['HTTP_REFERER']);
 		} else {
 			$old_url = '';
 		}
@@ -160,7 +160,7 @@ class AWCA_Admin
 	/* Adding plugin menu to Admin menu of WP */
 	public function add_menu_pages()
 	{
-		$title = __('AWCA', 'awca-text');
+		$title = __('AWCA', 'advance-wc-analytics');
 		$this->pages['awca'] = new AWCA_Admin_View($title, 'awca_pro_plugin_options');
 	}
 
@@ -173,7 +173,7 @@ class AWCA_Admin
 			wp_enqueue_style('awca_material_css');
 			wp_enqueue_script('awca_material_js');
 		}
-		if ((isset($_GET['page']) && ($_GET['page'] == 'awca_pro_plugin_options'))||($screen -> id == "dashboard")) {	
+		if ((isset($_GET['page']) && ($_GET['page'] == 'awca_pro_plugin_options')) || ($screen->id == "dashboard")) {
 			wp_enqueue_script('awca_chart_js');
 			wp_enqueue_style('awca_css');
 			wp_enqueue_style('awca_icons');
@@ -190,7 +190,7 @@ class AWCA_Admin
 		wp_register_script('awca_material_js', AWCA_URL . 'assests/js/materialize.min.js', array('jquery'), null, true);
 		wp_register_script('awca_chart_js', AWCA_URL . 'assests/js/chart.js', null, true);
 		wp_register_script('awca_ajax_js', AWCA_URL . 'assests/js/awca-ajax.js', array('jquery'), null, true);
-		wp_localize_script('awca_ajax_js', 'ajax_object', array('ajax_url' => admin_url('admin-ajax.php'), 'maybelater_nonce' => wp_create_nonce('maybelater-nonce'), 'alreadydid_nonce' => wp_create_nonce('alreadydid-nonce'), ));
+		wp_localize_script('awca_ajax_js', 'ajax_object', array('ajax_url' => admin_url('admin-ajax.php'), 'maybelater_nonce' => wp_create_nonce('maybelater-nonce'), 'alreadydid_nonce' => wp_create_nonce('alreadydid-nonce'),));
 	}
 
 	/* Adding Settings link on plugins page */
@@ -199,7 +199,7 @@ class AWCA_Admin
 		$settings_page = is_multisite() && is_network_admin() ? network_admin_url('admin.php?page=awca_pro_plugin_options') : menu_page_url('awca_pro_plugin_options', false);
 		/* If networkwide setting url is needed. */
 		$settings_page = $url_only && $networkwide && is_multisite() ? network_admin_url('admin.php?page=awca_pro_plugin_options') : $settings_page;
-		$settings = '<a href="' . $settings_page . '">' . __('Settings', 'awca-text') . '</a>';
+		$settings = '<a href="' . $settings_page . '">' . __('Settings', 'advance-wc-analytics') . '</a>';
 		/* Return only settings page link. */
 		if ($url_only) {
 			return $settings_page;

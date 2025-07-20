@@ -1,15 +1,17 @@
 <?php
 
 /*
-Plugin Name: Google Analytics for WooCommerce By Advanced WC Analytics
-Plugin URI: https://advancedwcanalytics.com/
-Description: Provides Google Analytics for WooCommerce. Best Google Analytics Integration with detailed insights & powerful independent reports for WooCommerce plugin.
+Plugin Name: AWCA - The Great Statistics Plugin for Your eStore
+Description: Provides Google Analytics Integration for your WooCommerce eStore. It Provides detailed insights & powerful independent reports for WooCommerce Website.
 Author: Passionate Brains
-Version: 3.15.0
+Version: 3.17.0
 WC requires at least: 3.7.0
 WC tested up to: 9.8.1
+Requires at least: 5.0
+Requires PHP: 7.0
 Author URI: https://advancedwcanalytics.com/
-License: GPLv2 or later
+License: GPLv3
+Requires Plugins: woocommerce
 */
 /* initiating plugin */
 if (!defined('ABSPATH')) {
@@ -25,7 +27,7 @@ if (function_exists('awca_fs')) {
             global $awca_fs;
             if (!isset($awca_fs)) {
                 // Include Freemius SDK.
-                require_once dirname(__FILE__) . '/freemius/start.php';
+                require_once dirname(__FILE__) . '/vendor/freemius/start.php';
                 $awca_fs = fs_dynamic_init(array(
                     'id'             => '6094',
                     'slug'           => 'advance-wc-analytics',
@@ -45,6 +47,7 @@ if (function_exists('awca_fs')) {
                         'support'    => false,
                     ),
                     'is_live'        => true,
+                    'is_org_compliant' => true,
                 ));
             }
             return $awca_fs;
@@ -75,7 +78,7 @@ if (function_exists('awca_fs')) {
         define('AWCA_PREFIX', 'AWCA_');
     }
     if (!defined('AWCA_VERSION')) {
-        define('AWCA_VERSION', '3.15.0');
+        define('AWCA_VERSION', '3.17.0');
     }
     add_action('before_woocommerce_init', function () {
         if (class_exists(\Automattic\WooCommerce\Utilities\FeaturesUtil::class)) {

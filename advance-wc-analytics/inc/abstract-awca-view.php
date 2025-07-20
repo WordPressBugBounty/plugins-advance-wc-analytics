@@ -64,15 +64,11 @@ abstract class AWCA_View
 		}
 		reset($tabs);
 		$auth_settings = get_option('awca_auth_settings');
-    	$awca_refresh_token_fail = get_option('awca_refresh_token_fail');
-    	if (($auth_settings) && ($awca_refresh_token_fail != 'yes')) {
-		//if ($auth_settings = get_option('awca_auth_settings')) {
+		$awca_refresh_token_fail = get_option('awca_refresh_token_fail');
+		if (($auth_settings) && ($awca_refresh_token_fail != 'yes')) {
+			//if ($auth_settings = get_option('awca_auth_settings')) {
 			if (isset($auth_settings['property_id'])) {
-				if (awca_fs()->is_not_paying() && !(awca_fs()->is_trial()) || (!awca_fs()->is_premium())) {
-					return 'dash';
-				} else {
-					return 'dash__premium_only';
-				}
+				return 'dash';
 			} else {
 				return 'settings';
 			}

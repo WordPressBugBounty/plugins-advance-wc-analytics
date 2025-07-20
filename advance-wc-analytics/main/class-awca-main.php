@@ -114,7 +114,7 @@ class AWCA_Main
 			return;
 		}
 		$tracking_id = esc_js($this->get_tracking_id());
-		$gtag_code_snippet = '<!-- Google Analytics Code Snippet By Advanced WC Analytics (AWCA) --> <script async src="https://www.googletagmanager.com/gtag/js?id=' . $tracking_id . '"></script>
+		$gtag_code_snippet = '<!-- Google Analytics Code Snippet By AWCA --> <script async src="https://www.googletagmanager.com/gtag/js?id=' . $tracking_id . '"></script>
 		<script>
 		  window.dataLayer = window.dataLayer || [];
 		  function gtag(){dataLayer.push(arguments);}
@@ -180,7 +180,7 @@ class AWCA_Main
 		} else {
 			$gtag_code_snippet .= "gtag('config', '{$tracking_id}');";
 		}
-		$gtag_code_snippet .= "</script> <!-- end of Google Analytics Code Snippet by Advanced WC Analytics (AWCA) -->";
+		$gtag_code_snippet .= "</script> <!-- end of Google Analytics Code Snippet by AWCA -->";
 		$gtag_code_snippet = apply_filters('awca_gtag_code_snippet', $gtag_code_snippet, $tracking_options, $advance_options);
 		echo $gtag_code_snippet;
 		if ($advance_options) {
@@ -387,15 +387,15 @@ class AWCA_Main
 		}
 		if (get_option('awca_old_url')) {
 			$awca_old_url = get_option('awca_old_url');
-			if (($awca_old_url !== parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH))) {
-				update_option('awca_old_url', parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
+			if (($awca_old_url !== parse_url(sanitize_text_field($_SERVER['REQUEST_URI']), PHP_URL_PATH))) {
+				update_option('awca_old_url', parse_url(sanitize_text_field($_SERVER['REQUEST_URI']), PHP_URL_PATH));
 				return true;
 			} else {
 				return false;
 			}
 		} else {
-			if ((parse_url($_SERVER['HTTP_REFERER'], PHP_URL_PATH) !== parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH))) {
-				update_option('awca_old_url', parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
+			if ((parse_url(sanitize_text_field($_SERVER['HTTP_REFERER']), PHP_URL_PATH) !== parse_url(sanitize_text_field($_SERVER['REQUEST_URI']), PHP_URL_PATH))) {
+				update_option('awca_old_url', parse_url(sanitize_text_field($_SERVER['REQUEST_URI']), PHP_URL_PATH));
 				return true;
 			}
 		}
@@ -424,7 +424,7 @@ class AWCA_Main
 	/* getting user agent from server */
 	public function awca_get_user_agent()
 	{
-		return isset($_SERVER['HTTP_USER_AGENT']) ? strtolower($_SERVER['HTTP_USER_AGENT']) : '';
+		return isset($_SERVER['HTTP_USER_AGENT']) ? strtolower(sanitize_text_field($_SERVER['HTTP_USER_AGENT'])) : '';
 	}
 
 	/* product impression */

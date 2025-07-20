@@ -33,7 +33,7 @@ if (isset($_POST['awca_dash_submit']) && wp_verify_nonce($_POST['awca_nonce_head
       update_option('awca_dash_settings', $awca_dash_settings_save);
       echo '<script>
           jQuery(document).ready(function(){
-             M.toast({html: "'. __('Setting Saved!', 'awca-text') .'", classes: "rounded teal", displayLength:4000});
+             M.toast({html: "'. __('Setting Saved!', 'advance-wc-analytics') .'", classes: "rounded teal", displayLength:4000});
           });
       </script>';
       $awca_dash_settings = $awca_dash_settings_save;
@@ -48,7 +48,7 @@ if (isset($_POST['awca_dash_submit']) && wp_verify_nonce($_POST['awca_nonce_head
 if (strlen($errors) > 0) {
   echo '<script>
             jQuery(document).ready(function(){
-               M.toast({html:" '. __('Please correct following Errors:', 'awca-text') .'", classes: "rounded red", displayLength:6000});
+               M.toast({html:" '. __('Please correct following Errors:', 'advance-wc-analytics') .'", classes: "rounded red", displayLength:6000});
                M.toast({html:" '. $errors . '", classes: "rounded red", displayLength:8000});
             });
         </script>';
@@ -61,22 +61,22 @@ if (strlen($errors) > 0) {
         <select name="awca_dash_settings[report_frame]" id="report_frame">
           <option value="Yesterday" <?php if (isset($awca_dash_settings['report_frame'])) {
             echo $awca_dash_settings['report_frame'] == 'Yesterday' ? 'selected="selected"' : '';
-          } ?>><?php _e('Yesterday', 'awca-text'); ?></option>
+          } ?>><?php _e('Yesterday', 'advance-wc-analytics'); ?></option>
           <option value="Last 7 days" <?php if (isset($awca_dash_settings['report_frame'])) {
             echo $awca_dash_settings['report_frame'] == 'Last 7 days' ? 'selected="selected"' : '';
-          } ?>><?php _e('Last 7 days', 'awca-text'); ?></option>
+          } ?>><?php _e('Last 7 days', 'advance-wc-analytics'); ?></option>
           <option value="Last 30 days" <?php if (isset($awca_dash_settings['report_frame'])) {
             echo $awca_dash_settings['report_frame'] == 'Last 30 days' ? 'selected="selected"' : '';
-          } ?>><?php _e('Last 30 days', 'awca-text'); ?></option>
+          } ?>><?php _e('Last 30 days', 'advance-wc-analytics'); ?></option>
         </select>
         <label>
-          <?php _e('Select View', 'awca-text'); ?>Date Range
+          <?php _e('Select View', 'advance-wc-analytics'); ?>Date Range
         </label>
       </div>
       <div class="awca-col m5 s12">
         <div class="awca-col m6 l-bord from">
           <label>
-            <?php _e('From', 'awca-text'); ?>
+            <?php _e('From', 'advance-wc-analytics'); ?>
           </label>
           <input type="text" name="awca_dash_settings[report_from]" class="datepicker" id="from"
             value="<?php if (isset($awca_dash_settings['report_from'])) {
@@ -85,7 +85,7 @@ if (strlen($errors) > 0) {
         </div>
         <div class="awca-col m6 l-bord to">
           <label>
-            <?php _e('To', 'awca-text'); ?>
+            <?php _e('To', 'advance-wc-analytics'); ?>
           </label>
           <input type="text" name="awca_dash_settings[report_to]" class="datepicker" id="to"
             value="<?php if (isset($awca_dash_settings['report_to'])) {
@@ -95,7 +95,7 @@ if (strlen($errors) > 0) {
       </div>
       <div class="awca-col m1 s12">
         <button class="btn waves-effect waves-light top-mar" type="submit" name="awca_dash_submit" value="submit">
-          <?php _e('Go', 'awca-text'); ?>
+          <?php _e('Go', 'advance-wc-analytics'); ?>
         </button>
       </div>
       <?php wp_nonce_field('awca_dash_submit', 'awca_nonce_header'); ?>
@@ -106,298 +106,14 @@ if (strlen($errors) > 0) {
   <div class="awca-row">
     <ul class="tabs">
       <li class="tab awca-col m1 s4"><a id="dash-tab" href="#dash">
-          <span><?php _e('Dashboard', 'awca-text'); ?></span>
+          <span><?php _e('Dashboard', 'advance-wc-analytics'); ?></span>
         </a></li>
-        <li class="tab awca-col m1 s4"><a id="audience-pro-tab" href="#audience-pro">
-        <span><?php _e('Audience', 'awca-text'); ?></span><i class="material-icons awca_pro_icon info">info</i>
-        </a></li>
-      <li class="tab awca-col m1 s4"><a id="acquisition-pro-tab" href="#acquisition-pro">
-      <span><?php _e('Acquisition', 'awca-text'); ?></span><i class="material-icons awca_pro_icon info">info</i>
-        </a></li>
-      <li class="tab awca-col m1 s4"><a id="behavior-pro-tab" href="#behavior-pro">
-      <span><?php _e('Behavior', 'awca-text'); ?></span><i class="material-icons awca_pro_icon info">info</i>
-        </a></li>
-      <?php
-      if (class_exists('WooCommerce')) {
-        ?>
-        <li class="tab awca-col m1 s4"><a id="conversion-pro-tab" href="#conversion-pro">
-        <span><?php _e('Conversion', 'awca-text'); ?></span><i class="material-icons awca_pro_icon info">info</i>
-          </a></li>
-      <?php } ?>
-      <li class="tab awca-col m1 s4"><a id="googleAds-pro-tab" href="#googleAds-pro">
-      <span><?php _e('Google Ads', 'awca-text'); ?></span><i class="material-icons awca_pro_icon info">info</i>
-        </a></li>
-      <li class="tab awca-col m1 s4"><a id="googleAdsense-pro-tab" href="#googleAdsense-pro">
-      <span><?php _e('Google Adsense', 'awca-text'); ?></span><i class="material-icons awca_pro_icon info">info</i>
-        </a></li>  
       <li class="tab awca-col m1 s4"><a id="audience-pro-tab" href="#upgrade-pro">
-      <span><?php _e('Upgrade', 'awca-text'); ?></span><i class="material-icons awca_pro_icon info">info</i>
+      <span><?php _e('Upgrade', 'advance-wc-analytics'); ?></span><i class="material-icons awca_pro_icon info">info</i>
         </a></li>
     </ul>
   </div>
   <div id="dash" class="awca-col s12"></div>
-  <div id="audience-pro" class="awca-col s12">
-    <div class="awca-col l12 m12 s12">
-        <div class="awca-row">
-          <div class="awca-col s12 m6 l6 xl6 valign-wrapper awca-info-box">
-            <div class="awca-col s4 m3 l2 xl2">
-              <img class="awca-info-img" src="<?php echo AWCA_URL;?>assests/images/audience.png">
-            </div>
-            <div class="awca-col s8 m9 l10 xl10">
-              <p class="awca-info-title">Overview Report</p>
-              <p class="awca-info-description">This report shows the number of users and how many new users visited the website for a specific date over the period of time.</p>
-            </div> 
-          </div> 
-          <div class="awca-col s12 m6 l6 xl6 valign-wrapper awca-info-box">
-            <div class="awca-col s4 m3 l2 xl2">
-              <img class="awca-info-img" src="<?php echo AWCA_URL;?>assests/images/country.png">
-            </div>
-            <div class="awca-col s8 m9 l10 xl10">
-              <p class="awca-info-title">Country Based Users Report</p>
-              <p class="awca-info-description">This report categorizes users into different countries based on their location for a specific period of time.</p>
-            </div> 
-          </div> 
-        </div>
-        <div class="awca-row">
-          <div class="awca-col s12 m6 l6 xl6 valign-wrapper awca-info-box">
-            <div class="awca-col s4 m3 l2 xl2">
-              <img class="awca-info-img" src="<?php echo AWCA_URL;?>assests/images/translation.png">
-            </div>
-            <div class="awca-col s8 m9 l10 xl10">
-              <p class="awca-info-title">Language Based Users Report</p>
-              <p class="awca-info-description">This report categorizes users based on their browser language for a specific period of time.</p>
-            </div> 
-          </div> 
-          <div class="awca-col s12 m6 l6 xl6 valign-wrapper awca-info-box">
-            <div class="awca-col s4 m3 l2 xl2">
-              <img class="awca-info-img" src="<?php echo AWCA_URL;?>assests/images/responsive.png">
-            </div>
-            <div class="awca-col s8 m9 l10 xl10">
-              <p class="awca-info-title">Device Based Users Report</p>
-              <p class="awca-info-description">This is extra description.This report categories users based of their device category for specific period of time.</p>
-            </div> 
-          </div> 
-        </div>  
-    </div>
-    <div class="center-align top-mar-30">
-      <a class="waves-effect waves-light btn" href="<?php echo awca_fs()->get_upgrade_url();?>"><?php _e('Upgrade Now!', 'awca-text'); ?></a>
-    </div>
-  </div>
-  <div id="acquisition-pro" class="awca-col s12">
-    <div class="awca-col l12 m12 s12">
-        <div class="awca-row">
-          <div class="awca-col s12 m6 l6 xl6 valign-wrapper awca-info-box">
-            <div class="awca-col s4 m3 l2 xl2">
-              <img class="awca-info-img" src="<?php echo AWCA_URL;?>assests/images/user.png">
-            </div>
-            <div class="awca-col s8 m9 l10 xl10">
-              <p class="awca-info-title">Users Based on Channels</p>
-              <p class="awca-info-description">This report shows an analysis of which channel contributed the most traffic to the website for a specified period of time.</p>
-            </div> 
-          </div> 
-          <div class="awca-col s12 m6 l6 xl6 valign-wrapper awca-info-box">
-            <div class="awca-col s4 m3 l2 xl2">
-              <img class="awca-info-img" src="<?php echo AWCA_URL;?>assests/images/website.png">
-            </div>
-            <div class="awca-col s8 m9 l10 xl10">
-              <p class="awca-info-title">Users Based on Source</p>
-              <p class="awca-info-description">This report classifies users based on source/medium by using users who reached the website for a specific period of time.</p>
-            </div> 
-          </div> 
-        </div>
-        <div class="awca-row">
-          <div class="awca-col s12 m6 l6 xl6 valign-wrapper awca-info-box">
-            <div class="awca-col s4 m3 l2 xl2">
-              <img class="awca-info-img" src="<?php echo AWCA_URL;?>assests/images/stretch.png">
-            </div>
-            <div class="awca-col s8 m9 l10 xl10">
-              <p class="awca-info-title">Users Based on Screen Sizes</p>
-              <p class="awca-info-description">This report classify different screen sizes users were using for browsing website over period of time.</p>
-            </div> 
-          </div> 
-          <div class="awca-col s12 m6 l6 xl6 valign-wrapper awca-info-box">
-            <div class="awca-col s4 m3 l2 xl2">
-              <img class="awca-info-img" src="<?php echo AWCA_URL;?>assests/images/analysis.png">
-            </div>
-            <div class="awca-col s8 m9 l10 xl10">
-              <p class="awca-info-title">Users Based on Medium</p>
-              <p class="awca-info-description">This report classify users based on medium by using users reached website for specific period of time.</p>
-            </div> 
-          </div> 
-        </div>  
-    </div>
-    <div class="center-align top-mar-30">
-      <a class="waves-effect waves-light btn" href="<?php echo awca_fs()->get_upgrade_url();?>"><?php _e('Upgrade Now!', 'awca-text'); ?></a>
-    </div>
-  </div>
-  <div id="behavior-pro" class="awca-col s12">
-    <div class="awca-col l12 m12 s12">
-        <div class="awca-row">
-          <div class="awca-col s12 m6 l6 xl6 valign-wrapper awca-info-box">
-            <div class="awca-col s4 m3 l2 xl2">
-              <img class="awca-info-img" src="<?php echo AWCA_URL;?>assests/images/pageview.png">
-            </div>
-            <div class="awca-col s8 m9 l10 xl10">
-              <p class="awca-info-title">Page Performance Report</p>
-              <p class="awca-info-description">This report shows which pages have the most visitors over a period of time.</p>
-            </div> 
-          </div> 
-          <div class="awca-col s12 m6 l6 xl6 valign-wrapper awca-info-box">
-            <div class="awca-col s4 m3 l2 xl2">
-              <img class="awca-info-img" src="<?php echo AWCA_URL;?>assests/images/stop-watch.png">
-            </div>
-            <div class="awca-col s8 m9 l10 xl10">
-              <p class="awca-info-title">Avg. Time Spend of Page</p>
-              <p class="awca-info-description">The total amount of time (in seconds) your website page was in the foreground of users' devices for a specified time period.</p>
-            </div> 
-          </div> 
-        </div>
-        <div class="awca-row">
-          <div class="awca-col s12 m6 l6 xl6 valign-wrapper awca-info-box">
-            <div class="awca-col s4 m3 l2 xl2">
-              <img class="awca-info-img" src="<?php echo AWCA_URL;?>assests/images/age-group.png">
-            </div>
-            <div class="awca-col s8 m9 l10 xl10">
-              <p class="awca-info-title">Users based on Age-Group</p>
-              <p class="awca-info-description">This is the division of traffic based on age groups over a period of time.</p>
-            </div> 
-          </div> 
-          <div class="awca-col s12 m6 l6 xl6 valign-wrapper awca-info-box">
-            <div class="awca-col s4 m3 l2 xl2">
-              <img class="awca-info-img" src="<?php echo AWCA_URL;?>assests/images/gender.png">
-            </div>
-            <div class="awca-col s8 m9 l10 xl10">
-              <p class="awca-info-title">Gender Based User Report</p>
-              <p class="awca-info-description">Gender-based division of traffic over a period of time.</p>
-            </div> 
-          </div> 
-        </div>  
-    </div>
-    <div class="center-align top-mar-30">
-      <a class="waves-effect waves-light btn" href="<?php echo awca_fs()->get_upgrade_url();?>"><?php _e('Upgrade Now!', 'awca-text'); ?></a>
-    </div>
-  </div>
-  <div id="conversion-pro" class="awca-col s12">
-    <div class="awca-col l12 m12 s12">
-        <div class="awca-row">
-          <div class="awca-col s12 m6 l6 xl6 valign-wrapper awca-info-box">
-            <div class="awca-col s4 m3 l2 xl2">
-              <img class="awca-info-img" src="<?php echo AWCA_URL;?>assests/images/revenue.png">
-            </div>
-            <div class="awca-col s8 m9 l10 xl10">
-              <p class="awca-info-title">Product Base Revenue Report</p>
-              <p class="awca-info-description">This report details revenue generated from individual products, highlighting sales performance and financial contributions.</p>
-            </div> 
-          </div> 
-          <div class="awca-col s12 m6 l6 xl6 valign-wrapper awca-info-box">
-            <div class="awca-col s4 m3 l2 xl2">
-              <img class="awca-info-img" src="<?php echo AWCA_URL;?>assests/images/fintech.png">
-            </div>
-            <div class="awca-col s8 m9 l10 xl10">
-              <p class="awca-info-title">Source Base Revenue Report</p>
-              <p class="awca-info-description">This report details income origins, showing revenue generated from various sources, aiding in financial analysis and strategy.</p>
-            </div> 
-          </div> 
-        </div>
-        <div class="awca-row">
-          <div class="awca-col s12 m6 l6 xl6 valign-wrapper awca-info-box">
-            <div class="awca-col s4 m3 l2 xl2">
-              <img class="awca-info-img" src="<?php echo AWCA_URL;?>assests/images/profit-up.png">
-            </div>
-            <div class="awca-col s8 m9 l10 xl10">
-              <p class="awca-info-title">Device base conversion share</p>
-              <p class="awca-info-description">This report shows a device category breakdown with revenue generated by each different device category over a period of time.</p>
-            </div> 
-          </div> 
-          <div class="awca-col s12 m6 l6 xl6 valign-wrapper awca-info-box">
-            <div class="awca-col s4 m3 l2 xl2">
-              <img class="awca-info-img" src="<?php echo AWCA_URL;?>assests/images/map.png">
-            </div>
-            <div class="awca-col s8 m9 l10 xl10">
-              <p class="awca-info-title">State/Region Base Revenue Report</p>
-              <p class="awca-info-description">This report shows which state or region contributed most to total revenue generation by putting them in order based on revenue for a specified period of time.</p>
-            </div> 
-          </div> 
-        </div>  
-    </div>
-    <div class="center-align top-mar-30">
-      <a class="waves-effect waves-light btn" href="<?php echo awca_fs()->get_upgrade_url();?>"><?php _e('Upgrade Now!', 'awca-text'); ?></a>
-    </div>
-  </div>
-  <div id="googleAds-pro" class="awca-col s12">
-    <div class="awca-col l12 m12 s12">
-        <div class="awca-row">
-          <div class="awca-col s12 m6 l6 xl6 valign-wrapper awca-info-box">
-            <div class="awca-col s4 m3 l2 xl2">
-              <img class="awca-info-img" src="<?php echo AWCA_URL;?>assests/images/cost-per-click.png">
-            </div>
-            <div class="awca-col s8 m9 l10 xl10">
-              <p class="awca-info-title">Ad Group Cost Report.</p>
-              <p class="awca-info-description">This report shows ad costs based on different ad groups over a period of time.</p>
-            </div> 
-          </div> 
-          <div class="awca-col s12 m6 l6 xl6 valign-wrapper awca-info-box">
-            <div class="awca-col s4 m3 l2 xl2">
-              <img class="awca-info-img" src="<?php echo AWCA_URL;?>assests/images/arrow.png">
-            </div>
-            <div class="awca-col s8 m9 l10 xl10">
-              <p class="awca-info-title">Ad Group Success Report</p>
-              <p class="awca-info-description">This report shows the contribution of ad groups to generating website traffic for a specified period of time.</p>
-            </div> 
-          </div> 
-        </div>
-        <div class="awca-row">
-          <div class="awca-col s12 m6 l6 xl6 valign-wrapper awca-info-box">
-            <div class="awca-col s4 m3 l2 xl2">
-              <img class="awca-info-img" src="<?php echo AWCA_URL;?>assests/images/google.png">
-            </div>
-            <div class="awca-col s8 m9 l10 xl10">
-              <p class="awca-info-title">Ad Search Query Reports</p>
-              <p class="awca-info-description">This report shows which search query triggered maximum ad clicks for a specified period of time.</p>
-            </div> 
-          </div> 
-          <div class="awca-col s12 m6 l6 xl6 valign-wrapper awca-info-box">
-            <div class="awca-col s4 m3 l2 xl2">
-              <img class="awca-info-img" src="<?php echo AWCA_URL;?>assests/images/megaphone.png">
-            </div>
-            <div class="awca-col s8 m9 l10 xl10">
-              <p class="awca-info-title">Ad Distribution Network Performance Report(Ad Clicks)</p>
-              <p class="awca-info-description">This report shows ad clicks based on different ad slots for a specific period of time.</p>
-            </div> 
-          </div> 
-        </div>  
-    </div>
-    <div class="center-align top-mar-30">
-      <a class="waves-effect waves-light btn" href="<?php echo awca_fs()->get_upgrade_url();?>"><?php _e('Upgrade Now!', 'awca-text'); ?></a>
-    </div>
-  </div>
-  <div id="googleAdsense-pro" class="awca-col s12">
-    <div class="awca-col l12 m12 s12">
-        <div class="awca-row">
-          <div class="awca-col s12 m6 l6 xl6 valign-wrapper awca-info-box">
-            <div class="awca-col s4 m3 l2 xl2">
-              <img class="awca-info-img" src="<?php echo AWCA_URL;?>assests/images/pay-per-click.png">
-            </div>
-            <div class="awca-col s8 m9 l10 xl10">
-              <p class="awca-info-title">Adsense Revenue Based on PageTitle</p>
-              <p class="awca-info-description">This report shows ad revenue based on page for a specified period of time.</p>
-            </div> 
-          </div> 
-          <div class="awca-col s12 m6 l6 xl6 valign-wrapper awca-info-box">
-            <div class="awca-col s4 m3 l2 xl2">
-              <img class="awca-info-img" src="<?php echo AWCA_URL;?>assests/images/pay-per-click-1.png">
-            </div>
-            <div class="awca-col s8 m9 l10 xl10">
-              <p class="awca-info-title">Ad Clicks Based on PageTitle</p>
-              <p class="awca-info-description">This report shows which page received maximum ad clicks over the period of time.</p>
-            </div> 
-          </div> 
-      </div>
-    </div>
-    <div class="center-align top-mar-30">
-      <a class="waves-effect waves-light btn" href="<?php echo awca_fs()->get_upgrade_url();?>"><?php _e('Upgrade Now!', 'awca-text'); ?></a>
-    </div>
-  </div>
   <div id="upgrade-pro" class="awca-col s12">
     <div class="awca-row">
       <div class="awca-col s12 m12 l12 awca-flex">
@@ -407,7 +123,7 @@ if (strlen($errors) > 0) {
             $pro = $feature[2]?'<sup>pro</sup>':'';
             echo '<div class="awca-col s12 m6 l6 xl6 valign-wrapper awca-info-box">
               <div class="awca-col s4 m3 l2 xl2">
-                <img class="awca-info-img" src="'.AWCA_URL.'assests/images/AWCA.png">
+                <img class="awca-info-img" src="'.AWCA_URL.'assests/images/'.$feature[3].'.png">
               </div>
               <div class="awca-col s8 m9 l10 xl10">
                 <p class="awca-info-title">'.$feature[0].' '.$pro.'</p>
@@ -419,10 +135,10 @@ if (strlen($errors) > 0) {
       </div>
       <div class="awca-col s12 m12 l12"></div>   
       <h5 class="center-align">
-        <?php _e('Please upgrade to unlock reports and stats associated with audience.', 'awca-text'); ?>
+        <?php _e('Please upgrade to unlock reports and stats associated with audience.', 'advance-wc-analytics'); ?>
       </h5>
       <div class="center-align top-mar-30">
-        <a class="waves-effect waves-light btn" href="<?php echo awca_fs()->get_upgrade_url();?>"><?php _e('Upgrade Now!', 'awca-text'); ?></a>
+        <a class="waves-effect waves-light btn" href="<?php echo awca_fs()->get_upgrade_url();?>"><?php _e('Upgrade Now!', 'advance-wc-analytics'); ?></a>
       </div>
     </div>      
   </div>

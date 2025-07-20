@@ -12,37 +12,26 @@ class AWCA_Admin_View extends AWCA_View
   public function on_load()
   {
     $this->tabs = array(
-      'auth' => __('Authentication', 'awca-text'),
+      'auth' => __('Authentication', 'advance-wc-analytics'),
     );
     $auth_settings = get_option('awca_auth_settings');
     $awca_refresh_token_fail = get_option('awca_refresh_token_fail');
     if (($auth_settings) && ($awca_refresh_token_fail != 'yes')) {
-      if (awca_fs()->is_not_paying() && !(awca_fs()->is_trial()) || (!awca_fs()->is_premium())) {
-        $this->tabs = array(
-          'settings' => __('Settings', 'awca-text'),
-        );
-        if (isset($auth_settings['property_id']) && (strpos($auth_settings['property_id'], 'G') !== false)) {
-          $this->tabs = array_merge(array('dash' => __('Dashboard', 'awca-text')), $this->tabs);
-        }
-        $this->tabs = array_merge($this->tabs, array('upgrade' => __('Upgrade to Pro', 'awca-text')));
-        $this->tabs = array_merge($this->tabs, array('unlink' => __('Un-Link Google Analytics', 'awca-text')));
-      } else {
-        $this->tabs = array(
-          'settings' => __('Settings', 'awca-text'),
-          'support' => __('Support/Guide', 'awca-text'),
-        );
-        if (isset($auth_settings['property_id']) && (strpos($auth_settings['property_id'], 'G') !== false)) {
-          $this->tabs = array_merge(array('dash__premium_only' => __('Dashboard', 'awca-text')), $this->tabs);
-        }
-        $this->tabs = array_merge($this->tabs, array('unlink' => __('Un-Link Google Analytics', 'awca-text')));
+      $this->tabs = array(
+        'settings' => __('Settings', 'advance-wc-analytics'),
+      );
+      if (isset($auth_settings['property_id']) && (strpos($auth_settings['property_id'], 'G') !== false)) {
+        $this->tabs = array_merge(array('dash' => __('Dashboard', 'advance-wc-analytics')), $this->tabs);
       }
+      $this->tabs = array_merge($this->tabs, array('upgrade' => __('Upgrade to Pro', 'advance-wc-analytics')));
+      $this->tabs = array_merge($this->tabs, array('unlink' => __('Un-Link Google Analytics', 'advance-wc-analytics')));
     }
   }
 
   /* rendering tabs for plugin settings */
   public function render()
   {
-    ?>
+?>
     <div class="awca-row">
       <div class="awca-col s12 m12 l12 xl12">
         <div class="awca-col s12 m2 l2 xl2 center-align">
@@ -66,13 +55,13 @@ class AWCA_Admin_View extends AWCA_View
                   if ($tab == 'auth') {
                     $auth_settings = get_option('awca_auth_settings');
                     $awca_refresh_token_fail = get_option('awca_refresh_token_fail');
-                    if($auth_settings && ($awca_refresh_token_fail != 'yes')){
-                    //if (get_option('awca_auth_settings')) {
-                      echo '<i class="material-icons right">check_circle</i>';
-                    }elseif($auth_settings && ($awca_refresh_token_fail == 'yes')){
+                    if ($auth_settings && ($awca_refresh_token_fail != 'yes')) {
                       //if (get_option('awca_auth_settings')) {
-                        echo '<i class="material-icons right yellow-text">info</i>';
-                    }else {
+                      echo '<i class="material-icons right">check_circle</i>';
+                    } elseif ($auth_settings && ($awca_refresh_token_fail == 'yes')) {
+                      //if (get_option('awca_auth_settings')) {
+                      echo '<i class="material-icons right yellow-text">info</i>';
+                    } else {
                       echo '<i class="material-icons right info">info</i>';
                     }
                   } elseif ($tab == 'upgrade') {
@@ -92,7 +81,7 @@ class AWCA_Admin_View extends AWCA_View
                 </li>
               </a>
             <?php } elseif ($tab == 'upgrade') { ?>
-              <a href="<?php echo awca_fs()->get_upgrade_url();?>"
+              <a href="<?php echo awca_fs()->get_upgrade_url(); ?>"
                 class="collection-item <?php echo ($tab === $this->get_current_tab() ? 'white z-depth-1' : null); ?>">
                 <li><span>
                     <?php echo esc_html($name); ?>
@@ -100,30 +89,30 @@ class AWCA_Admin_View extends AWCA_View
                   <i class="material-icons right red-text">shopping_cart</i>
                 </li>
               </a>
-            <?php }
+          <?php }
           }
           ?>
         </ul>
         <div class="awca-col s12 m12 l12 xl2">
-        </div>  
+        </div>
         <div id="modal1" class="modal">
           <div class="modal-content">
             <h5>
-              <?php _e('Un-Link Google Analysis from website', 'awca-text'); ?>
+              <?php _e('Un-Link Google Analysis from website', 'advance-wc-analytics'); ?>
             </h5>
             <p>
-              <?php _e('Are you sure you wish to un-link Google Analysis from Website?', 'awca-text'); ?>
+              <?php _e('Are you sure you wish to un-link Google Analysis from Website?', 'advance-wc-analytics'); ?>
             </p>
           </div>
           <div class="modal-footer">
             <a class="modal-close waves-effect waves-light btn AWCA-un-link">
-              <?php _e('Un-Link Google Analytics', 'awca-text'); ?>
+              <?php _e('Un-Link Google Analytics', 'advance-wc-analytics'); ?>
             </a>
             <a class="modal-close waves-effect waves-green btn AWCA-access-revoke">
-              <?php _e('Un-Link and Remove All Settings', 'awca-text'); ?>
+              <?php _e('Un-Link and Remove All Settings', 'advance-wc-analytics'); ?>
             </a>
             <a class="modal-close waves-effect waves-green btn">
-              <?php _e('Cancel', 'awca-text'); ?>
+              <?php _e('Cancel', 'advance-wc-analytics'); ?>
             </a>
           </div>
         </div>
@@ -137,7 +126,7 @@ class AWCA_Admin_View extends AWCA_View
           ?>
         </div>
       </div>
-      <?php
+  <?php
   }
   /* getting tracking id */
   public function get_tracking_id()
@@ -176,14 +165,14 @@ class AWCA_Admin_View extends AWCA_View
           //'property_views' => $awca_auth->get_analytics_property_views(),
         );
       case 'auth':
-        if(!empty($ga_properties = get_option('ga_properties'))){
+        if (!empty($ga_properties = get_option('ga_properties'))) {
           return array(
             'ga_properties' => $ga_properties,
             'analytics_properties' => false,
             'analytics_g4_properties' => false,
             'defaults' => $awca_settings->init_awca_auth_defaults(),
           );
-        }else{
+        } else {
           return array(
             //'analytics_properties' => $awca_auth->get_analytics_properties(),
             'analytics_g4_properties' => $awca_auth->get_analytics_g4_properties(),

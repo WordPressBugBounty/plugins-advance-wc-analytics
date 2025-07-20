@@ -1,37 +1,29 @@
-=== Google Analytics for WooCommerce By Advanced WC Analytics ===
+=== AWCA - The Great Statistics Plugin for Your eStore ===
 Contributors: passionatebrains, freemius
-Plugin Name: Google Analytics for WooCommerce By Advanced WC Analytics
+Plugin Name: AWCA - The Great Statistics Plugin for Your eStore
 Plugin URI: https://advancedwcanalytics.com/
 Donate link: https://advancedwcanalytics.com/
-Tags: woocommerce, woocommerce google analytics, google analytics, facebook pixel, analytics, independent reports, integration, woocommerce tracking, ga4 integration, google ads conversion, ecommerce analytics, purchase tracking, woocommerce ga4, consent mode, facebook pixel tracking
+Tags: woocommerce, google analytics, analytics, tracking, ecommerce
 Author URI: https://advancedwcanalytics.com/
 Author: passionatebrains
 Requires at least: 5.0
 Tested up to: 6.8
 Requires PHP: 7.0
-Stable tag: 3.15.0
+Stable tag: 3.17.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-Provides Google Analytics for WooCommerce. Best Google Analytics Integration with detailed insights & powerful independent reports for WooCommerce plugin.
+Provides Google Analytics Integration for WooCommerce eStore. It provides detailed insights & powerful independent reports for WooCommerce website.
 
 == Description ==
 
-= WooCommerce Google Analytics Integration By Advanced WC Analytics =
-
-Every WooCommerce business strives to grow faster and boost sales daily. But how can you convert more visitors into customers and increase revenue with minimal effort? How do you understand what your customers need, which parts of your website are performing well, and which need improvement? Our plugin provides all the insights you need to succeed in the competitive WooCommerce market.
-
-With advanced tracking technology, our plugin delivers reliable data to help you make informed decisions for your WooCommerce site. Unlike other Google Analytics WooCommerce plugins, Advanced WC Analytics enables full advanced tracking features with just a few clicks—no coding or developer needed.
-
-Best of all, our free version offers essential Google Analytics features to optimize your WooCommerce store.
-
-= Easy and Faster Google Analytics Setup =
+= Easy and Faster Google Analytics Integration for WooCommerce eStore =
 
 Our plugin allows you to easily set up a seamless WooCommerce Google Analytics integration with just a few clicks. 
 
 All you need is a free Google Analytics account and the property you want to link to your WooCommerce store.
 
-= Google Analytics for WooCommerce =
+= Google Analytics Integration for WooCommerce =
 
 We have embedded the latest code in the plugin to ensure faster, more efficient, and accurate tracking of a wide range of events on your WooCommerce website. We also work to make the data transfer from your WooCommerce site to Google Analytics more secure and optimized, so your website won't be affected by the plugin's functionality.
 
@@ -39,17 +31,31 @@ The plugin tracks every single event on your WooCommerce site, providing compreh
 
 We continuously maintain the plugin to ensure seamless WooCommerce and Google Analytics integration, keeping it compatible with every new update in WooCommerce and any changes in Google Analytics tracking scripts.
 
+== External Services ==
+
+This plugin connects to several external services to provide its functionality:
+
+**Google Analytics**: This plugin integrates with Google Analytics to track website visitors, ecommerce events, and user behavior. It sends page view data, ecommerce transaction data, and user interaction events to Google Analytics. This service is provided by Google LLC: [Terms of Service](https://marketingplatform.google.com/about/analytics/terms/), [Privacy Policy](https://policies.google.com/privacy).
+
+**Google Analytics Management API**: The plugin uses Google Analytics Management API to retrieve account and property information for setup purposes. This service is provided by Google LLC: [Terms of Service](https://developers.google.com/analytics/devguides/config/mgmt/v3/terms), [Privacy Policy](https://policies.google.com/privacy).
+
+**Facebook Pixel**: The plugin can integrate with Facebook Pixel to track conversions and user behavior for advertising purposes. It sends page view and conversion data to Facebook. This service is provided by Meta Platforms, Inc.: [Terms of Service](https://www.facebook.com/legal/terms), [Privacy Policy](https://www.facebook.com/policy.php).
+
+**Google Ads**: The plugin can integrate with Google Ads for conversion tracking. It sends conversion data to Google Ads when users complete purchases. This service is provided by Google LLC: [Terms of Service](https://ads.google.com/intl/en_us/home/terms/), [Privacy Policy](https://policies.google.com/privacy).
+
+**AWCA Proxy Service**: The plugin uses a proxy service for OAuth authentication with Google services. This service is provided by AWCA: [Terms of Service](https://advancedwcanalytics.com/terms-of-service/), [Privacy Policy](https://advancedwcanalytics.com/privacy-policy/).
+
 == Features of Plugin ==
 
 * **Easy and Fast Integration** : Plugin offers very Fast and Easy WooCommerce Google Analytics Integration. You can complete that with just few clicks.
 
-* **WooCommerce Conversion Tracking** : Tracking every single purchase made on your WooCommerce based estore.
+* **Conversion Tracking** : Tracking every single purchase made on your WooCommerce based estore.
 
-* **Google Ads Conversion Tracking** : Plugin help you to track Google Ads Conversions with easy integration.
+* **Ads Conversion Tracking** : Plugin help you to track Google Ads Conversions with easy integration.
 
 * **Meta Pixel Integration** : Plugin also help in tracking differnt events and converstion for FB Pixel
 
-* **WooCommerce Coupon Performance** : Helps in tracking coupon performance and associated events.
+* **Coupon Performance** : Helps in tracking coupon performance and associated events.
 
 * **GDPR Compliance Support** : Comprehensive compliance support for data privacy, user consent, and data security.
 
@@ -57,15 +63,15 @@ We continuously maintain the plugin to ensure seamless WooCommerce and Google An
 
 * **Disable Admin Tracking** : Disable admin tracking to improve privacy and reduce unnecessary data collection.
 
-* **User ID Tracking** : With Google User ID tracking you can learn more about behaviour of the users.
+* **User ID Tracking** : With User ID tracking you can learn more about behaviour of the users.
 
-* **WooCommerce Refund Tracking** : Track and monitor refund transactions easily with real-time data in Google Analytics.
+* **Refund Tracking** : Track and monitor refund transactions easily with real-time data in Google Analytics.
 
 * **Enhanced Link Attribution** : Improves tracking by distinguishing multiple links on the same page for accuracy.
 
 * **Anonymize IP Address** : Easily anonymize user IP addresses to enhance privacy and GDPR compliance.
 
-* **Google Consent Mode** : Google Consent Mode manages user consent preferences for analytics and ads compliance.
+* **Consent Mode** : Google Consent Mode support manages user consent preferences for analytics and ads compliance.
 
 * **30+ Events Tracking** : Listen Every Important Information Associated With Your WooCommerce Based Estore.
 
@@ -73,7 +79,7 @@ We continuously maintain the plugin to ensure seamless WooCommerce and Google An
 
 * **Disable Page Tracking** : Disable tracking of page views for improved streamlined data while using with other analytics plugins.
 
-* **Google Analytics Debug View Support** : Google Analytics Debug View helps developers troubleshoot tracking issues by providing detailed real-time diagnostic information.
+* **Debug View Support** : Google Analytics Debug View helps developers troubleshoot tracking issues by providing detailed real-time diagnostic information.
 
 * **New Features and Enhancements** : New features and enhancements for improved functionality and performance.
 
@@ -81,19 +87,19 @@ We continuously maintain the plugin to ensure seamless WooCommerce and Google An
 
 Elivate your WooCommerce Website Performance With Us!
 
-<strong>Want to unlock more advanced tracking for your WooCommerce store? <a href="https://advancedwcanalytics.com/" rel="follow">Give a try to Best Google Analytics for WooCommerce by Advanced WC Analytics</a></strong>
+<strong>Want to unlock more advanced tracking for your WooCommerce store? <a href="https://advancedwcanalytics.com/" rel="follow">The Great Statistics Plugin for Your eStore by Advanced WC Analytics</a></strong>
 
 == Features of our <a href="https://advancedwcanalytics.com/" rel="follow">Advanced WooCommerce Analytics Pro version</a>: ==
 
-* **WooCommerce Products Perfomance Tracking** : Helps you tracks different events and impressions associated with WooCommerce products.
+* **Products Perfomance Tracking** : Helps you tracks different events and impressions associated with WooCommerce products.
 
-* **WooCommerce Checkout Performance** : Help you to track performance of your checkout process using differnt events.
+* **Checkout Performance** : Help you to track performance of your checkout process using differnt events.
 
-* **WooCommerce Cart Behaviour** : Tracks differnet events associated with cart to help user behaviour.
+* **Cart Behaviour** : Tracks differnet events associated with cart to help user behaviour.
 
 * **Acquisition Report** : Get Information about your traffic channels, resources and referrals from which your website receiving traffic.
 
-* **Behaviour Analysis** : With google user id tracking you can learn more about behaviour of users
+* **Behaviour Analysis** : With user id tracking you can learn more about behaviour of users
 
 * **Tech Reports** : Get details of different devices, browsers and screen resolutions your users using for accessing website.
 
@@ -121,7 +127,7 @@ Elivate your WooCommerce Website Performance With Us!
 
 * **Customization On Request** : If you require customize solution for your website we are open to provide you with reasonable extra costing and timeline.
 
-* **Google Analytics Enhanced Ecommerce Reports** : Our Pro Plugin will provide Enhanced Ecommerce reports for your WooCommerce Website which includes all following reports.
+* **Enhanced Ecommerce Reports** : Our Pro Plugin will provide Enhanced Ecommerce reports for your WooCommerce Website which includes all following reports.
 
 = Documentation =
 
@@ -139,23 +145,13 @@ For Plugin documentation, please refer our <a href="https://advancedwcanalytics.
 
 == Frequently Asked Questions ==
 
-= Why use Google Analytics vs WooCommerce native Analytics feature? =
-
-Native WooCommerce Analytics feature increase load on your server when constantly visiting that section. If you keep visiting more WooCommerce for Analyzing there will increase size of requests made to database and reduce performance of website.
-
-You also get very limited data from that reports and it is not helping much to find solutions for your WooCommerce business. It will not have some of crucial reports such like Checkout behavior, Shopping behavior, Acquisition Reports, Audience Reports and many more.
-
-Compare to that Google Analytics have more reports, faster servers and big databases which help you compare and analyzing data faster which leads to you more important and crucial data insights from your website.
-
-In addition to all, Google Analytics is the #1 analytics solution in the world.
-
 = Where can I find the setting for this plugin? =
 
 You can find plugin settings in main admin menu with name "Advanced WC Analytics". If you do not see it just scroll down or move to all plugins page.
 
 = Can I use this plugin with other Google Analytics Plugins ? =
 
-Other plugin is not tracking WooCommerce events then answer is yes But we do not recommend to do so, because our plugin provide all Google Analytics functionalities which require by your WooCommerce Website.
+Other plugin is not tracking WooCommerce events then answer is yes But we do not recommend to do so, because our plugin provide all Google Analytics Integration functionalities which require by your WooCommerce Website.
 
 In any case you still want just select option "Do not track pageviews" to avoid conflict with other plugin for tracking general information.
 
@@ -203,10 +199,6 @@ After finishing plugin configuration login to your Google Analytics account and 
 
 It mostly, But we are not providing 100% guarantee about this. We tests plugin with standard version of WooCommerce only and we not provide any free support for issue arise due to customized version of your any plugins.
 
-= Can I track Google Ads conversion using this plugin? =
-
-No, you need to upgrade your plan to Pro for availing this functionality.
-
 = Does this plugin provide Facebook(Meta) Pixel Tracking? =
 
 The free version of our plugin does provide Facebook(Meta) Pixel Tracking feature.
@@ -215,17 +207,20 @@ The free version of our plugin does provide Facebook(Meta) Pixel Tracking featur
 
 Most probably you will see data in an hour to various reports once plugin is activated but in some reports and cases it can take maximum up to a day.
 
-= Do you offer customization services for plugin? =
-
-Presently yes, you can contact us from our website.
-
 = Have any suggestion for us? =
 
 Please send you suggestion from Plugin website.
 
 == Changelog ==
+= 3.17.0 =
+* Updated security and other issues
+
+= 3.16.0 =
+* Upgraded to Latest Stable Freemius SDK
+* Performed Latest Secuity Check for code
+
 = 3.15.0 =
-* Added support for google consent v2
+* Added support for Google Consent V2
 * Fixing UI issue while saving plugin settings
 
 = 3.14.0 =

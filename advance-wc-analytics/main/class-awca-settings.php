@@ -15,40 +15,11 @@ class AWCA_Settings
 	public $awca_dash_stats_data_ga4_dash;
 	public $awca_report_request_ga4_dash;
 	public $awca_report_chart_data_ga4_dash;
-	/* Audience dashboard */
-	public $awca_dash_stats_data_ga4_audience;
-	public $awca_report_request_ga4_audience;
-	public $awca_report_chart_data_ga4_audience;
-	/* Acquisition dashboard */
-	public $awca_report_request_ga4_acquisition;
-	public $awca_report_chart_data_ga4_acquisition;
-	/* Behavior dashboard */
-	public $awca_report_request_ga4_behavior;
-	public $awca_report_chart_data_ga4_behavior;
-	/* WooCommerce dashboard */
-	public $awca_dash_stats_data_ga4_conversion;
-	public $awca_report_request_ga4_conversion;
-	public $awca_report_chart_data_ga4_conversion;
-	/* Performance */
-	public $awca_report_request_ga4_performance;
-	public $awca_report_chart_data_ga4_performance;
-	/* Journey */
-	public $awca_report_request_ga4_journey;
-	public $awca_report_chart_data_ga4_journey;
-	/* GoogleAds dashboard */
-	public $awca_dash_stats_data_ga4_googleAds;
-	public $awca_report_request_ga4_googleAds;
-	public $awca_report_chart_data_ga4_googleAds;
 	public $awca_dash_data_ga4_widget;
-	/* GoogleAdsense dashboard */
-	public $awca_dash_stats_data_ga4_googleAdsense;
-	public $awca_report_request_ga4_googleAdsense;
-	public $awca_report_chart_data_ga4_googleAdsense;
 	/* Genral Settings */
 	public $awca_tracking_settings;
 	public $awca_dash_settings;
 	public $awca_event_settings;
-	public $awca_dashboard_settings;
 	public $awca_auth_settings;
 	public $awca_advance_settings;
 	public $awca_event_hooks;
@@ -59,43 +30,6 @@ class AWCA_Settings
 	{
 		$this->fevicon_url = get_site_icon_url(75);
 		if (class_exists('WooCommerce')) {
-			/* WooCommerce Dashboard */
-			$this->awca_dash_stats_data_ga4_conversion = array(
-				'purchaseRevenue' => array('payments', 'Total Revenue', 'money', true, true),
-				'transactions' => array('receipt_long', 'Total Transctions', '', false, true),
-				'averagePurchaseRevenuePerUser' => array('alarm_on', 'Revenue/Active User', 'money', true, true),
-				'averagePurchaseRevenue' => array('receipt', 'Revenue/Transaction', 'money', true, true),
-				'purchaseToViewRate' => array('add_shopping_cart', 'Buy/DetailRate', '%', false, true),
-				'itemViews' => array('view_in_ar', 'Product Detail Views', '', false, true),
-				'firstTimePurchasers' => array('people_alt', 'New Buyers', '', false, true),
-				'sessionConversionRate:purchase' => array('add_shopping_cart', 'Session Conversion Rate', '100%', false, true),
-			);
-			$this->awca_report_request_ga4_conversion = array(
-				'stats' => array(),
-				'performance' => array('itemRevenue', 'itemName', 'itemRevenue'),
-				'sourceBaseRevenue' => array('totalRevenue', 'sessionSource', 'totalRevenue'),
-				'deviceBaseRevenue' => array('totalRevenue', 'deviceCategory', 'totalRevenue'),
-				'regionBaseRevenue' => array('totalRevenue', 'region', 'totalRevenue'),
-			);
-			$this->awca_report_chart_data_ga4_conversion = array(
-				'stats' => array(),
-				'performance' => array('table', 'Product Base Revenue Report', 'Product Name', 'Product Revenue', 'Product Revenue', 'This Report help you to find most perfoming products of your WooCommerce Shop by ordering different product based on revenue generation during the specified period.'),
-				'sourceBaseRevenue' => array('table', 'Source Base Revenue Report', 'Traffic Source/Medium', 'Total Revenue', 'This report shows which traffic sources generated better revenues by ordering different traffic sources to revenue generated during specified period.'),
-				'deviceBaseRevenue' => array('doughnut', 'Device base conversion share', '', '', 'This report shows Device category breakdown with revenue each different devices category generated over the period of time.'),
-				'regionBaseRevenue' => array('bar', 'State/Region Base Revenue Report', 'State/Region Name', 'Total Revenue', 'This report shows which state/region contributed most in total revenue generation by putting them in order based on revenue for specified period of time.'),
-			);
-			$this->awca_report_request_ga4_performance = array(
-				'overallProductPerformance' => array(array('itemRevenue', 'itemsViewed', 'itemsAddedToCart', 'itemsPurchased'), 'itemName', 'itemRevenue'),
-			);
-			$this->awca_report_chart_data_ga4_performance = array(
-				'overallProductPerformance' => array('large_table', 'Product Performance Report', 'Product Name', array('Product Revenue', 'Product Viewed', 'Product Added to Cart', 'Product Purchased'), 'Product Revenue', 'This Report help you to find most perfoming products of your WooCommerce Shop during the specified period.'),
-			);
-			$this->awca_report_request_ga4_journey = array(
-				'purchaseJourney' => array(array('itemViews', 'addToCarts', 'checkouts', 'ecommercePurchases'), 'deviceCategory', 'ecommercePurchases'),
-			);
-			$this->awca_report_chart_data_ga4_journey = array(
-				'purchaseJourney' => array('funnel', 'Purchase Journey Report', 'Devive Category', array('Products Views', 'Products Added to Cart', 'Products Reached Checkout', 'Products Purchased'), 'Products Views', 'This report shows Products Purchase Journey with Device Category Information and it\'s comparison for previous specified period.'),
-			);
 			/* Tracking Settings */
 			$this->awca_tracking_settings = array(
 				'track_admin' => true,
@@ -108,17 +42,6 @@ class AWCA_Settings
 				'track_interest' => false,
 				'not_track_user_id' => true,
 				'track_ga_consent' => false,
-			);
-			/* dash Settings */
-			$this->awca_dashboard_settings = array(
-				'audience' => true,
-				'acquisition' => true,
-				'behavior' => true,
-				'conversion' => true,
-				'journey' => true,
-				'performance' => true,
-				'googleAds' => true,
-				'googleAdsense' => true,
 			);
 			/* Event Tracking Settings */
 			$this->awca_event_settings = array(
@@ -208,13 +131,6 @@ class AWCA_Settings
 				'commented' => true,
 				'log_error' => true,
 			);
-			$this->awca_dashboard_settings = array(
-				'audience' => true,
-				'acquisition' => true,
-				'behavior' => true,
-				'googleAds' => true,
-				'googleAdsense' => true,
-			);
 			/* Hooks Associated with events */
 			$this->awca_event_hooks = array(
 				'user_login' => array(2, 'wp_login'),
@@ -260,117 +176,6 @@ class AWCA_Settings
 			'deviceViseVisitors' => array('doughnut', 'Device Based Users Report', '', '', 'This report categories users based of their device category for specific period of time.'),
 			//'cityViseVisitors' => array('bar','City Based Users Report','City','No. of Users','This report helps you understand from which city your website received maximum users for specific period of time.'),
 		);
-		/* Audience Dashboard */
-		$this->awca_dash_stats_data_ga4_audience = array(
-			'totalUsers' => array('people_alt', 'Users', '', false, true),
-			'newUsers' => array('group_add', 'New Users', '', false, true),
-			'sessions' => array('hourglass_bottom', 'Total Sessions', '', false, true),
-			'sessionsPerUser' => array('timelapse', 'Sessions/User', '', false, true),
-			'screenPageViews' => array('pageview', 'Pageviews', '', false, true),
-			'averageSessionDuration' => array('timer', 'Avg. Session Duration', 's', false, true),
-			'engagementRate' => array('timeline', 'Engagement Rate', '', false, true),
-			'screenPageViewsPerUser' => array('find_in_page', 'Pageviews/User', '', false, true),
-		);
-		$this->awca_report_request_ga4_audience = array(
-			'stats' => array(),
-			'dateViseVisitors' => array(array('totalUsers', 'newUsers'), 'date', 'date'),
-			'countryViseVisitors' => array('totalUsers', 'country', 'totalUsers'),
-			'languageViseVisitors' => array('totalUsers', 'language', 'totalUsers'),
-			'deviceViseVisitors' => array('totalUsers', 'deviceCategory', 'totalUsers'),
-			//'cityViseVisitors' => array('totalUsers','city','totalUsers'),
-		);
-		$this->awca_report_chart_data_ga4_audience = array(
-			'stats' => array(),
-			'dateViseVisitors' => array('line', 'Overview Report', 'Date', array('Users', 'New Users'), 'This report shows no. of users and from howmany were new users visited website for specific date over the period of time.'),
-			'countryViseVisitors' => array('table', 'Country Based Users Report', 'Country', array('No. of Users'), 'This reports categories users to different countries based on their location for specific period of time. '),
-			'languageViseVisitors' => array('table', 'Language Based Users Report', 'Language', array('No. of Users'), 'This reports categories users based on their browser language for specific period of time.'),
-			'deviceViseVisitors' => array('doughnut', 'Device Based Users Report', '', '', 'This report categories users based of their device category for specific period of time.'),
-			//'cityViseVisitors' => array('bar','City Based Users Report','City','No. of Users'),
-		);
-		/* Acquisition Dashboard */
-		$this->awca_report_request_ga4_acquisition = array(
-			'channelsReport' => array('activeUsers', 'sessionDefaultChannelGrouping', 'activeUsers'),
-			'sourceReport' => array('activeUsers', 'sessionSource', 'activeUsers'),
-			'referralsReport' => array('activeUsers', 'screenResolution', 'activeUsers'),
-			//'campaignReport' =>array('users','campaign','users'),
-			'mediumReport' => array('activeUsers', 'sessionMedium', 'activeUsers'),
-			//'organicSearchReport' => array('organicSearches','sourceMedium','organicSearches'),
-		);
-		$this->awca_report_chart_data_ga4_acquisition = array(
-			'channelsReport' => array('table', 'Users Based on Channels', 'Channels', 'No. of Users', 'This report shows analysis about which channel contributed most traffic for website for specified period of time.'),
-			'sourceReport' => array('table', 'Users Based on Source', 'Source', 'No. of Users', 'This report classify users based on source/medium by using users reached website for specific period of time.'),
-			'screenSizeReport' => array('table', 'Users Based on Screen Sizes', 'Screen Resolution', 'No. of Users', 'This report classify different screen sizes users were using for browsing website over period of time.'),
-			//'campaignReport' =>array('bar','Users Based on Campaigns','Campaigns Name','No. of Users'),
-			'mediumReport' => array('table', 'Users Based on Medium', 'Medium', 'No. of Users', 'This report classify users based on medium by using users reached website for specific period of time.'),
-			//'organicSearchReport' => array('bar','Organic Search Report','Organic Source','No. of Users'),
-		);
-		/* Behavior Dashboard */
-		$this->awca_report_request_ga4_behavior = array(
-			'topPageReport' => array('totalUsers', 'pageTitle', 'totalUsers'),
-			'timeOnPageReport' => array('userEngagementDuration', 'pageTitle', 'userEngagementDuration'),
-			'usersAgeGroup' => array('totalUsers', 'userAgeBracket', 'totalUsers'),
-			//'campaignReport' =>array('users','campaign','users'),
-			'genderReport' => array('totalUsers', 'userGender', 'totalUsers'),
-			'osReport' => array('totalUsers', 'operatingSystem', 'totalUsers'),
-		);
-		$this->awca_report_chart_data_ga4_behavior = array(
-			'topPageReport' => array('table', 'Page Performance Report', 'Page Title', 'No. of Users', 'This report shows which pages have maxium visitors over the period of time.'),
-			'timeOnPageReport' => array('table', 'Avg. Time Spend of Page', 'Page Title', 'Time on Page(sec.)', 'The total amount of time (in seconds) your website page was in the foreground of users\' devices for specified time period.'),
-			'usersAgeGroup' => array('bar', 'Users based on Age-Group', 'Age Group', 'No. of Users', 'This is devision of traffic based on age groups over the period of time.'),
-			//'campaignReport' =>array('bar','Users Based on Campaigns','Campaigns Name','No. of Users'),
-			'genderReport' => array('doughnut', 'Gender Based User Report', '', '', 'Gender based division of Traffic over the period of time.'),
-			'osReport' => array('bar', 'Operating System Report', 'Operating Report', 'No. of Users', 'Operating Report', 'No. of Users', 'This report shows highly used operating system by website users for specified period of time.'),
-		);
-		/* GoogleAds Dashboard */
-		$this->awca_dash_stats_data_ga4_googleAds = array(
-			//'impressions'=>array('featured_video','Total Ads impressions','',false),
-			'advertiserAdClicks' => array('ads_click', 'Total Ad Clicks', '', false, true),
-			'advertiserAdCost' => array('payments', 'Ad Cost', '$', true, false),
-			//'CPM'=>array('1k','Cost/ 1k impressions','money',true),
-			'advertiserAdCostPerClick' => array('ads_click', 'Cost/Click', 'money', true, false),
-			//'CTR'=>array('mouse','Click Throughrate','%',false),
-			//'costPerTransaction'=>array('add_shopping_cart','Cost Per Transaction','money',true),
-			//'ROAS'=>array('restart_alt','Return on Ad Spend','%',false),
-		);
-		$this->awca_report_request_ga4_googleAds = array(
-			//'stats'=>array(),
-			'adCampaignCostReport' => array('advertiserAdCost', 'googleAdsAdGroupName', 'advertiserAdCost'),
-			'adCampaignSuccessReport' => array('totalUsers', 'googleAdsAdGroupName', 'totalUsers'),
-			'searchQuerySuccessReport' => array('totalUsers', 'sessionGoogleAdsQuery', 'totalUsers'),
-			'adDistributionNetworkPerformanceReport' => array('totalUsers', 'firstUserGoogleAdsAdNetworkType', 'totalUsers'),
-			//'adSlotPerformanceReport' => array('adClicks','adSlot','adClicks'),
-		);
-		$this->awca_report_chart_data_ga4_googleAds = array(
-			//'stats'=>array(),
-			'adCampaignCostReport' => array('bar', 'Ad Group Cost Report', 'Ad Group', 'Advertiser Ad Cost', 'This reports shows ad costing based different Ad groups over the period of time.'),
-			'adCampaignSuccessReport' => array('bar', 'Ad Group Success Report', 'Ad Group', 'Total Users', 'This reports shows contribution of Ad Groups for generating website traffic for specified period of time.'),
-			'searchQuerySuccessReport' => array('bar', 'Ad Search Query Reports', 'Search Query', 'Total Users', 'This report shows which search query triggered maxium ad clicks for specified period of time.'),
-			'adDistributionNetworkPerformanceReport' => array('bar', 'Ad Distribution Network Performance Report(Ad Clicks)', 'Ad Network Type', 'Total Users', 'This reports shows ad clicks based on different ad slots for specific period of time.'),
-			//'adSlotPerformanceReport' => array('bar','Ad Slot Report','Ad Slot','Ad Clicks'),
-		);
-		/* Google Adsense Dashboard */
-		$this->awca_dash_stats_data_ga4_googleAdsense = array(
-			'totalAdRevenue' => array('payments', 'Adsense Revenue', '$', true, true),
-			'publisherAdImpressions' => array('featured_video', 'Ads Viewed', '', false, true),
-			'publisherAdClicks' => array('ads_click', 'Ad Clicks', '', false, true),
-			//'adsensePageImpressions'=>array('page','Ad Page Impressions','',false),
-			//'adsenseECPM'=>array('1k','Revenue/1k Ad impressions','money',true),
-			//'adsenseCTR'=>array('mouse','Click Throughrate','%',false),
-			//'adsenseViewableImpressionPercent'=>array('view','Viewable Impression','%',false),
-			//'adsenseCoverage'=>array('ad','Atlest One Ad Visible','%',false),
-		);
-		$this->awca_report_request_ga4_googleAdsense = array(
-			'stats' => array(),
-			'adsenseRevenuePagePeformance' => array('totalAdRevenue', 'pageTitle', 'totalAdRevenue'),
-			'adsenseAdsClicksPagePerformance' => array('publisherAdClicks', 'pageTitle', 'publisherAdClicks'),
-			//'adsenseAdsenseECPMPagePerformance' => array('adsenseECPM','pageTitle','adsenseECPM'),
-		);
-		$this->awca_report_chart_data_ga4_googleAdsense = array(
-			'stats' => array(),
-			'adsenseRevenuePagePeformance' => array('table', 'Adsense Revenue Based on PageTitle', 'Page Title', 'Adsense Revenue', 'This reports shows adsense revenue based on page for specified period of time.'),
-			'adsenseAdsClicksPagePerformance' => array('table', 'Ad Clicks Based on PageTitle', 'Page Title', 'Ad Clicks', 'This report shows which page received maximum ad clicks over the period of time.'),
-			//'adsenseAdsenseECPMPagePerformance' => array('bar','Revenue/1k Ad Impressions Based On PageTitle','Page Title','Revenue/ 1k Ad Impressions'),
-		);
 		/* Dashboard settings */
 		$this->awca_dash_settings = array(
 			'report_view' => '',
@@ -399,22 +204,22 @@ class AWCA_Settings
 		);
 		/* awca features list */
 		$this->awca_features_list = array(
-			'0' => array('Easy To Connect', 'Plugin offfers very easy connection with your google analytics.', false),
-			'1' => array('Light Weight', 'Light weight plugin does effect performance of website performace.', false),
-			'2' => array('Regular Updates', 'We offer regular updates to plugin so connection with your google analytics always works', false),
-			'3' => array('User ID Tracking', 'It helps to understand user behaviour on website and tracking events associated with it.', false),
-			'4' => array('Enhanced Link Attribution', 'Improves the accuracy of your In-Page Analytics report by automatically differentiating between multiple links.', false),
-			'5' => array('IP Anonymization', 'Anonymize the ip address of user to avoid any collection of ip with other analytics data.', false),
-			'6' => array('Ads Conversion Tracking', 'Plugin help you to track Google Ads Conversions with easy integration.', false),
-			'7' => array('FB Pixel Integration', 'Plugin also help in tracking differnt events and converstion for FB Pixel', false),
-			'8' => array('Audience Reports', 'Audience Reports allows you to identify characteristics of your users such like location, language, devices used by them, browser details and others important information.', true),
-			'9' => array('Behavior Report', 'Behavior reports of Google Analytics allows you to understand what users do on your website. Specifically reports tells you what pages people visit and what actions they take while visiting.', true),
-			'10' => array('WooCommerce Report Pro', 'Advanced reports help you to understand how your WooCommerce Store performing and what needs to improve to perform it more better.', true),
-			'11' => array('Acquisition Report', 'Get Information about your traffic channels, resources and referrals from which your website receiving traffic.', true),
-			'12' => array('Google Ads Report', 'Get performance and engagements of Google Ads campaigns and other useful information which help you to choose better strategies for success using ads.', true),
-			'13' => array('Google Adsense Report', 'Find out which content is generating more revenue using google adsense and other realted information which helps you find better content placement strategies for higher revenue growth.', true),
-			'14' => array('Tech Reports', 'Get details of different devices, browsers and screen resolutions your users using for accessing website.', true),
-			'15' => array('User Behaviour Analysis', 'Track different events and Interactions of users live in real-time reports', true),
+			'0' => array('Easy To Connect', 'Plugin offfers very easy connection with your google analytics.', false, 'link'),
+			'1' => array('Light Weight', 'Light weight plugin does effect performance of website performace.', false, 'feather'),
+			'2' => array('Regular Updates', 'We offer regular updates to plugin so connection with your google analytics always works', false, 'changes'),
+			'3' => array('User ID Tracking', 'It helps to understand user behaviour on website and tracking events associated with it.', false, 'id-card'),
+			'4' => array('Enhanced Link Attribution', 'Improves the accuracy of your In-Page Analytics report by automatically differentiating between multiple links.', false, 'external-link'),
+			'5' => array('IP Anonymization', 'Anonymize the ip address of user to avoid any collection of ip with other analytics data.', false, 'incognito-mode'),
+			'6' => array('Ads Conversion Tracking', 'Plugin help you to track Google Ads Conversions with easy integration.', false, 'pay-per-click'),
+			'7' => array('FB Pixel Integration', 'Plugin also help in tracking differnt events and converstion for FB Pixel', false, 'meta'),
+			'8' => array('Audience Reports', 'Audience Reports allows you to identify characteristics of your users such like location, language, devices used by them, browser details and others important information.', true, 'customer'),
+			'9' => array('Behavior Report', 'Behavior reports of Google Analytics allows you to understand what users do on your website. Specifically reports tells you what pages people visit and what actions they take while visiting.', true, 'mind'),
+			'10' => array('WooCommerce Report Pro', 'Advanced reports help you to understand how your WooCommerce Store performing and what needs to improve to perform it more better.', true, 'ecommerce-growth'),
+			'11' => array('Acquisition Report', 'Get Information about your traffic channels, resources and referrals from which your website receiving traffic.', true, 'customer-acquisition'),
+			'12' => array('Google Ads Report', 'Get performance and engagements of Google Ads campaigns and other useful information which help you to choose better strategies for success using ads.', true, 'adwords'),
+			'13' => array('Google Adsense Report', 'Find out which content is generating more revenue using google adsense and other realted information which helps you find better content placement strategies for higher revenue growth.', true, 'adsense'),
+			'14' => array('Tech Reports', 'Get details of different devices, browsers and screen resolutions your users using for accessing website.', true, 'devices'),
+			'15' => array('Purchase Journey Report ', 'The Purchase Journey Report tracks customer behavior from product discovery to final purchase.', true, 'checklist'),
 		);
 		/* awca custom dimensions list */
 		$this->awca_custom_dimensions = array(
@@ -528,31 +333,6 @@ class AWCA_Settings
 			'report_from' => '',
 			'report_to' => '',
 		);
-		return $defaults;
-	}
-	public function init_awca_dashboard_defaults()
-	{
-		if (class_exists('WooCommerce')) {
-			$defaults = array(
-				'audience' => true,
-				'acquisition' => true,
-				'behavior' => true,
-				'conversion' => true,
-				'journey' => true,
-				'performance' => true,
-				'googleAds' => true,
-				'googleAdsense' => true,
-			);
-		} else {
-			$defaults = array(
-				'audience' => true,
-				'acquisition' => true,
-				'behavior' => true,
-				'googleAds' => true,
-				'googleAdsense' => true,
-			);
-
-		}
 		return $defaults;
 	}
 

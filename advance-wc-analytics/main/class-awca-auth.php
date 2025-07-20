@@ -9,7 +9,7 @@ if (!defined('ABSPATH')) {
 class AWCA_Auth
 {
 	/* initiating variables */
-	const PROXY_URL = 'https://google.woocommerceanalytics.com/';
+	const PROXY_URL = 'https://google.advancedwcanalytics.com/';
 	private $management_api;
 	private $report_api;
 	private static $instance = null;
@@ -144,19 +144,19 @@ class AWCA_Auth
 		} else {
 			$button_url = admin_url('admin.php?page=awca_pro_plugin_options');
 		}
-		?>
+?>
 		<div class="awca-row valign-wrapper">
 			<div class="awca-col s4">
 				<img class="responsive-img small-plugin-image" src="<?php echo AWCA_URL . 'assests/images/AWCA.png'; ?>">
 			</div>
 			<div class="awca-col s8">
-				<p><?php _e('You\'re almost there! Once you complete AWCA setup you start receiving different facts and reports from
-					Google Analytics for Website Here.', 'awca-text'); ?> </p>
+				<p><?php esc_html_e('You\'re almost there! Once you complete AWCA setup you start receiving different facts and reports from
+					Google Analytics for Website Here.', 'advance-wc-analytics'); ?> </p>
 				<a href="<?php echo $button_url; ?>"
-					class="button button-primary"><?php _e('Complete Setup', 'awca-text'); ?></a>
+					class="button button-primary"><?php _e('Complete Setup', 'advance-wc-analytics'); ?></a>
 			</div>
 		</div>
-		<?php
+	<?php
 	}
 	/* Getting  Measurement Secret Key for GA4 Property */
 	public function awca_get_mesurement_key()
@@ -468,7 +468,7 @@ class AWCA_Auth
 	/* publishing simple table */
 	public function publish_simple_table($location, $title, $xtitle, $ytitle, $chart_data, $description)
 	{
-		?>
+	?>
 		<div class="awca-box">
 			<p class="awca-box-title">
 				<?php echo $title; ?>
@@ -528,7 +528,7 @@ class AWCA_Auth
 				</table>
 			</div>
 		</div>
-		<?php
+	<?php
 	}
 	/*publishing compare data for device category */
 	public function publish_compare_stats($data1, $data2)
@@ -578,7 +578,7 @@ class AWCA_Auth
 			$len = (int) count($labels);
 			$labels = array_slice($labels, $len / 2);
 		}
-		?>
+	?>
 		<div class="awca-box">
 			<p class="awca-box-title">
 				<?php echo $title; ?>
@@ -599,10 +599,10 @@ class AWCA_Auth
 				},
 				data: {
 					labels: <?php if (!empty($labels) && is_array($labels)) {
-						echo json_encode($labels);
-					} else {
-						echo '[]';
-					} ?>,
+								echo json_encode($labels);
+							} else {
+								echo '[]';
+							} ?>,
 					<?php
 					if (!empty($data)) {
 						if (count($data) == count($data, COUNT_RECURSIVE)) {
@@ -610,48 +610,45 @@ class AWCA_Auth
 								$len2 = (int) count($data);
 								$data = array_slice($data, $len2 / 2);
 							} ?>
-																															datasets: [{
+							datasets: [{
 								label: '<?php echo $ytitle; ?>',
 								data: <?php echo json_encode($data); ?>,
 								borderWidth: 1
 							}]
-																								<?php } else {
+							<?php } else {
 							echo 'datasets: [';
 							$j = 0;
 							foreach ($data as $key => $array) {
 								if ($title == 'Total Users on Date') {
 									$len2 = (int) count($array);
 									$array = array_slice($array, $len2 / 2);
-								} ?>
-																																{
-								label: '<?php echo is_array($ytitle) ? $ytitle[$j] : $ytitle; ?>',
-								data: <?php echo json_encode($array); ?>,
-								borderWidth: 2
-							},
-							<?php $j++;
+								} ?> {
+									label: '<?php echo is_array($ytitle) ? $ytitle[$j] : $ytitle; ?>',
+									data: <?php echo json_encode($array); ?>,
+									borderWidth: 2
+								},
+						<?php $j++;
 							}
 							echo '],';
 						}
 					} else { ?>
-																								datasets: [
-					{
-						label: '<?php echo $ytitle; ?>',
-						data: [],
-						borderWidth: 2
-					},
-				],
-				<?php } ?>	
-																				},
+						datasets: [{
+							label: '<?php echo $ytitle; ?>',
+							data: [],
+							borderWidth: 2
+						}, ],
+					<?php } ?>
+				},
 				options: {
-				scales: {
-					y: {
-						beginAtZero: true
+					scales: {
+						y: {
+							beginAtZero: true
+						}
 					}
 				}
-			}
-																			});
+			});
 		</script>
-		<?php
+	<?php
 	}
 	/* publishing simple line chart */
 	public function publish_simple_line_chart($location, $title, $xtitle, $ytitle, $chart_data, $description)
@@ -680,7 +677,7 @@ class AWCA_Auth
 			$len = (int) count($labels);
 			$labels = array_slice($labels, $len / 2);
 		}
-		?>
+	?>
 		<div class="awca-box">
 			<p class="awca-box-title">
 				<?php echo $title; ?>
@@ -701,10 +698,10 @@ class AWCA_Auth
 				},
 				data: {
 					labels: <?php if (!empty($labels) && is_array($labels)) {
-						echo json_encode($labels);
-					} else {
-						echo '[]';
-					} ?>,
+								echo json_encode($labels);
+							} else {
+								echo '[]';
+							} ?>,
 					<?php
 					if (!empty($data)) {
 						if (count($data) == count($data, COUNT_RECURSIVE)) {
@@ -712,49 +709,46 @@ class AWCA_Auth
 								$len2 = (int) count($data);
 								$data = array_slice($data, $len2 / 2);
 							} ?>
-																															datasets: [{
+							datasets: [{
 								label: '<?php echo $ytitle; ?>',
 								data: <?php echo json_encode($data); ?>,
 								borderWidth: 1
 							}]
-																								<?php } else {
+							<?php } else {
 							echo 'datasets: [';
 							$j = 0;
 							foreach ($data as $key => $array) {
 								if ($title == 'Total Users on Date') {
 									$len2 = (int) count($array);
 									$array = array_slice($array, $len2 / 2);
-								} ?>
-																																{
-								label: '<?php echo $ytitle[$j]; ?>',
-								data: <?php echo json_encode($array); ?>,
-								borderWidth: 2
-							},
-							<?php $j++;
+								} ?> {
+									label: '<?php echo $ytitle[$j]; ?>',
+									data: <?php echo json_encode($array); ?>,
+									borderWidth: 2
+								},
+						<?php $j++;
 							}
 							echo '],';
 						}
 					} else {
 						$j = 0; ?>
-																								datasets: [
-					{
-						label: '<?php echo is_array($ytitle) ? $ytitle[$j] : $ytitle; ?>',
-						data: [],
-						borderWidth: 2
-					},
-				],
-				<?php } ?>	
-																				},
+						datasets: [{
+							label: '<?php echo is_array($ytitle) ? $ytitle[$j] : $ytitle; ?>',
+							data: [],
+							borderWidth: 2
+						}, ],
+					<?php } ?>
+				},
 				options: {
-				scales: {
-					y: {
-						beginAtZero: true
+					scales: {
+						y: {
+							beginAtZero: true
+						}
 					}
 				}
-			}
-																			});
+			});
 		</script>
-		<?php
+	<?php
 	}
 	/* publish simple pie chart */
 	public function publish_simple_doughnut_chart($location, $title, $chart_data, $description)
@@ -796,14 +790,14 @@ class AWCA_Auth
 				},
 				data: {
 					labels: <?php if (!empty($labels) && is_array($labels)) {
-						echo json_encode($labels);
-					} else {
-						echo '[]';
-					} ?>,
+								echo json_encode($labels);
+							} else {
+								echo '[]';
+							} ?>,
 					<?php
 					if (!empty($data)) {
 						if (count($data) == count($data, COUNT_RECURSIVE)) { ?>
-																																			datasets: [{
+							datasets: [{
 								data: <?php echo json_encode($data); ?>,
 								backgroundColor: [
 									'rgb(255, 99, 132)',
@@ -812,40 +806,37 @@ class AWCA_Auth
 								],
 								hoverOffset: 4
 							}]
-																											<?php } else {
+							<?php } else {
 							echo 'datasets: [';
 							$j = 0;
-							foreach ($data as $key => $array) { ?>
-																																													{
-								data: <?php echo json_encode($array); ?>,
-								backgroundColor: [
-									'rgb(255, 99, 132)',
-									'rgb(54, 162, 235)',
-									'rgb(255, 205, 86)'
-								],
-								hoverOffset: 4
-							},
-							<?php $j++;
+							foreach ($data as $key => $array) { ?> {
+									data: <?php echo json_encode($array); ?>,
+									backgroundColor: [
+										'rgb(255, 99, 132)',
+										'rgb(54, 162, 235)',
+										'rgb(255, 205, 86)'
+									],
+									hoverOffset: 4
+								},
+						<?php $j++;
 							}
 							echo '],';
 						}
 					} else { ?>
-																							datasets: [
-					{
-						data: [],
-						backgroundColor: [
-							'rgb(255, 99, 132)',
-							'rgb(54, 162, 235)',
-							'rgb(255, 205, 86)'
-						],
-						hoverOffset: 4
-					},
-				],
-				<?php } ?>	 
-																				},
-																			});
+						datasets: [{
+							data: [],
+							backgroundColor: [
+								'rgb(255, 99, 132)',
+								'rgb(54, 162, 235)',
+								'rgb(255, 205, 86)'
+							],
+							hoverOffset: 4
+						}, ],
+					<?php } ?>
+				},
+			});
 		</script>
-		<?php
+	<?php
 	}
 
 	public function publish_simple_funnel_chart($location, $title, $xtitle, $ytitle, $chart_data, $description)
@@ -867,7 +858,7 @@ class AWCA_Auth
 				$j++;
 			}
 		}
-		?>
+	?>
 		<div class="awca-box">
 			<p class="awca-box-title tooltipped" onclick="alert('this is new');" data-position="bottom"
 				data-tooltip="I am a tooltip">
@@ -886,17 +877,17 @@ class AWCA_Auth
 				type: 'bar', // Using 'bar' to simulate funnel chart
 				data: {
 					labels: <?php if (!empty($ytitle) && is_array($ytitle)) {
-						echo json_encode($ytitle);
-					} else {
-						echo '[]';
-					} ?>,
+								echo json_encode($ytitle);
+							} else {
+								echo '[]';
+							} ?>,
 					datasets: [{
 						label: 'Funnel Report',
 						data: <?php if (!empty($data) && is_array($data)) {
-							echo json_encode($data);
-						} else {
-							echo '[]';
-						} ?>, // Decreasing values to represent the funnel effect
+									echo json_encode($data);
+								} else {
+									echo '[]';
+								} ?>, // Decreasing values to represent the funnel effect
 						backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0'],
 					}]
 				},
@@ -934,18 +925,18 @@ class AWCA_Auth
 						<div class="awca-col s12">
 							<div class="input-field awca-col m6 s12">
 								<h6>
-									<?php _e('General Tracking settings', 'awca-text'); ?>
+									<?php esc_html_e('General Tracking settings', 'advance-wc-analytics'); ?>
 								</h6>
 								<p>
 									<label>
 										<input type="checkbox" name="awca_track_settings[track_admin]"
 											id="awca_track_settings[track_admin]" value="yes" <?php checked(isset($awca_track_settings['track_admin']) && $awca_track_settings['track_admin']); ?> />
 										<span>
-											<?php _e('Track Admins?', 'awca-text'); ?>
+											<?php _e('Track Admins?', 'advance-wc-analytics'); ?>
 										</span>
 									</label>
 									<span class="helper-text" data-error="wrong" data-success="right">
-										<?php _e('Track Admin activity on Website.', 'awca-text'); ?>
+										<?php _e('Track Admin activity on Website.', 'advance-wc-analytics'); ?>
 									</span>
 								</p>
 								<p>
@@ -953,11 +944,11 @@ class AWCA_Auth
 										<input type="checkbox" name="awca_track_settings[not_track_pageviews]"
 											id="awca_track_settings[not_track_pageviews]" value="yes" <?php checked(isset($awca_track_settings['not_track_pageviews']) && $awca_track_settings['not_track_pageviews']); ?> />
 										<span>
-											<?php _e('Do not Track Pageviews', 'awca-text'); ?>
+											<?php _e('Do not Track Pageviews', 'advance-wc-analytics'); ?>
 										</span>
 									</label>
 									<span class="helper-text" data-error="wrong" data-success="right">
-										<?php _e('Stop tracking basic pageviews for website.', 'awca-text'); ?>
+										<?php _e('Stop tracking basic pageviews for website.', 'advance-wc-analytics'); ?>
 									</span>
 								</p>
 								<p>
@@ -965,11 +956,11 @@ class AWCA_Auth
 										<input type="checkbox" name="awca_track_settings[enhanced_link_attribution]"
 											id="awca_track_settings[enhanced_link_attribution]" value="yes" <?php checked(isset($awca_track_settings['enhanced_link_attribution']) && $awca_track_settings['enhanced_link_attribution']); ?> />
 										<span>
-											<?php _e('Use Enhanced Link Attribution', 'awca-text'); ?>
+											<?php _e('Use Enhanced Link Attribution', 'advance-wc-analytics'); ?>
 										</span>
 									</label>
 									<span class="helper-text" data-error="wrong" data-success="right">
-										<?php _e('Differenciating Links user interacted using enhanced link attribution.', 'awca-text'); ?>
+										<?php _e('Differenciating Links user interacted using enhanced link attribution.', 'advance-wc-analytics'); ?>
 									</span>
 								</p>
 							</div>
@@ -977,18 +968,18 @@ class AWCA_Auth
 								<?php
 								if (class_exists('WooCommerce')) { ?>
 									<h6>
-										<?php _e('WooCommerce Settings', 'awca-text'); ?>
+										<?php _e('WooCommerce Settings', 'advance-wc-analytics'); ?>
 									</h6>
 									<p>
 										<label>
 											<input type="checkbox" name="awca_track_settings[product_single_track]"
 												id="awca_track_settings[product_single_track]" value="yes" <?php checked(isset($awca_track_settings['product_single_track']) && $awca_track_settings['product_single_track']); ?> />
 											<span>
-												<?php _e('On Single Product Pages', 'awca-text'); ?>
+												<?php _e('On Single Product Pages', 'advance-wc-analytics'); ?>
 											</span>
 										</label>
 										<span class="helper-text" data-error="wrong" data-success="right">
-											<?php _e('Tracking product impressions on Single Product pages.', 'awca-text'); ?>
+											<?php _e('Tracking product impressions on Single Product pages.', 'advance-wc-analytics'); ?>
 										</span>
 									</p>
 									<p>
@@ -996,11 +987,11 @@ class AWCA_Auth
 											<input type="checkbox" name="awca_track_settings[product_archive_track]"
 												id="awca_track_settings[product_archive_track]" value="yes" <?php checked(isset($awca_track_settings['product_archive_track']) && $awca_track_settings['product_archive_track']); ?> />
 											<span>
-												<?php _e('On Archive Pages', 'awca-text'); ?>
+												<?php _e('On Archive Pages', 'advance-wc-analytics'); ?>
 											</span>
 										</label>
 										<span class="helper-text" data-error="wrong" data-success="right">
-											<?php _e('Tracking product impressions on Archive pages.', 'awca-text'); ?>
+											<?php _e('Tracking product impressions on Archive pages.', 'advance-wc-analytics'); ?>
 										</span>
 									</p>
 									<p>
@@ -1008,14 +999,14 @@ class AWCA_Auth
 											<input type="checkbox" name="awca_track_settings[disable_on_hold_conversion]"
 												id="awca_track_settings[disable_on_hold_conversion]" value="yes" <?php checked(isset($awca_track_settings['disable_on_hold_conversion']) && $awca_track_settings['disable_on_hold_conversion']); ?> />
 											<span>
-												<?php _e('Disable On Hold Transctions as Conversions', 'awca-text'); ?>
+												<?php _e('Disable On Hold Transctions as Conversions', 'advance-wc-analytics'); ?>
 											</span>
 										</label>
 										<span class="helper-text" data-error="wrong" data-success="right">
-											<?php _e('It will not consider on-hold transcations as conversions.', 'awca-text'); ?>
+											<?php _e('It will not consider on-hold transcations as conversions.', 'advance-wc-analytics'); ?>
 										</span>
 									</p>
-									<?php
+								<?php
 								} ?>
 							</div>
 						</div>
@@ -1028,11 +1019,11 @@ class AWCA_Auth
 									<input type="checkbox" name="awca_track_settings[anonymize_ip]"
 										id="awca_track_settings[anonymize_ip]" value="yes" <?php checked(isset($awca_track_settings['anonymize_ip']) && $awca_track_settings['anonymize_ip']); ?> />
 									<span>
-										<?php _e('Anonymize IP addresses', 'awca-text'); ?>
+										<?php _e('Anonymize IP addresses', 'advance-wc-analytics'); ?>
 									</span>
 								</label>
 								<span class="helper-text" data-error="wrong" data-success="right">
-									<?php _e('Anonymizes the ip address of website users.', 'awca-text'); ?>
+									<?php _e('Anonymizes the ip address of website users.', 'advance-wc-analytics'); ?>
 								</span>
 							</p>
 							<p>
@@ -1040,11 +1031,11 @@ class AWCA_Auth
 									<input type="checkbox" name="awca_track_settings[track_interest]"
 										id="awca_track_settings[track_interest]" value="yes" <?php checked(isset($awca_track_settings['track_interest']) && $awca_track_settings['track_interest']); ?> />
 									<span>
-										<?php _e('Disable Demographics and Interest for Ads Remarketing', 'awca-text'); ?>
+										<?php _e('Disable Demographics and Interest for Ads Remarketing', 'advance-wc-analytics'); ?>
 									</span>
 								</label>
 								<span class="helper-text" data-error="wrong" data-success="right">
-									<?php _e('Disable tracking User and associated activity on bases of interest and demography', 'awca-text'); ?>
+									<?php _e('Disable tracking User and associated activity on bases of interest and demography', 'advance-wc-analytics'); ?>
 								</span>
 							</p>
 						</div>
@@ -1054,11 +1045,11 @@ class AWCA_Auth
 									<input type="checkbox" name="awca_track_settings[not_track_user_id]"
 										id="awca_track_settings[not_track_user_id]" value="yes" <?php checked(isset($awca_track_settings['not_track_user_id']) && $awca_track_settings['not_track_user_id']); ?> />
 									<span>
-										<?php _e('Do not Track User ID', 'awca-text'); ?>
+										<?php _e('Do not Track User ID', 'advance-wc-analytics'); ?>
 									</span>
 								</label>
 								<span class="helper-text" data-error="wrong" data-success="right">
-									<?php _e('Do not Track User and associated activity by their Ids.', 'awca-text'); ?>
+									<?php _e('Do not Track User and associated activity by their Ids.', 'advance-wc-analytics'); ?>
 								</span>
 							</p>
 							<p>
@@ -1066,11 +1057,11 @@ class AWCA_Auth
 									<input type="checkbox" name="awca_track_settings[track_ga_consent]"
 										id="awca_track_settings[track_ga_consent]" value="yes" <?php checked(isset($awca_track_settings['track_ga_consent']) && $awca_track_settings['track_ga_consent']); ?> />
 									<span>
-										<?php _e('Enable Google Consent Mode', 'awca-text'); ?>
+										<?php _e('Enable Google Consent Mode', 'advance-wc-analytics'); ?>
 									</span>
 								</label>
 								<span class="helper-text" data-error="wrong" data-success="right">
-									<?php _e('Based on User Consent Google will collect data, otherwise by default it will not collect sensitive data', 'awca-text'); ?>
+									<?php _e('Based on User Consent Google will collect data, otherwise by default it will not collect sensitive data', 'advance-wc-analytics'); ?>
 								</span>
 							</p>
 						</div>
@@ -1079,7 +1070,7 @@ class AWCA_Auth
 					<div class="awca-row center-align">
 						<button class="btn waves-effect waves-light top-mar-30" type="submit"
 							name="awca_track_settings[awca_track_submit]" value="submit">
-							<?php _e('Save Tracking Options', 'awca-text'); ?>
+							<?php _e('Save Tracking Options', 'advance-wc-analytics'); ?>
 						</button>
 					</div>
 					<?php wp_nonce_field('awca_track_submit', 'awca_nonce_header'); ?>
@@ -1097,49 +1088,49 @@ class AWCA_Auth
 						<div class="awca-col s12">
 							<div class="input-field awca-col m6">
 								<h6>
-									<?php _e('FaceBook Pixel', 'awca-text'); ?>
+									<?php _e('FaceBook Pixel', 'advance-wc-analytics'); ?>
 								</h6>
 								<p>
 									<label>
 										<input type="checkbox" name="awca_advance_settings[facebook_pixel]"
 											id="awca_advance_settings[facebook_pixel]" value="yes" <?php checked(isset($awca_advance_settings['facebook_pixel']) && $awca_advance_settings['facebook_pixel']); ?> />
 										<span>
-											<?php _e('Enable Facebook Pixel', 'awca-text'); ?>
+											<?php _e('Enable Facebook Pixel', 'advance-wc-analytics'); ?>
 										</span>
 									</label>
 								</p>
 								<div class="input-field">
 									<input placeholder="XXXXXXXXXX" id="awca_advance_settings[facebook_pixel_code]"
 										name="awca_advance_settings[facebook_pixel_code]" type="text" value="<?php if (isset($awca_advance_settings['facebook_pixel_code'])) {
-											echo $awca_advance_settings['facebook_pixel_code'];
-										} ?>" class="validate">
+																													echo $awca_advance_settings['facebook_pixel_code'];
+																												} ?>" class="validate">
 									<span class="helper-text" data-error="wrong" data-success="right"><a
 											href="https://advancedwcanalytics.com/conversion/get-facebook-pixel-code" target="_blank">
-											<?php _e('How to get your Facebook pixel code?', 'awca-text'); ?>
+											<?php _e('How to get your Facebook pixel code?', 'advance-wc-analytics'); ?>
 										</a></span>
 								</div>
 								<div style="padding:10px 0px"></div>
 								<h6>
-									<?php _e('Google Analytics Debug Mode', 'awca-text'); ?>
+									<?php _e('Google Analytics Debug Mode', 'advance-wc-analytics'); ?>
 								</h6>
 								<p>
 									<label>
 										<input type="checkbox" name="awca_advance_settings[google_analytics_debug_mode]"
 											id="awca_advance_settings[google_analytics_debug_mode]" value="yes" <?php checked(isset($awca_advance_settings['google_analytics_debug_mode']) && $awca_advance_settings['google_analytics_debug_mode']); ?> />
 										<span>
-											<?php _e('Enable Google Analytics Debug Mode', 'awca-text'); ?>
+											<?php _e('Enable Google Analytics Debug Mode', 'advance-wc-analytics'); ?>
 										</span>
 									</label>
 									<span class="helper-text" data-error="wrong" data-success="right"><a
 											href=" https://advancedwcanalytics.com/google-analytics-debug-mode/" target="_blank">
-											<?php _e('Know More About Google Debug Mode', 'awca-text'); ?>
+											<?php _e('Know More About Google Debug Mode', 'advance-wc-analytics'); ?>
 										</a></span>
 								</p>
 								<div style="padding:10px 0px"></div>
 							</div>
 							<div class="input-field awca-col m6">
 								<h6>
-									<?php _e('Measurement Protocol API secrets (For Accurate Data Tracking)', 'awca-text'); ?>
+									<?php _e('Measurement Protocol API secrets (For Accurate Data Tracking)', 'advance-wc-analytics'); ?>
 								</h6>
 								<?php
 								$measurement_key = get_option('measurement_key');
@@ -1150,42 +1141,37 @@ class AWCA_Auth
 								<div class="input-field">
 									<input placeholder="XXXXXXXXXXXXXXXXXXXXXXX" id="awca_advance_settings[google_measurement_api]"
 										name="awca_advance_settings[google_measurement_api]" type="text" value="<?php if (isset($awca_advance_settings['google_measurement_api'])) {
-											echo $awca_advance_settings['google_measurement_api'];
-										} ?>" class="validate">
-									<span class="helper-text" data-error="wrong" data-success="right"><a
-											href=" https://advancedwcanalytics.com/create-google-measurement-api-secrets"
-											target="_blank">
-											<?php _e('How to get your Measurement Protocol API secrets keys?', 'awca-text'); ?>
-										</a></span>
+																													echo $awca_advance_settings['google_measurement_api'];
+																												} ?>" class="validate">
 								</div>
 
 								<h6>
-									<?php _e('Google Adwords', 'awca-text'); ?>
+									<?php _e('Google Adwords', 'advance-wc-analytics'); ?>
 								</h6>
 								<p>
 									<label>
 										<input type="checkbox" name="awca_advance_settings[google_adword]"
 											id="awca_advance_settings[google_adword]" value="yes" <?php checked(isset($awca_advance_settings['google_adword']) && $awca_advance_settings['google_adword']); ?> />
 										<span>
-											<?php _e('Enable Google Adwords Conversion Tracking', 'awca-text'); ?>
+											<?php _e('Enable Google Adwords Conversion Tracking', 'advance-wc-analytics'); ?>
 										</span>
 									</label>
 								</p>
 								<div class="input-field">
 									<input placeholder="AW-CONVERSION_ID" id="awca_advance_settings[google_adword_code]"
 										name="awca_advance_settings[google_adword_code]" type="text" value="<?php if (isset($awca_advance_settings['google_adword_code'])) {
-											echo $awca_advance_settings['google_adword_code'];
-										} ?>" class="validate">
+																												echo $awca_advance_settings['google_adword_code'];
+																											} ?>" class="validate">
 								</div>
 								<div class="input-field">
 									<input placeholder="AW-CONVERSION_LABEL" id="awca_advance_settings[google_adword_label]"
 										name="awca_advance_settings[google_adword_label]" type="text" value="<?php if (isset($awca_advance_settings['google_adword_label'])) {
-											echo $awca_advance_settings['google_adword_label'];
-										} ?>" class="validate">
+																													echo $awca_advance_settings['google_adword_label'];
+																												} ?>" class="validate">
 									<span class="helper-text" data-error="wrong" data-success="right"><a
 											href="https://advancedwcanalytics.com/conversion/get-google-ads-conversion-id-label"
 											target="_blank">
-											<?php _e('How to get your Google Ads Conversion ID and Label?', 'awca-text'); ?>
+											<?php _e('How to get your Google Ads Conversion ID and Label?', 'advance-wc-analytics'); ?>
 										</a></span>
 								</div>
 								<div style="padding:10px 0px"></div>
@@ -1198,7 +1184,7 @@ class AWCA_Auth
 						</div>
 						<?php wp_nonce_field('awca_advance_submit', 'awca_nonce_header'); ?>
 				</form>
-				<?php
+			<?php
 			} elseif (stripos($tab_id, 'events')) {
 				/* getting event settings */
 				$awca_settings = AWCA_Settings::get_instance();
@@ -1208,7 +1194,7 @@ class AWCA_Auth
 				} else {
 					$awca_event_settings = get_option('awca_event_settings');
 				}
-				?>
+			?>
 				<form action="" method="POST">
 					<div class="awca-row">
 						<div class="awca-col s12">
@@ -1232,51 +1218,12 @@ class AWCA_Auth
 					<div class="awca-row center-align">
 						<button class="btn waves-effect waves-light top-mar" type="submit" value="submit"
 							name="awca_event_settings[awca_event_submit]">
-							<?php _e('Save Events Options', 'awca-text'); ?>
+							<?php _e('Save Events Options', 'advance-wc-analytics'); ?>
 						</button>
 					</div>
 					<?php wp_nonce_field('awca_event_submit', 'awca_nonce_header'); ?>
 				</form>
-				<?php
-			} elseif (stripos($tab_id, 'dashboard')) {
-				/* getting event settings */
-				$awca_settings = AWCA_Settings::get_instance();
-				$defaults = $awca_settings->init_awca_dashboard_defaults();
-				if (!get_option('awca_dashboard_settings')) {
-					$awca_dashboard_settings = $defaults;
-				} else {
-					$awca_dashboard_settings = get_option('awca_dashboard_settings');
-				}
-				?>
-				<form action="" method="POST">
-					<div class="awca-row">
-						<div class="awca-col s12">
-							<?php
-							foreach ($defaults as $key => $value) { ?>
-								<div class="switch">
-									<p class="awca-col m6 s12">
-										<label>
-											<input type="checkbox" name="awca_dashboard_settings[<?php echo $key; ?>]"
-												id="awca_dashboard_settings[<?php echo $key; ?>]" value="yes" <?php checked(isset($awca_dashboard_settings[$key]) && $awca_dashboard_settings[$key]); ?> />
-											<span class="lever"></span>
-											<?php echo ucwords(str_replace("_", " ", $key)); ?>
-										</label>
-									</p>
-								</div>
-							<?php } ?>
-						</div>
-						<div class="clearfix"></div>
-						<div class="divider top-mar"></div>
-					</div>
-					<div class="awca-row center-align">
-						<button class="btn waves-effect waves-light top-mar" type="submit" value="submit"
-							name="awca_dashboard_settings[awca_dashboard_submit]">
-							<?php _e('Save Dashboard Options', 'awca-text'); ?>
-						</button>
-					</div>
-					<?php wp_nonce_field('awca_dashboard_submit', 'awca_nonce_header'); ?>
-				</form>
-				<?php
+<?php
 			}
 		} else {
 			$property_id = $this->get_ga_property_id();
@@ -1295,7 +1242,6 @@ class AWCA_Auth
 					if (isset($transient_value) && is_array($transient_value)) {
 						set_transient($transient_name, $transient_value, 3600);
 					}
-
 				}
 				$stats_data = $transient_value;
 				$array_name = 'awca_report_chart_data_' . $tab_id;
@@ -1309,7 +1255,6 @@ class AWCA_Auth
 					if (isset($transient_value) && is_array($transient_value)) {
 						set_transient($transient_name, $transient_value, 3600);
 					}
-
 				}
 				$stats_data = $transient_value;
 				$array_name = 'awca_report_chart_data_ga4_' . $tab_id;
@@ -1720,7 +1665,6 @@ class AWCA_Auth
 	private function get_refresh_token()
 	{
 		return get_option('awca_refresh_token', null);
-
 	}
 
 	/* checking access token is expired or not */

@@ -9,12 +9,12 @@ if (!defined('ABSPATH')) {
   <div class="awca-col s12 top-mar">
     <div class="awca-col m6 s12">
       <h5 class="left zero-mar">
-        <?php _e('Support', 'awca-text'); ?>
+        <?php _e('Support', 'advance-wc-analytics'); ?>
       </h5>
     </div>
     <div class="awca-col m6 s12">
       <a class="waves-effect waves-light btn right" href="https://advancedwcanalytics.com/" target="_blank">
-        <?php _e('Plugin Website', 'awca-text'); ?>
+        <?php _e('Plugin Website', 'advance-wc-analytics'); ?>
       </a>
     </div>
   </div>
@@ -25,13 +25,13 @@ if (!defined('ABSPATH')) {
       <div class="center promo promo-example">
         <i class="material-icons">book</i>
         <p class="promo-caption">
-          <?php _e('Documentation', 'awca-text'); ?>
+          <?php _e('Documentation', 'advance-wc-analytics'); ?>
         </p>
         <p class="light center">
-          <?php _e('Documentation is help to configure plugin as well it also help you better understand data collected by plugin for your google analytics.', 'awca-text'); ?>
+          <?php _e('Documentation is help to configure plugin as well it also help you better understand data collected by plugin for your google analytics.', 'advance-wc-analytics'); ?>
         </p>
         <a class="waves-effect waves-light btn top-mar" href="https://advancedwcanalytics.com/documentation" target="_blank">
-          <?php _e('Know More', 'awca-text'); ?>
+          <?php _e('Know More', 'advance-wc-analytics'); ?>
         </a>
       </div>
     </div>
@@ -39,13 +39,13 @@ if (!defined('ABSPATH')) {
       <div class="center promo promo-example">
         <i class="material-icons">mail</i>
         <p class="promo-caption">
-          <?php _e('Priority Support', 'awca-text'); ?>
+          <?php _e('Priority Support', 'advance-wc-analytics'); ?>
         </p>
         <p class="light center">
-          <?php _e('We use plugin forum to answer any plugin realted queries. We also welcome your suggestions and improvements you require for plugin.', 'awca-text'); ?>
+          <?php _e('We use plugin forum to answer any plugin realted queries. We also welcome your suggestions and improvements you require for plugin.', 'advance-wc-analytics'); ?>
         </p>
         <a class="waves-effect waves-light btn top-mar" href="https://advancedwcanalytics.com/submit-ticket/">
-          <?php _e('Check Now', 'awca-text'); ?>
+          <?php _e('Check Now', 'advance-wc-analytics'); ?>
         </a>
       </div>
     </div>
@@ -53,13 +53,13 @@ if (!defined('ABSPATH')) {
       <div class="center promo promo-example">
         <i class="material-icons">notifications</i>
         <p class="promo-caption">
-          <?php _e('Announcements', 'awca-text'); ?>
+          <?php _e('Announcements', 'advance-wc-analytics'); ?>
         </p>
         <p class="light center">
-          <?php _e('Check here for out latest annoucements related to plugins. Advance woocommerce analytics is here to improve your conversion rates.', 'awca-text'); ?>
+          <?php _e('Check here for out latest annoucements related to plugins. Advance woocommerce analytics is here to improve your conversion rates.', 'advance-wc-analytics'); ?>
         </p>
         <a class="waves-effect waves-light btn top-mar" href="https://advancedwcanalytics.com/" target="_blank">
-          <?php _e('Know More', 'awca-text'); ?>
+          <?php _e('Know More', 'advance-wc-analytics'); ?>
         </a>
       </div>
     </div>
