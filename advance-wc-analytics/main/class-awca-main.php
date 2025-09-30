@@ -67,7 +67,7 @@ class AWCA_Main
 			add_action('admin_head', array($this, 'get_special_tracking_code'), 9);
 			add_action('login_head', array($this, 'get_tracking_code'), 9);
 			add_action('template_redirect', array($this, 'capture_js'), 9);
-			add_filter('woocommerce_queued_js', array($this, 'print_js'), 11);
+			//add_action('woocommerce_queued_js', array($this, 'print_js'), 11);
 			add_action('woocommerce_before_shop_loop_item', array($this, 'product_impression'));
 		}
 	}
@@ -253,7 +253,7 @@ class AWCA_Main
 		echo $gtag_code_snippet;
 	}
 
-	public function print_js($js)
+	public function print_js()
 	{
 		if ($this->disable_tracking()) {
 			return;
@@ -261,7 +261,6 @@ class AWCA_Main
 		if (get_option('print_js')) {
 			delete_option('print_js');
 		}
-		return $js;
 	}
 
 	/* getting events and their respective hooks*/

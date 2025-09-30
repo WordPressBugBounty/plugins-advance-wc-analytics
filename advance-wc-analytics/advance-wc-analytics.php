@@ -4,9 +4,9 @@
 Plugin Name: AWCA - The Great Statistics Plugin for Your eStore
 Description: Provides Google Analytics Integration for your WooCommerce eStore. It Provides detailed insights & powerful independent reports for WooCommerce Website.
 Author: Passionate Brains
-Version: 3.17.0
+Version: 3.18.0
 WC requires at least: 3.7.0
-WC tested up to: 9.8.1
+WC tested up to: 10.2.2
 Requires at least: 5.0
 Requires PHP: 7.0
 Author URI: https://advancedwcanalytics.com/
@@ -78,7 +78,7 @@ if (function_exists('awca_fs')) {
         define('AWCA_PREFIX', 'AWCA_');
     }
     if (!defined('AWCA_VERSION')) {
-        define('AWCA_VERSION', '3.17.0');
+        define('AWCA_VERSION', '3.18.0');
     }
     add_action('before_woocommerce_init', function () {
         if (class_exists(\Automattic\WooCommerce\Utilities\FeaturesUtil::class)) {
