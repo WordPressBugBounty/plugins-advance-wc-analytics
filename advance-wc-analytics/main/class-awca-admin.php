@@ -24,8 +24,8 @@ class AWCA_Admin
 		add_action('wp_ajax_nopriv_awca_hide_review_notice', array($this, 'hide_review_request'));
 		/* adding links to plugin on pluings page*/
 		add_filter('plugin_action_links_' . AWCA_BASENAME, array($this, 'settings_link'));
-		add_action('wp_footer', array($this, 'awca_add_this_script_footer'));
-		add_action('admin_footer', array($this, 'awca_add_this_script_footer'));
+		add_action('wp_footer', array($this, 'awca_add_this_script_footer'), 1);
+		add_action('admin_footer', array($this, 'awca_add_this_script_footer'), 1);
 	}
 
 	/* add review request in plugin */
@@ -34,12 +34,6 @@ class AWCA_Admin
 		$review_request_time = get_option('awca_review_request_time');
 		if ($review_request_time) {
 			$current_time = time();
-			$advance_time = 1730187955;
-			if ($current_time < $advance_time) {
-				if ($review_request_time > $advance_time) {
-					update_option('awca_review_request_time', $advance_time);
-				}
-			}
 			if ($current_time > $review_request_time) {
 				echo '<div class="notice notice-success is-dismissible">
 				<p>
@@ -62,7 +56,7 @@ class AWCA_Admin
 			</div>';
 			}
 		} else {
-			update_option('awca_review_request_time', strtotime(date('d-m-Y H:i:s') . "+ 12 hours"));
+			update_option('awca_review_request_time', strtotime(date('d-m-Y H:i:s') . "+ 240 hours"));
 		}
 	}
 
@@ -71,17 +65,21 @@ class AWCA_Admin
 	{
 		$nonce = sanitize_text_field(wp_unslash($_REQUEST['security']));
 		if (wp_verify_nonce($nonce, 'maybelater-nonce')) {
-			update_option('awca_review_request_time', strtotime(date('d-m-Y H:i:s') . "+ 24 hours"));
+			update_option('awca_review_request_time', strtotime(date('d-m-Y H:i:s') . "+ 240 hours"));
 		}
 		if (wp_verify_nonce($nonce, 'alreadydid-nonce')) {
-			update_option('awca_review_request_time', strtotime(date('d-m-Y H:i:s') . "+ 720 hours"));
+			update_option('awca_review_request_time', strtotime(date('d-m-Y H:i:s') . "+ 7200 hours"));
 		}
 	}
 	/* adding analytics code to front for triggering events */
 	public function awca_add_this_script_footer()
 	{
-		$protocol = ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
-		$url = $protocol . sanitize_text_field($_SERVER['HTTP_HOST']) . sanitize_text_field($_SERVER['REQUEST_URI']);
+		$https = isset($_SERVER['HTTPS']) ? sanitize_text_field($_SERVER['HTTPS']) : '';
+		$server_port = isset($_SERVER['SERVER_PORT']) ? intval($_SERVER['SERVER_PORT']) : 80;
+		$protocol = ((!empty($https) && $https != 'off') || $server_port == 443) ? "https://" : "http://";
+		$http_host = isset($_SERVER['HTTP_HOST']) ? sanitize_text_field($_SERVER['HTTP_HOST']) : '';
+		$request_uri = isset($_SERVER['REQUEST_URI']) ? sanitize_text_field($_SERVER['REQUEST_URI']) : '';
+		$url = $protocol . $http_host . $request_uri;
 		$url = strtok($url, '?');
 		if (isset($_SERVER['HTTP_REFERER'])) {
 			$old_url = sanitize_text_field($_SERVER['HTTP_REFERER']);
@@ -103,24 +101,26 @@ class AWCA_Admin
 			$ana_code .= $ana_code_2;
 		}
 		if (!empty($ana_code)) {
+			wp_register_script('awca-events', '', [], null, true);
+			wp_enqueue_script('awca-events');
 			if (class_exists('WooCommerce')) {
 				if (is_cart() || is_checkout()) {
 					if ($url !== $old_url) {
-						echo "<script>" . $ana_code . "</script>";
+						wp_add_inline_script('awca-events', $ana_code, 'after');
 						delete_transient($transient_id);
 						if (isset($transient_id_2)) {
 							delete_transient($transient_id_2);
 						}
 					}
 				} else {
-					echo "<script>" . $ana_code . "</script>";
+					wp_add_inline_script('awca-events', $ana_code, 'after');
 					delete_transient($transient_id);
 					if (isset($transient_id_2)) {
 						delete_transient($transient_id_2);
 					}
 				}
 			} else {
-				echo "<script>" . $ana_code . "</script>";
+				wp_add_inline_script('awca-events', $ana_code, 'after');
 				delete_transient($transient_id);
 				if (isset($transient_id_2)) {
 					delete_transient($transient_id_2);
@@ -184,11 +184,11 @@ class AWCA_Admin
 	/* registering scripts */
 	private function register_scripts()
 	{
-		wp_register_style('awca_material_css', AWCA_URL . 'assests/css/materialize.min.css', false, null);
-		wp_register_style('awca_css', AWCA_URL . 'assests/css/awca.css', false, null);
+		wp_register_style('awca_material_css', AWCA_URL . 'assests/css/materialize.min.css', array(), null);
+		wp_register_style('awca_css', AWCA_URL . 'assests/css/awca.css', array(), null);
 		wp_register_style('awca_icons', 'https://fonts.googleapis.com/icon?family=Material+Icons');
 		wp_register_script('awca_material_js', AWCA_URL . 'assests/js/materialize.min.js', array('jquery'), null, true);
-		wp_register_script('awca_chart_js', AWCA_URL . 'assests/js/chart.js', null, true);
+		wp_register_script('awca_chart_js', AWCA_URL . 'assests/js/chart.js', array(), true);
 		wp_register_script('awca_ajax_js', AWCA_URL . 'assests/js/awca-ajax.js', array('jquery'), null, true);
 		wp_localize_script('awca_ajax_js', 'ajax_object', array('ajax_url' => admin_url('admin-ajax.php'), 'maybelater_nonce' => wp_create_nonce('maybelater-nonce'), 'alreadydid_nonce' => wp_create_nonce('alreadydid-nonce'),));
 	}

@@ -65,11 +65,7 @@ class AWCA_Auth
 			$awca_refresh_token_fail = get_option('awca_refresh_token_fail');
 			if (isset($auth_settings['property_id']) && ($awca_refresh_token_fail != 'yes')) {
 				$this->transient_value = $this->awca_required_dashboard_data();
-				if ((strpos($auth_settings['property_id'], 'UA') !== false)) {
-					$dash_data_widget = AWCA_Settings::get_instance()->awca_dash_data_widget;
-				} else {
-					$dash_data_widget = AWCA_Settings::get_instance()->awca_dash_data_ga4_widget;
-				}
+				$dash_data_widget = AWCA_Settings::get_instance()->awca_dash_data_ga4_widget;
 				$i = 0;
 				foreach ($dash_data_widget as $widget_title => $widget_data) {
 					$i++;
@@ -234,7 +230,7 @@ class AWCA_Auth
 		if (!get_option('awca_track_settings')) {
 			update_option('awca_track_settings', $defaults_track);
 		}
-		$defaults_event = $awca_settings->init_awca_event_defaults();
+		$defaults_event = $awca_settings->init_awca_events_defaults();
 		if (!get_option('awca_event_settings')) {
 			update_option('awca_event_settings', $defaults_event);
 		}
@@ -259,6 +255,7 @@ class AWCA_Auth
 	/* getting current values of settings */
 	public function get_current_dash_settings()
 	{
+		$awca_settings = AWCA_Settings::get_instance();
 		$awca_dash_settings = get_option('awca_dash_settings');
 		if (empty($awca_dash_settings)) {
 			$awca_dash_settings = $awca_settings->init_awca_dash_defaults();
@@ -1124,6 +1121,23 @@ class AWCA_Auth
 									<span class="helper-text" data-error="wrong" data-success="right"><a
 											href=" https://advancedwcanalytics.com/google-analytics-debug-mode/" target="_blank">
 											<?php _e('Know More About Google Debug Mode', 'advance-wc-analytics'); ?>
+										</a></span>
+								</p>
+								<div style="padding:10px 0px"></div>
+								<h6>
+									<?php _e('Google Analytics Session Id tracking for Measurement Protocol API', 'awca-text'); ?>
+								</h6>
+								<p>
+									<label>
+										<input type="checkbox" name="awca_advance_settings[google_analytics_session_id]"
+											id="awca_advance_settings[google_analytics_session_id]" value="yes" <?php checked(isset($awca_advance_settings['google_analytics_session_id']) && $awca_advance_settings['google_analytics_session_id']); ?> />
+										<span>
+											<?php _e('Enable Google Analytics Session Id for Measurement Protocol', 'awca-text'); ?>
+										</span>
+									</label>
+									<span class="helper-text" data-error="wrong" data-success="right"><a
+											href=" https://advancedwcanalytics.com/google-analytics-session-id/" target="_blank">
+											<?php _e('Know More About Google Session Id tracking for Measurement Protocol API', 'awca-text'); ?>
 										</a></span>
 								</p>
 								<div style="padding:10px 0px"></div>

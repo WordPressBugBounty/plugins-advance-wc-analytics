@@ -196,6 +196,7 @@ class AWCA_Settings
 			'facebook_pixel' => true,
 			'facebook_pixel_code' => '',
 			'google_analytics_debug_mode' => false,
+			'google_analytics_session_id' => true,
 			'google_adword' => true,
 			'google_adword_code' => '',
 			'google_adword_label' => '',
@@ -267,6 +268,10 @@ class AWCA_Settings
 				'flags' => FILTER_REQUIRE_SCALAR,
 			),
 			'google_analytics_debug_mode' => array(
+				'filter' => FILTER_VALIDATE_BOOLEAN,
+				'flags' => FILTER_REQUIRE_SCALAR,
+			),
+			'google_analytics_session_id' => array(
 				'filter' => FILTER_VALIDATE_BOOLEAN,
 				'flags' => FILTER_REQUIRE_SCALAR,
 			),

@@ -1,15 +1,15 @@
-=== AWCA - The Great Statistics Plugin for Your eStore ===
+=== AWCA - The Great Analytics Insights for Your eStore ===
 Contributors: passionatebrains, freemius
-Plugin Name: AWCA - The Great Statistics Plugin for Your eStore
+Plugin Name: AWCA - The Great Analytics Insights for Your eStore
 Plugin URI: https://advancedwcanalytics.com/
 Donate link: https://advancedwcanalytics.com/
-Tags: woocommerce, google analytics
+Tags: woocommerce, google analytics, woocommece analytics, google analytics dashboard, analytics insights
 Author URI: https://advancedwcanalytics.com/
 Author: passionatebrains
 Requires at least: 5.0
-Tested up to: 6.8
+Tested up to: 6.9
 Requires PHP: 7.0
-Stable tag: 3.18.0
+Stable tag: 3.19.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -212,6 +212,13 @@ Most probably you will see data in an hour to various reports once plugin is act
 Please send you suggestion from Plugin website.
 
 == Changelog ==
+= 3.19.0 =
+* Upgraded to Latest Stable Freemius SDK
+* Performed Latest Secuity Check for code
+* Removed depricated functions
+* Improved Tracking 
+* Review Notice Period Update
+
 = 3.18.0 =
 * Upgraded to Latest Stable Freemius SDK
 * Performed Latest Secuity Check for code
