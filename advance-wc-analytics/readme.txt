@@ -9,7 +9,7 @@ Author: passionatebrains
 Requires at least: 5.0
 Tested up to: 6.9
 Requires PHP: 7.0
-Stable tag: 3.19.0
+Stable tag: 4.0.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -212,6 +212,10 @@ Most probably you will see data in an hour to various reports once plugin is act
 Please send you suggestion from Plugin website.
 
 == Changelog ==
+= 4.0.0 =
+* Upgraded to Latest Stable Freemius SDK
+* Performed Latest Secuity Check for code
+
 = 3.19.0 =
 * Upgraded to Latest Stable Freemius SDK
 * Performed Latest Secuity Check for code

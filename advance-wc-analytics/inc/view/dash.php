@@ -17,6 +17,9 @@ if (!get_option('awca_dash_settings')) {
 
 /* saving dashboard settings on successful submission */
 if (isset($_POST['awca_dash_submit']) && wp_verify_nonce($_POST['awca_nonce_header'], 'awca_dash_submit')) {
+  if (! is_user_logged_in() || ! current_user_can('manage_options')) {
+    wp_send_json_error(array('message' => 'Unauthorized'), 403);
+  }
   if (!empty($_POST['awca_dash_settings'])) {
     $awca_dash_settings_save = AWCA_Settings::get_instance()->parse_awca_dash_settings($_POST['awca_dash_settings']);
     if ($awca_dash_settings_save) {
@@ -33,7 +36,7 @@ if (isset($_POST['awca_dash_submit']) && wp_verify_nonce($_POST['awca_nonce_head
       update_option('awca_dash_settings', $awca_dash_settings_save);
       echo '<script>
           jQuery(document).ready(function(){
-             M.toast({html: "'. __('Setting Saved!', 'advance-wc-analytics') .'", classes: "rounded teal", displayLength:4000});
+             M.toast({html: "' . __('Setting Saved!', 'advance-wc-analytics') . '", classes: "rounded teal", displayLength:4000});
           });
       </script>';
       $awca_dash_settings = $awca_dash_settings_save;
@@ -48,8 +51,8 @@ if (isset($_POST['awca_dash_submit']) && wp_verify_nonce($_POST['awca_nonce_head
 if (strlen($errors) > 0) {
   echo '<script>
             jQuery(document).ready(function(){
-               M.toast({html:" '. __('Please correct following Errors:', 'advance-wc-analytics') .'", classes: "rounded red", displayLength:6000});
-               M.toast({html:" '. $errors . '", classes: "rounded red", displayLength:8000});
+               M.toast({html:" ' . __('Please correct following Errors:', 'advance-wc-analytics') . '", classes: "rounded red", displayLength:6000});
+               M.toast({html:" ' . $errors . '", classes: "rounded red", displayLength:8000});
             });
         </script>';
 }
@@ -60,14 +63,14 @@ if (strlen($errors) > 0) {
       <div class="awca-col m3 s12 input-field">
         <select name="awca_dash_settings[report_frame]" id="report_frame">
           <option value="Yesterday" <?php if (isset($awca_dash_settings['report_frame'])) {
-            echo $awca_dash_settings['report_frame'] == 'Yesterday' ? 'selected="selected"' : '';
-          } ?>><?php _e('Yesterday', 'advance-wc-analytics'); ?></option>
+                                      echo $awca_dash_settings['report_frame'] == 'Yesterday' ? 'selected="selected"' : '';
+                                    } ?>><?php _e('Yesterday', 'advance-wc-analytics'); ?></option>
           <option value="Last 7 days" <?php if (isset($awca_dash_settings['report_frame'])) {
-            echo $awca_dash_settings['report_frame'] == 'Last 7 days' ? 'selected="selected"' : '';
-          } ?>><?php _e('Last 7 days', 'advance-wc-analytics'); ?></option>
+                                        echo $awca_dash_settings['report_frame'] == 'Last 7 days' ? 'selected="selected"' : '';
+                                      } ?>><?php _e('Last 7 days', 'advance-wc-analytics'); ?></option>
           <option value="Last 30 days" <?php if (isset($awca_dash_settings['report_frame'])) {
-            echo $awca_dash_settings['report_frame'] == 'Last 30 days' ? 'selected="selected"' : '';
-          } ?>><?php _e('Last 30 days', 'advance-wc-analytics'); ?></option>
+                                          echo $awca_dash_settings['report_frame'] == 'Last 30 days' ? 'selected="selected"' : '';
+                                        } ?>><?php _e('Last 30 days', 'advance-wc-analytics'); ?></option>
         </select>
         <label>
           <?php _e('Select View', 'advance-wc-analytics'); ?>Date Range
@@ -80,8 +83,8 @@ if (strlen($errors) > 0) {
           </label>
           <input type="text" name="awca_dash_settings[report_from]" class="datepicker" id="from"
             value="<?php if (isset($awca_dash_settings['report_from'])) {
-              echo $awca_dash_settings['report_from'];
-            } ?>">
+                      echo $awca_dash_settings['report_from'];
+                    } ?>">
         </div>
         <div class="awca-col m6 l-bord to">
           <label>
@@ -89,8 +92,8 @@ if (strlen($errors) > 0) {
           </label>
           <input type="text" name="awca_dash_settings[report_to]" class="datepicker" id="to"
             value="<?php if (isset($awca_dash_settings['report_to'])) {
-              echo $awca_dash_settings['report_to'];
-            } ?>">
+                      echo $awca_dash_settings['report_to'];
+                    } ?>">
         </div>
       </div>
       <div class="awca-col m1 s12">
@@ -109,7 +112,7 @@ if (strlen($errors) > 0) {
           <span><?php _e('Dashboard', 'advance-wc-analytics'); ?></span>
         </a></li>
       <li class="tab awca-col m1 s4"><a id="audience-pro-tab" href="#upgrade-pro">
-      <span><?php _e('Upgrade', 'advance-wc-analytics'); ?></span><i class="material-icons awca_pro_icon info">info</i>
+          <span><?php _e('Upgrade', 'advance-wc-analytics'); ?></span><i class="material-icons awca_pro_icon info">info</i>
         </a></li>
     </ul>
   </div>
@@ -117,30 +120,30 @@ if (strlen($errors) > 0) {
   <div id="upgrade-pro" class="awca-col s12">
     <div class="awca-row">
       <div class="awca-col s12 m12 l12 awca-flex">
-        <?php 
+        <?php
         $features = AWCA_Settings::get_instance()->awca_features_list;
-          foreach ($features as $image=>$feature ){
-            $pro = $feature[2]?'<sup>pro</sup>':'';
-            echo '<div class="awca-col s12 m6 l6 xl6 valign-wrapper awca-info-box">
+        foreach ($features as $image => $feature) {
+          $pro = $feature[2] ? '<sup>pro</sup>' : '';
+          echo '<div class="awca-col s12 m6 l6 xl6 valign-wrapper awca-info-box">
               <div class="awca-col s4 m3 l2 xl2">
-                <img class="awca-info-img" src="'.AWCA_URL.'assests/images/'.$feature[3].'.png">
+                <img class="awca-info-img" src="' . AWCA_URL . 'assests/images/' . $feature[3] . '.png">
               </div>
               <div class="awca-col s8 m9 l10 xl10">
-                <p class="awca-info-title">'.$feature[0].' '.$pro.'</p>
-                <p class="awca-info-description">'.$feature[1].'</p>
+                <p class="awca-info-title">' . $feature[0] . ' ' . $pro . '</p>
+                <p class="awca-info-description">' . $feature[1] . '</p>
               </div> 
-            </div>'; 
-          }
+            </div>';
+        }
         ?>
       </div>
-      <div class="awca-col s12 m12 l12"></div>   
+      <div class="awca-col s12 m12 l12"></div>
       <h5 class="center-align">
         <?php _e('Please upgrade to unlock reports and stats associated with audience.', 'advance-wc-analytics'); ?>
       </h5>
       <div class="center-align top-mar-30">
-        <a class="waves-effect waves-light btn" href="<?php echo awca_fs()->get_upgrade_url();?>"><?php _e('Upgrade Now!', 'advance-wc-analytics'); ?></a>
+        <a class="waves-effect waves-light btn" href="<?php echo awca_fs()->get_upgrade_url(); ?>"><?php _e('Upgrade Now!', 'advance-wc-analytics'); ?></a>
       </div>
-    </div>      
+    </div>
   </div>
   <div class="clearfix"></div>
 </div>

@@ -16,6 +16,9 @@ if (!get_option('awca_auth_settings')) {
 
 /* storing Authentication settings */
 if (isset($_POST['awca_auth_submit']) && wp_verify_nonce($_POST['awca_nonce_header'], 'awca_auth_submit')) {
+  if (! is_user_logged_in() || !current_user_can('manage_options')) {
+    wp_send_json_error(array('message' => 'Unauthorized'), 403);
+  }
   $awca_auth_settings_save = AWCA_Settings::get_instance()->parse_awca_auth_settings($_POST['awca_auth_settings']);
   if (isset($awca_auth_settings_save['agreement'])) {
     if (!empty($awca_auth_settings_save['property_id']) || !empty($awca_auth_settings_save['tracking_id'])) {

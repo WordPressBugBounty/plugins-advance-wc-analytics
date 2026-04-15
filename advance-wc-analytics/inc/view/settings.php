@@ -15,6 +15,9 @@ if (!get_option('awca_settings')) {
 }
 /* storing Event settings */
 if (isset($_POST['awca_event_settings']) && wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['awca_nonce_header'])), 'awca_event_submit')) {
+    if (! is_user_logged_in() || ! current_user_can('manage_options')) {
+        wp_send_json_error(array('message' => 'Unauthorized'), 403);
+    }
     $awca_event_settings_save = AWCA_Settings::get_instance()->parse_awca_bool_settings($_POST['awca_event_settings']);
     if ($awca_event_settings_save) {
         update_option('awca_event_settings', $awca_event_settings_save);
@@ -31,6 +34,9 @@ if (isset($_POST['awca_event_settings']) && wp_verify_nonce(sanitize_text_field(
 }
 /* saving tracking value on successful submission */
 if (isset($_POST['awca_track_settings']) && wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['awca_nonce_header'])), 'awca_track_submit')) {
+    if (! is_user_logged_in() || ! current_user_can('manage_options')) {
+        wp_send_json_error(array('message' => 'Unauthorized'), 403);
+    }
     $awca_track_settings_save = AWCA_Settings::get_instance()->parse_awca_bool_settings($_POST['awca_track_settings']);
     if ($awca_track_settings_save) {
         update_option('awca_track_settings', $awca_track_settings_save);
@@ -46,6 +52,9 @@ if (isset($_POST['awca_track_settings']) && wp_verify_nonce(sanitize_text_field(
     }
 }
 if (isset($_POST['awca_advance_submit']) && wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['awca_nonce_header'])), 'awca_advance_submit')) {
+    if (! is_user_logged_in() || ! current_user_can('manage_options')) {
+        wp_send_json_error(array('message' => 'Unauthorized'), 403);
+    }
     if (!empty($_POST['awca_advance_settings'])) {
         if (!empty($_POST['awca_advance_settings']['google_measurement_api'])) {
             $google_measurement_api = str_replace(' ', '', $_POST['awca_advance_settings']['google_measurement_api']);

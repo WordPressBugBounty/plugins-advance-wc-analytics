@@ -27,11 +27,11 @@ class AWCA_Auth
 	{
 		add_action('init', array($this, 'awca_authenticate'));
 		add_action('wp_ajax_web_awca_un_link', array($this, 'web_un_link'));
-		add_action('wp_ajax_nopriv_web_awca_un_link', array($this, 'web_un_link'));
+		//add_action('wp_ajax_nopriv_web_awca_un_link', array($this, 'web_un_link'));
 		add_action('wp_ajax_web_awca_tab_update', array($this, 'tab_update'));
-		add_action('wp_ajax_nopriv_web_awca_tab_update', array($this, 'tab_update'));
+		//add_action('wp_ajax_nopriv_web_awca_tab_update', array($this, 'tab_update'));
 		add_action('wp_ajax_web_awca_revoke_access', array($this, 'web_revoke_access'));
-		add_action('wp_ajax_nopriv_web_awca_revoke_access', array($this, 'web_revoke_access'));
+		//add_action('wp_ajax_nopriv_web_awca_revoke_access', array($this, 'web_revoke_access'));
 		add_action('admin_enqueue_scripts', array($this, 'load_local_script'));
 		add_action('plugins_loaded', array($this, 'new_update_settings'));
 		add_action('wp_dashboard_setup', array($this, 'awca_dashboard_widget'));
@@ -240,6 +240,9 @@ class AWCA_Auth
 	public function web_un_link()
 	{
 		check_ajax_referer('awca-un-link', 'security');
+		if (! is_user_logged_in() || ! current_user_can('manage_options')) {
+			wp_send_json_error(array('message' => 'Unauthorized'), 403);
+		}
 		delete_option('awca_access_token');
 		delete_option('awca_refresh_token');
 		delete_option('awca_auth_settings');
@@ -905,6 +908,9 @@ class AWCA_Auth
 	public function tab_update()
 	{
 		check_ajax_referer('awca-tab-update', 'security');
+		if (! is_user_logged_in() || ! current_user_can('manage_options')) {
+			wp_send_json_error(array('message' => 'Unauthorized'), 403);
+		}
 		$tab_id = str_replace(array('#', '-tab'), '', $_POST['tab']);
 		update_option('awca_current_tab_id', $tab_id);
 		if (stripos($tab_id, 'et-')) {
@@ -1366,6 +1372,9 @@ class AWCA_Auth
 	public function web_revoke_access()
 	{
 		check_ajax_referer('awca-revoke-access', 'security');
+		if (! is_user_logged_in() || ! current_user_can('manage_options')) {
+			wp_send_json_error(array('message' => 'Unauthorized'), 403);
+		}
 		$url = $this->get_access_token_revoke_url();
 		$response = wp_remote_get($url);
 		if (is_wp_error($response)) {
@@ -1463,6 +1472,9 @@ class AWCA_Auth
 	public function awca_authenticate()
 	{
 		if (isset($_GET['access_token'])) {
+			if (! is_user_logged_in() || ! current_user_can('manage_options')) {
+				wp_die('Unauthorized');
+			}
 			if (!isset($_REQUEST['access_token']) || empty($_REQUEST['access_token'])) {
 				echo '<script>setTimeout(function(){window.opener.auth_callback();}, 6000);</script>';
 				wp_die('some error occured please try again after some time or use manual connect method');

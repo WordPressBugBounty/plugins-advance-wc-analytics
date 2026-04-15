@@ -21,7 +21,7 @@ class AWCA_Admin
 		add_action('admin_notices', array($this, 'add_review_request'));
 		/* hide review request using ajax */
 		add_action('wp_ajax_awca_hide_review_notice', array($this, 'hide_review_request'));
-		add_action('wp_ajax_nopriv_awca_hide_review_notice', array($this, 'hide_review_request'));
+		//add_action('wp_ajax_nopriv_awca_hide_review_notice', array($this, 'hide_review_request'));
 		/* adding links to plugin on pluings page*/
 		add_filter('plugin_action_links_' . AWCA_BASENAME, array($this, 'settings_link'));
 		add_action('wp_footer', array($this, 'awca_add_this_script_footer'), 1);
@@ -56,7 +56,7 @@ class AWCA_Admin
 			</div>';
 			}
 		} else {
-			update_option('awca_review_request_time', strtotime(date('d-m-Y H:i:s') . "+ 240 hours"));
+			update_option('awca_review_request_time', strtotime(date('d-m-Y H:i:s') . "+ 720 hours"));
 		}
 	}
 
@@ -65,9 +65,15 @@ class AWCA_Admin
 	{
 		$nonce = sanitize_text_field(wp_unslash($_REQUEST['security']));
 		if (wp_verify_nonce($nonce, 'maybelater-nonce')) {
-			update_option('awca_review_request_time', strtotime(date('d-m-Y H:i:s') . "+ 240 hours"));
+			if (! is_user_logged_in() || ! current_user_can('manage_options')) {
+				wp_send_json_error(array('message' => 'Unauthorized'), 403);
+			}
+			update_option('awca_review_request_time', strtotime(date('d-m-Y H:i:s') . "+ 720 hours"));
 		}
 		if (wp_verify_nonce($nonce, 'alreadydid-nonce')) {
+			if (! is_user_logged_in() || ! current_user_can('manage_options')) {
+				wp_send_json_error(array('message' => 'Unauthorized'), 403);
+			}
 			update_option('awca_review_request_time', strtotime(date('d-m-Y H:i:s') . "+ 7200 hours"));
 		}
 	}
