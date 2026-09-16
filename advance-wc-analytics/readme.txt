@@ -3,11 +3,11 @@ Contributors: passionatebrains, freemius
 Plugin Name: AWCA - The Great Analytics Insights for Your eStore
 Plugin URI: https://advancedwcanalytics.com/
 Donate link: https://advancedwcanalytics.com/
-Tags: woocommerce, google analytics, woocommece analytics, google analytics dashboard, analytics insights
+Tags: woocommece analytics, google analytics, analytics, insights
 Author URI: https://advancedwcanalytics.com/
 Author: passionatebrains
 Requires at least: 5.0
-Tested up to: 6.9
+Tested up to: 7.1
 Requires PHP: 7.0
 Stable tag: 4.0.0
 License: GPLv3

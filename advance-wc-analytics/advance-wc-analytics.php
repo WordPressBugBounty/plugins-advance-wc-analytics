@@ -6,7 +6,7 @@ Description: Provides Google Analytics Integration for your WooCommerce eStore. 
 Author: Passionate Brains
 Version: 4.0.0
 WC requires at least: 3.7.0
-WC tested up to: 10.6.2
+WC tested up to: 11.1.0
 Requires at least: 5.0
 Requires PHP: 7.0
 Author URI: https://advancedwcanalytics.com/
