@@ -4,7 +4,7 @@
 Plugin Name: AWCA - The Great Analytics Insights for Your eStore
 Description: Provides Google Analytics Integration for your WooCommerce eStore. It Provides detailed insights & powerful independent reports for WooCommerce Website.
 Author: Passionate Brains
-Version: 4.0.0
+Version: 4.1.0
 WC requires at least: 3.7.0
 WC tested up to: 11.1.0
 Requires at least: 5.0
@@ -78,7 +78,7 @@ if (function_exists('awca_fs')) {
         define('AWCA_PREFIX', 'AWCA_');
     }
     if (!defined('AWCA_VERSION')) {
-        define('AWCA_VERSION', '3.19.0');
+        define('AWCA_VERSION', '4.1.0');
     }
     add_action('before_woocommerce_init', function () {
         if (class_exists(\Automattic\WooCommerce\Utilities\FeaturesUtil::class)) {
